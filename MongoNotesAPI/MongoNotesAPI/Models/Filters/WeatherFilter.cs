@@ -1,6 +1,6 @@
 ﻿namespace MongoNotesAPI.Models.Filters
 {
-    public class NoteFilter
+    public class WeatherFilter
     {
         public string? TitleMatch { get; set; }
         public string? BodyMatch { get; set; }

@@ -16,10 +16,10 @@ namespace MongoNotesAPI.Controllers
     [ApiKey("Guest")]
     public class WeatherController : ControllerBase
     {
-        private readonly INoteRepository _repository;
+        private readonly IWeatherRepository _repository;
         private readonly IUserRepository _userRepository;
 
-        public WeatherController(INoteRepository repository, IUserRepository userRepository)
+        public WeatherController(IWeatherRepository repository, IUserRepository userRepository)
         {
             _repository = repository;
             _userRepository = userRepository;
@@ -28,7 +28,7 @@ namespace MongoNotesAPI.Controllers
         // GET: api/Notes
         [HttpGet]
         [HttpHead]
-        public IEnumerable<Note> Get()
+        public IEnumerable<WeatherSensor> Get()
         {
             //Sends a message to the repository ot request it to retrieve all
             //entries from the database
@@ -37,7 +37,7 @@ namespace MongoNotesAPI.Controllers
 
         // GET: api/Notes/Filtered
         [HttpGet("Filtered")]
-        public IEnumerable<Note> Get([FromQuery] NoteFilter filter)
+        public IEnumerable<WeatherSensor> Get([FromQuery] WeatherFilter filter)
         {
             //Sends a message to the repository ot request it to retrieve all
             //entries from the database
@@ -45,12 +45,12 @@ namespace MongoNotesAPI.Controllers
         }
 
         [HttpHead("Filtered")]
-        public ActionResult GetHeaders([FromQuery] NoteFilter filter)
+        public ActionResult GetHeaders([FromQuery] WeatherFilter filter)
         {
             //Gets all records mathing the filter and finds the most recent one.
-            var record = _repository.GetAll(filter).OrderByDescending(n => n.Created).FirstOrDefault();
+            var record = _repository.GetAll(filter).OrderByDescending(n => n.Time).FirstOrDefault();
             //Add a custom header to output the created date of the most recent record.
-            HttpContext.Response.Headers.Add("last-created", record.Created.ToLocalTime().ToString());
+            HttpContext.Response.Headers.Add("last-created", record.Time.ToLocalTime().ToString());
 
             //Get the count of how many entries match the filter
             int count = _repository.GetAll(filter).Count();
@@ -74,7 +74,7 @@ namespace MongoNotesAPI.Controllers
 
         // POST api/<NotesController>
         [HttpPost]
-        public ActionResult Post([FromBody] Note? createdNote)
+        public ActionResult Post([FromBody] WeatherSensor? createdNote)
         {
             if (createdNote == null)
             {
@@ -99,7 +99,7 @@ namespace MongoNotesAPI.Controllers
 
         // POST api/Notes/PostMany
         [HttpPost("PostMany")]
-        public ActionResult PostMany([FromBody] List<Note>? createdNotes)
+        public ActionResult PostMany([FromBody] List<WeatherSensor>? createdNotes)
         {
             if (createdNotes == null || createdNotes.Count == 0)
             {
@@ -112,7 +112,7 @@ namespace MongoNotesAPI.Controllers
 
         // PUT api/<NotesController>/5
         [HttpPut("{id}")]
-        public ActionResult Put(string id, [FromBody] Note updatedNote)
+        public ActionResult Put(string id, [FromBody] WeatherSensor updatedNote)
         {
             if (String.IsNullOrWhiteSpace(id) || updatedNote == null)
             {
@@ -125,7 +125,7 @@ namespace MongoNotesAPI.Controllers
 
         // PATCH api/Notes/UpdateMany
         [HttpPatch("UpdateMany")]
-        public ActionResult UpdateMany([FromBody] NotePatchDetailsDTO? details)
+        public ActionResult UpdateMany([FromBody] WeatherPatchDetailsDTO? details)
         {
             //Check if a valid set of update details was provided.
             if (details == null)
@@ -133,8 +133,7 @@ namespace MongoNotesAPI.Controllers
                 return BadRequest(); 
             }
             //Check if at least one of the update fiields has detilas to send to the database
-            if (String.IsNullOrWhiteSpace(details.Title) && 
-                String.IsNullOrWhiteSpace(details.Body))
+            if (String.IsNullOrWhiteSpace(details.deviceName) )
             {
                 return BadRequest();
             }
@@ -185,7 +184,7 @@ namespace MongoNotesAPI.Controllers
                 return BadRequest();
             }
 
-            NoteFilter filter = new NoteFilter
+            WeatherFilter filter = new WeatherFilter
             {
                 //Add a created before filter to our filter details to be used for building our
                 //filter definitions later. The calculation in the add days section ensures the value
@@ -216,7 +215,7 @@ namespace MongoNotesAPI.Controllers
                                                                 "of more then 3 Characters ");
             }
 
-            NoteFilter filter = new NoteFilter
+            WeatherFilter filter = new WeatherFilter
             {
                 //Create a new note filter object which takes the search term and will later be
                 //passed to the delete method to delete based upon thr term provided.

@@ -48,7 +48,7 @@ builder.Services.Configure<MongoConnectionSettings>(builder.Configuration.GetSec
 //Adds our connection builder to the services container
 builder.Services.AddScoped<MongoConnectionBuilder>();
 
-builder.Services.AddScoped<INoteRepository,NoteRepository>();
+builder.Services.AddScoped<IWeatherRepository,WeatherRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 //Add new cors policies to the system in our services.

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "NTwdkBCot3leofq6zNIdcg/VIRpTQ7P6PilbB8/IrI/NdygLbRCeOLhCMlCB5Gwwtdj4YWfW2ZBOsjyyDzt6MQ==",
+  "dgSpecHash": "JX/g9jB42bCUquP/MeOI+2sJKENB4LWxGyxu/x6/MEcYPPHtV5BYrGRECUJZw0wdKlY8ohaBZ460XMehMHK0oQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Benjamin Moore\\Github\\APIMongoAssesmentAT1\\MongoNotesAPI\\MongoNotesAPI\\MongoNotesAPI.csproj",
+  "projectFilePath": "C:\\Users\\Benjamin Moore\\Github\\APIMongoAssesmentAT1\\MongoNotesAPI\\MongoNotesAPI\\ICTPRG553.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Benjamin Moore\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Benjamin Moore\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",

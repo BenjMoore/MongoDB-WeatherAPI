@@ -8,11 +8,11 @@ namespace MongoNotesAPI.Repositories
     //methods withih its code in order to use the interface as its communication system.
     //NOTE: Some of this interfaces methods are inherited form the IGenericRepository
     //interface.
-    public interface INoteRepository: IGenericRepository<Note>
+    public interface IWeatherRepository: IGenericRepository<WeatherSensor>
     {
-        IEnumerable<Note> GetAll(NoteFilter noteFilter);
-        void CreateMany(List<Note> noteList);
-        OperationResponseDTO<Note> DeleteMany(NoteFilter filter);
-        OperationResponseDTO<Note> UpdateMany(NotePatchDetailsDTO details);
+        IEnumerable<WeatherSensor> GetAll(WeatherFilter noteFilter);
+        void CreateMany(List<WeatherSensor> noteList);
+        OperationResponseDTO<WeatherSensor> DeleteMany(WeatherFilter filter);
+        OperationResponseDTO<WeatherSensor> UpdateMany(WeatherPatchDetailsDTO details);
     }
 }

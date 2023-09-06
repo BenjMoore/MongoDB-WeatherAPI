@@ -970,9 +970,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Benjamin Moore\\Github\\APIMongoAssesmentAT1\\MongoNotesAPI\\MongoNotesAPI\\MongoNotesAPI.csproj",
-      "projectName": "MongoNotesAPI",
-      "projectPath": "C:\\Users\\Benjamin Moore\\Github\\APIMongoAssesmentAT1\\MongoNotesAPI\\MongoNotesAPI\\MongoNotesAPI.csproj",
+      "projectUniqueName": "C:\\Users\\Benjamin Moore\\Github\\APIMongoAssesmentAT1\\MongoNotesAPI\\MongoNotesAPI\\ICTPRG553.csproj",
+      "projectName": "ICTPRG553",
+      "projectPath": "C:\\Users\\Benjamin Moore\\Github\\APIMongoAssesmentAT1\\MongoNotesAPI\\MongoNotesAPI\\ICTPRG553.csproj",
       "packagesPath": "C:\\Users\\Benjamin Moore\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Benjamin Moore\\Github\\APIMongoAssesmentAT1\\MongoNotesAPI\\MongoNotesAPI\\obj\\",
       "projectStyle": "PackageReference",

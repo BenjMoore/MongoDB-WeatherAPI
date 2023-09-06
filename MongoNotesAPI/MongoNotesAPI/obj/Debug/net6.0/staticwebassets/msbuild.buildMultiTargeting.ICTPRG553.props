@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ICTPRG553.props" />
+</Project>

@@ -21,7 +21,7 @@ namespace MongoNotesAPI.Controllers
         }
 
         [HttpPost]
-        [ApiKey("ADMIN")]
+       
         public ActionResult CreateUser(string apiKey, UserCreateDTO userDTO)
         {
             //Ckeck if the user apiKey meets the required level(Admin Access) to add a
