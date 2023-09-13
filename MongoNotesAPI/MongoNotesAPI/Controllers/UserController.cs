@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ICTPRG553.Models.Filters;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoNotesAPI.Middleware;
 using MongoNotesAPI.Models;
 using MongoNotesAPI.Models.DTOs;
+using MongoNotesAPI.Models.Filters;
 using MongoNotesAPI.Repositories;
 
 namespace MongoNotesAPI.Controllers
@@ -59,8 +61,38 @@ namespace MongoNotesAPI.Controllers
         //new user to the system.
         // find by id 
         //var result = _userRepository.CreateUser(user);
-        //     return Ok();
-    }
+        //
+        //  return Ok();
 
+        [HttpDelete("DeleteOlderThanGivenDays")]
+        public ActionResult DeleteOlderThanDays([FromQuery] int? days)
+        {
+            //Check if a days value is provided and that it complies with our business rules 
+            if (days == null || days <= 30)
+            {
+                return BadRequest();
+            }
+
+            UserFilter filter = new UserFilter
+            {
+                //Add a created before filter to our filter details to be used for building our
+                //filter definitions later. The calculation in the add days section ensures the value
+                //will result in a past date, not a future one by accident.
+                CreatedBefore = DateTime.Now.AddDays(Math.Abs((int)days) * -1)
+            };
+
+            //Process the reauest and store the details regarding the success/failure of the 
+            //request
+            var result = _userRepository.DeleteMany(filter);
+            //If the request show a failure, inform the user.
+            if (result.WasSuccessful == false)
+            {
+                result.Message = "No records found within that range";
+                return Ok(result);
+            }
+            //Otherwise, send an Ok(200) message
+            return Ok(result);
+        }
     }
+}
  

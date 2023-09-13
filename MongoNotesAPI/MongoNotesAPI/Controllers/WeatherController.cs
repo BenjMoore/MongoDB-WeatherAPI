@@ -76,17 +76,13 @@ namespace MongoNotesAPI.Controllers
             return Ok(_repository.GetById(id));
         }
 
-        [HttpPut("TrimWeather")]
-        public ActionResult TrimWeather(string id, [FromBody] WeatherTrim updatedSensor)
+        [HttpGet("GetFilteredData")]
+        public List<WeatherSensor> GetFiltered(WeatherFilter filter)
         {
-            if (String.IsNullOrWhiteSpace(id) || updatedSensor == null)
-            {
-                return BadRequest();
-            }
-
-            _TrimData.GetWeatherFiltered(updatedSensor);
-            return Ok();
+            var result = _repository.GetFilteredData(filter);
+            return result;
         }
+
 
 
         // POST api/<NotesController>

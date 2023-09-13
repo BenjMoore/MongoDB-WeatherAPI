@@ -18,7 +18,8 @@ namespace MongoNotesAPI.Repositories
         OperationResponseDTO<WeatherSensor> UpdateMany(WeatherPatchDetailsDTO details);
         // public HighestTempDTO getHighestTemp();
         public OperationResponseDTO<WeatherSensor> UpdatePrecipitation(string id, PrecipitationDTO updatedReading);
-        public IEnumerable<WeatherTrim> GetWeatherFiltered(WeatherFilter weatherFilter);
+        //public IEnumerable<WeatherSensor> GetWeatherFiltered(WeatherFilter weatherFilter);
+        public List<WeatherSensor> GetFilteredData(WeatherFilter filter);
 
     }
 }

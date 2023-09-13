@@ -1,8 +1,11 @@
-﻿using Microsoft.VisualBasic;
+﻿using ICTPRG553.Models.Filters;
+using Microsoft.VisualBasic;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoNotesAPI.Models;
+using MongoNotesAPI.Models.Filters;
 using MongoNotesAPI.Services;
+using System.Text.RegularExpressions;
 
 namespace MongoNotesAPI.Repositories
 {
@@ -90,6 +93,79 @@ namespace MongoNotesAPI.Repositories
            
            
            
+        }
+        private FilterDefinition<ApiUser> GenerateFilterDefinition(UserFilter userFilter)
+        {
+            //Requests a filter builder for the Note model from the builders class
+            var builder = Builders<ApiUser>.Filter;
+            //Uses the filter builder to create an empty filter(no filter options)
+            var filter = builder.Empty;
+
+            if (String.IsNullOrEmpty(userFilter.Name) == false)
+            {
+                //Cleans the original string to remove any charactes that might cause issues with our
+                //regex filter by escaping them(like'\n') out in the string.
+                var cleanedString = Regex.Escape(userFilter.Name);
+
+                //Adds a filter to the current filter set. This filter is a contains filter to find if the
+                //specified field contains the provided string
+                filter &= builder.Regex(data => data.Name, BsonRegularExpression.Create(cleanedString));
+            }
+            /*
+            if (String.IsNullOrEmpty(weatherFilter.id) == false)
+            {
+                //Cleans the original string to remove any charactes that might cause issues with our
+                //regex filter by escaping them(like'\n') out in the string.
+                var cleanedString = Regex.Escape(weatherFilter.BodyMatch);
+                //Adds a filter to the current filter set. This filter is a contains filter to find if the
+                //specified field contains the provided string
+                filter &= builder.Regex(data => data.Precipitation, BsonRegularExpression.Create(cleanedString));
+            }*/
+            if (userFilter.CreatedBefore != null)
+            {
+                //Creates a Less than or equal to filter that checks the created date of the note against the
+                //Created before date of the noteFilter
+                filter &= builder.Lte(data => data.LastAccess, userFilter.LastAccess.Value);
+            }
+            if (userFilter.CreatedAfter != null)
+            {
+                //Creates a greater than or equal to filter that checks the created date of the note against the
+                //Created after date of the noteFilter
+                filter &= builder.Gte(data => data.LastAccess, userFilter.LastAccess.Value);
+            }
+
+            //Returns the completed filter definitions to the caller.
+            return filter;
+        }
+
+        public OperationResponseDTO<ApiUser> DeleteMany(UserFilter Filter)
+        {
+            //Passes the provided filter to the method that will build a set of mongo db
+            //filter definitions.
+            var filter = GenerateFilterDefinition(Filter);
+            //Sends the delete request to MongoDB to delete all entries matching the filter
+            var result = _users.DeleteMany(filter);
+
+            //Check if any records were deleted by mongo db and send back details
+            //regarding the success/failure of thr changes
+            if (result.DeletedCount > 0)
+            {
+                return new OperationResponseDTO<ApiUser>
+                {
+                    Message = "User/s Deleted Successfully",
+                    WasSuccessful = true,
+                    RecordsAffected = Convert.ToInt32(result.DeletedCount)
+                };
+            }
+            else
+            {
+                return new OperationResponseDTO<ApiUser>
+                {
+                    Message = "No Users deleted. Please check details and try again.",
+                    WasSuccessful = false,
+                    RecordsAffected = 0
+                };
+            }
         }
         public void UpdateLastLogin(string apiKey)
         {

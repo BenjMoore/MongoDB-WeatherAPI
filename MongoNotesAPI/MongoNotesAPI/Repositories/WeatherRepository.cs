@@ -18,7 +18,6 @@ namespace MongoNotesAPI.Repositories
     {
         //Creating a readonly variable to hold our note collection details 
         private readonly IMongoCollection<WeatherSensor> _data;
-        private readonly IMongoCollection<WeatherTrim> _TrimData;
         //Ask for the MongoConnectionBuilder from the dependency injection by requesting
         //it in the parameters of the constructor.
         public WeatherRepository(MongoConnectionBuilder connection)
@@ -27,7 +26,6 @@ namespace MongoNotesAPI.Repositories
             //called notes. The passing of the Note model into this method indicates that
             //the documents of the collection should be mapped to note objects.
             _data = connection.GetDatabase().GetCollection<WeatherSensor>("WeatherData");
-            _TrimData = connection.GetDatabase().GetCollection<WeatherTrim>("WeatherData");
         }
 
         public void Create(WeatherSensor createdReading)
@@ -72,21 +70,25 @@ namespace MongoNotesAPI.Repositories
                 };
             }
         }
-        /*
-        public List<HighestTempDTO> getHighestTemp()
+        
+        public List<WeatherSensor> GetFilteredData(WeatherFilter filter)
         {
-            var weatherCollection = _data.AsQueryable();
-            var resultLinq = weatherCollection.Where(n => n.Time >= DateTime.Now.AddDays(-31))
+            GenerateFilterDefinition(filter);
+            
+            var noteCollection = _data.AsQueryable();
+            var resultLinq = noteCollection.Where(n => n.Time >= filter.CreatedAfter.Value)
                                        .OrderBy(n => n.deviceName)
                                        .Select(n => new WeatherSensor
                                        {
                                            Temperature = n.Temperature,
-                                           Time = n.Time,
-                                           _id = n._id
+                                           atmosphericPressure = n.atmosphericPressure,
+                                           solarRadiation = n.solarRadiation,
+                                           Precipitation = n.Precipitation,
+
                                        }).ToList();
             return resultLinq;
         }
-        */
+        
 
         public OperationResponseDTO<WeatherSensor> DeleteMany(WeatherFilter weatherFilter)
         {
@@ -140,16 +142,7 @@ namespace MongoNotesAPI.Repositories
             return _data.Find(filter).ToEnumerable();
         }
 
-        public IEnumerable<WeatherSensor> GetWeatherFiltered(WeatherFilter weatherFilter)
-        {
-            //Passes the provided filter to the method that will build a set of mongo db
-            //filter definitions.
-            var filter = GenerateTrimFilterDefinition(weatherFilter);
-
-            //Sends the find request to MongoDB to return all entries matching the filter
-            //which in this case will be every entry and then put them in a collection
-            //return _Repository.Find(filter).ToEnumerable();
-        }
+      
 
         public WeatherSensor GetById(string id)
         {
@@ -351,49 +344,6 @@ namespace MongoNotesAPI.Repositories
             return filter;
         }
 
-        private FilterDefinition<WeatherTrim> GenerateTrimFilterDefinition(WeatherFilter weatherFilter)
-        {
-            //Requests a filter builder for the Note model from the builders class
-            var builder = Builders<WeatherTrim>.Filter;
-            //Uses the filter builder to create an empty filter(no filter options)
-            var filter = builder.Empty;
-
-            if (String.IsNullOrEmpty(weatherFilter.deviceName) == false)
-            {
-                //Cleans the original string to remove any charactes that might cause issues with our
-                //regex filter by escaping them(like'\n') out in the string.
-                var cleanedString = Regex.Escape(weatherFilter.deviceName);
-
-                //Adds a filter to the current filter set. This filter is a contains filter to find if the
-                //specified field contains the provided string
-                filter &= builder.Regex(data => data._id, BsonRegularExpression.Create(cleanedString));
-            }
-            /*
-            if (String.IsNullOrEmpty(weatherFilter.id) == false)
-            {
-                //Cleans the original string to remove any charactes that might cause issues with our
-                //regex filter by escaping them(like'\n') out in the string.
-                var cleanedString = Regex.Escape(weatherFilter.BodyMatch);
-                //Adds a filter to the current filter set. This filter is a contains filter to find if the
-                //specified field contains the provided string
-                filter &= builder.Regex(data => data.Precipitation, BsonRegularExpression.Create(cleanedString));
-            }*/
-            if (weatherFilter.CreatedBefore != null)
-            {
-                //Creates a Less than or equal to filter that checks the created date of the note against the
-                //Created before date of the noteFilter
-                filter &= builder.Lte(data => data.Time, weatherFilter.CreatedBefore.Value);
-            }
-            if (weatherFilter.CreatedAfter != null)
-            {
-                //Creates a greater than or equal to filter that checks the created date of the note against the
-                //Created after date of the noteFilter
-                filter &= builder.Gte(data => data.Time, weatherFilter.CreatedAfter.Value);
-            }
-
-            //Returns the completed filter definitions to the caller.
-            return filter;
-        }
         // TODO  |  \\
         //        V   \\
         private UpdateDefinition<WeatherSensor> GenerateUpdateDefinition(WeatherPatchDetailsDTO details ) 
