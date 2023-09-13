@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ICTPRG553.Models.DTOs;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
@@ -26,7 +27,6 @@ namespace MongoNotesAPI.Repositories
             //the documents of the collection should be mapped to note objects.
             _data = connection.GetDatabase().GetCollection<WeatherSensor>("WeatherData");
         }
-
 
         public void Create(WeatherSensor createdReading)
         {
@@ -70,27 +70,21 @@ namespace MongoNotesAPI.Repositories
                 };
             }
         }
-        public WeatherSensor getHighestTemp(WeatherFilter filter)
+        /*
+        public List<HighestTempDTO> getHighestTemp()
         {
-
-           
-            var activeFilter = GenerateFilterDefinition(filter);
-
-            var dateQuery = new BsonDocument
-            {
-                {"DateAdded" , new BsonDocument {
-                    { "$gt" , filter.CreatedAfter},
-                    { "$lt" , filter.CreatedBefore}
-                }}
-            };
-           
-            //Uses the filter builder to create a single filter that looks for an equals
-            //match on the note's id against the provided objId.
-
-            //Call the find method using the filter to find the first recod that matches.
-            return _data.Find(dateQuery).FirstOrDefault();
-
+            var weatherCollection = _data.AsQueryable();
+            var resultLinq = weatherCollection.Where(n => n.Time >= DateTime.Now.AddDays(-31))
+                                       .OrderBy(n => n.deviceName)
+                                       .Select(n => new WeatherSensor
+                                       {
+                                           Temperature = n.Temperature,
+                                           Time = n.Time,
+                                           _id = n._id
+                                       }).ToList();
+            return resultLinq;
         }
+        */
 
         public OperationResponseDTO<WeatherSensor> DeleteMany(WeatherFilter weatherFilter)
         {
@@ -183,6 +177,48 @@ namespace MongoNotesAPI.Repositories
                                 .Set(data => data.Humidity, updatedReading.Humidity)
                                 .Set(data => data.windDirection, updatedReading.windDirection);
 
+            //Call the update method and give it the filter to find the desired entry as 
+            //well as the update definitions of what fields need to be changed.
+            var result = _data.UpdateOne(filter, update);
+
+            //Check if any records were chnaged by mongo db and send back details
+            //regarding the success/failure of thr changes
+            if (result.ModifiedCount > 0)
+            {
+                return new OperationResponseDTO<WeatherSensor>
+                {
+                    Message = "Reading Updated Successfully",
+                    WasSuccessful = true,
+                    RecordsAffected = Convert.ToInt32(result.ModifiedCount)
+                };
+            }
+            else
+            {
+                return new OperationResponseDTO<WeatherSensor>
+                {
+                    Message = "No readings updated. Please check details and try again.",
+                    WasSuccessful = false,
+                    RecordsAffected = 0
+                };
+            }
+        }
+        public OperationResponseDTO<WeatherSensor> UpdatePrecipitation(string id, PrecipitationTempDTO updatedReading)
+        {
+            //Takes the id string and converts it back to an Object Id in the format 
+            //requiired by MongoDB
+            ObjectId objId = ObjectId.Parse(id);
+            //Uses the filter builder to create a single filter that looks for an equals
+            //match on the note's id against the provided objId.
+            var filter = Builders<WeatherSensor>.Filter.Eq(data => data._id, objId);
+
+            //Create an update builder to allow the creation of our set of update
+            //definitions.
+            var builder = Builders<WeatherSensor>.Update;
+            //Define a set of update definitions(rules) to outline what fields need
+            //to be updated and what they need to be updated to.
+            var update = builder.
+                                Set(data => data.Precipitation, updatedReading.Precipitation);
+                               
             //Call the update method and give it the filter to find the desired entry as 
             //well as the update definitions of what fields need to be changed.
             var result = _data.UpdateOne(filter, update);
@@ -341,6 +377,5 @@ namespace MongoNotesAPI.Repositories
             return updateRules;
         }
 
-        
     }
 }

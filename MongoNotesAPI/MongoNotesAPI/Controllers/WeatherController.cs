@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using ICTPRG553.Models.DTOs;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
@@ -173,12 +174,37 @@ namespace MongoNotesAPI.Controllers
             //Otherwise, send an Ok(200) message
             return Ok(result);
         }
+
+        /*
         [HttpGet("GetHighestTemp")]
-        public ActionResult GetHighestTemp(WeatherFilter filter)
+        public List<HighestTempDTO> GetHighestTemp()
         {
-            _repository.getHighestTemp(filter);
+            var result = _repository.getHighestTemp();
+
+            return result;
+        }
+        */
+
+
+
+
+        [HttpPut("Precipitation/{id}")]
+        public ActionResult Precipitation(string id, [FromBody] PrecipitationTempDTO updatedSensor)
+        {
+            if (String.IsNullOrWhiteSpace(id) || updatedSensor == null)
+            {
+                return BadRequest();
+            }
+
+            _repository.UpdatePrecipitation(id, updatedSensor);
             return Ok();
         }
+
+
+
+
+
+
 
         //DELETE: api/Notes/DeleteOlderThanGivenDays
         [HttpDelete("DeleteOlderThanGivenDays")]

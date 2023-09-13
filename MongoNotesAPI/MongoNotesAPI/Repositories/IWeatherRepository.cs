@@ -1,4 +1,5 @@
-﻿using MongoNotesAPI.Models;
+﻿using ICTPRG553.Models.DTOs;
+using MongoNotesAPI.Models;
 using MongoNotesAPI.Models.Filters;
 
 namespace MongoNotesAPI.Repositories
@@ -14,6 +15,8 @@ namespace MongoNotesAPI.Repositories
         void CreateMany(List<WeatherSensor> noteList);
         OperationResponseDTO<WeatherSensor> DeleteMany(WeatherFilter filter);
         OperationResponseDTO<WeatherSensor> UpdateMany(WeatherPatchDetailsDTO details);
-        public WeatherSensor getHighestTemp(WeatherFilter filter);
+        // public HighestTempDTO getHighestTemp();
+        public OperationResponseDTO<WeatherSensor> UpdatePrecipitation(string id, PrecipitationTempDTO updatedReading);
+
     }
 }
