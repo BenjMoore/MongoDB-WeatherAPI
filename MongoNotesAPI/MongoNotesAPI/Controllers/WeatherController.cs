@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 using MongoNotesAPI.Middleware;
 using MongoNotesAPI.Models;
 using MongoNotesAPI.Models.Filters;
 using MongoNotesAPI.Repositories;
+using System.Security.Cryptography;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -139,9 +141,7 @@ namespace MongoNotesAPI.Controllers
             }
             //Check that we have at least 1 valid filter optoin set, otherwise the update will
             //target every document in the collection.
-            if (String.IsNullOrWhiteSpace(details.Filter.TitleMatch) &&
-              String.IsNullOrWhiteSpace(details.Filter.BodyMatch) && 
-              details.Filter.CreatedAfter == null && details.Filter.CreatedBefore == null)
+            if (details.Filter.CreatedBefore == null && details.Filter.CreatedAfter == null)
             {
                 return BadRequest();
             }
@@ -219,7 +219,7 @@ namespace MongoNotesAPI.Controllers
             {
                 //Create a new note filter object which takes the search term and will later be
                 //passed to the delete method to delete based upon thr term provided.
-                TitleMatch= searchTerm
+               // id = searchTerm
             };
 
             //Process the reauest and store the details regarding the success/failure of the 

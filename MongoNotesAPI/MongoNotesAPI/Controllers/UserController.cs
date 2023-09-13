@@ -40,6 +40,14 @@ namespace MongoNotesAPI.Controllers
             return Ok();
         }
 
-      
+       // public ActionResult DeleteUser(string apiKey, UserDeleteDTO userDTO)
+       // {
+            //Ckeck if the user apiKey meets the required level(Admin Access) to add a
+            //new user to the system.
+            // find by id 
+            //var result = _userRepository.CreateUser(user);
+       //     return Ok();
+        }
+
     }
-}
+ 

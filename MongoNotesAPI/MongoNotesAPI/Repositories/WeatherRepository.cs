@@ -5,6 +5,7 @@ using MongoNotesAPI.Models;
 using MongoNotesAPI.Models.Filters;
 using MongoNotesAPI.Services;
 using System.Text.RegularExpressions;
+using ZstdSharp.Unsafe;
 
 namespace MongoNotesAPI.Repositories
 {
@@ -146,7 +147,17 @@ namespace MongoNotesAPI.Repositories
             //Define a set of update definitions(rules) to outline what fields need
             //to be updated and what they need to be updated to.
             var update = builder.Set(data => data.deviceName, updatedReading.deviceName)
-                                .Set(data => data.Precipitation, updatedReading.Precipitation);
+                                .Set(data => data.Precipitation, updatedReading.Precipitation)
+                                .Set(data => data.Time, updatedReading.Time)
+                                .Set(data => data.Latitude, updatedReading.Latitude)
+                                .Set(data => data.Longitude,updatedReading.Longitude)
+                                .Set(data => data.Temperature, updatedReading.Temperature)
+                                .Set(data => data.atmosphericPressure, updatedReading.atmosphericPressure)
+                                .Set(data => data.maxWindSpeed, updatedReading.maxWindSpeed)
+                                .Set(data => data.solarRadiation, updatedReading.solarRadiation)
+                                .Set(data => data.vaporPressure, updatedReading.vaporPressure)
+                                .Set(data => data.Humidity, updatedReading.Humidity)
+                                .Set(data => data.windDirection, updatedReading.windDirection);
 
             //Call the update method and give it the filter to find the desired entry as 
             //well as the update definitions of what fields need to be changed.
@@ -224,48 +235,52 @@ namespace MongoNotesAPI.Repositories
             _data.ReplaceOne(filter, updatedReading);
         }
 
-        private FilterDefinition<WeatherSensor> GenerateFilterDefinition(WeatherFilter noteFilter)
+        private FilterDefinition<WeatherSensor> GenerateFilterDefinition(WeatherFilter weatherFilter)
         {
             //Requests a filter builder for the Note model from the builders class
             var builder = Builders<WeatherSensor>.Filter;
             //Uses the filter builder to create an empty filter(no filter options)
             var filter = builder.Empty;
-
-            if (String.IsNullOrEmpty(noteFilter.TitleMatch) == false)
+    
+            if (String.IsNullOrEmpty(weatherFilter.deviceName) == false)
             {
                 //Cleans the original string to remove any charactes that might cause issues with our
                 //regex filter by escaping them(like'\n') out in the string.
-                var cleanedString = Regex.Escape(noteFilter.TitleMatch);
+                var cleanedString = Regex.Escape(weatherFilter.deviceName);
+
                 //Adds a filter to the current filter set. This filter is a contains filter to find if the
                 //specified field contains the provided string
                 filter &= builder.Regex(data => data.deviceName, BsonRegularExpression.Create(cleanedString));
             }
-            if (String.IsNullOrEmpty(noteFilter.BodyMatch) == false)
+            /*
+            if (String.IsNullOrEmpty(weatherFilter.id) == false)
             {
                 //Cleans the original string to remove any charactes that might cause issues with our
                 //regex filter by escaping them(like'\n') out in the string.
-                var cleanedString = Regex.Escape(noteFilter.BodyMatch);
+                var cleanedString = Regex.Escape(weatherFilter.BodyMatch);
                 //Adds a filter to the current filter set. This filter is a contains filter to find if the
                 //specified field contains the provided string
                 filter &= builder.Regex(data => data.Precipitation, BsonRegularExpression.Create(cleanedString));
-            }
-            if (noteFilter.CreatedBefore != null)
+            }*/
+            if (weatherFilter.CreatedBefore != null)
             {
                 //Creates a Less than or equal to filter that checks the created date of the note against the
                 //Created before date of the noteFilter
-                filter &= builder.Lte(data => data.Time, noteFilter.CreatedBefore.Value);
+                filter &= builder.Lte(data => data.Time, weatherFilter.CreatedBefore.Value);
             }
-            if (noteFilter.CreatedAfter != null)
+            if (weatherFilter.CreatedAfter != null)
             {
                 //Creates a greater than or equal to filter that checks the created date of the note against the
                 //Created after date of the noteFilter
-                filter &= builder.Gte(data => data.Time, noteFilter.CreatedAfter.Value);
+                filter &= builder.Gte(data => data.Time, weatherFilter.CreatedAfter.Value);
             }
 
             //Returns the completed filter definitions to the caller.
             return filter;
         }
 
+                                            // TODO  |  \\
+                                           //        V   \\
         private UpdateDefinition<WeatherSensor> GenerateUpdateDefinition(WeatherPatchDetailsDTO details ) 
         {
             //Creates a filter builder to allow us to build update rules in a way that
