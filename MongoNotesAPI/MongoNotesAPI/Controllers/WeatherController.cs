@@ -1,4 +1,5 @@
-﻿using ICTPRG553.Models.DTOs;
+﻿using ICTPRG553.Models;
+using ICTPRG553.Models.DTOs;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Mvc;
@@ -74,6 +75,19 @@ namespace MongoNotesAPI.Controllers
 
             return Ok(_repository.GetById(id));
         }
+
+        [HttpPut("TrimWeather")]
+        public ActionResult TrimWeather(string id, [FromBody] WeatherTrim updatedSensor)
+        {
+            if (String.IsNullOrWhiteSpace(id) || updatedSensor == null)
+            {
+                return BadRequest();
+            }
+
+            _TrimData.GetWeatherFiltered(updatedSensor);
+            return Ok();
+        }
+
 
         // POST api/<NotesController>
         [HttpPost]
@@ -189,7 +203,7 @@ namespace MongoNotesAPI.Controllers
 
 
         [HttpPut("Precipitation/{id}")]
-        public ActionResult Precipitation(string id, [FromBody] PrecipitationTempDTO updatedSensor)
+        public ActionResult Precipitation(string id, [FromBody] PrecipitationDTO updatedSensor)
         {
             if (String.IsNullOrWhiteSpace(id) || updatedSensor == null)
             {

@@ -1,4 +1,5 @@
-﻿using ICTPRG553.Models.DTOs;
+﻿using ICTPRG553.Models;
+using ICTPRG553.Models.DTOs;
 using MongoNotesAPI.Models;
 using MongoNotesAPI.Models.Filters;
 
@@ -16,7 +17,8 @@ namespace MongoNotesAPI.Repositories
         OperationResponseDTO<WeatherSensor> DeleteMany(WeatherFilter filter);
         OperationResponseDTO<WeatherSensor> UpdateMany(WeatherPatchDetailsDTO details);
         // public HighestTempDTO getHighestTemp();
-        public OperationResponseDTO<WeatherSensor> UpdatePrecipitation(string id, PrecipitationTempDTO updatedReading);
+        public OperationResponseDTO<WeatherSensor> UpdatePrecipitation(string id, PrecipitationDTO updatedReading);
+        public IEnumerable<WeatherTrim> GetWeatherFiltered(WeatherFilter weatherFilter);
 
     }
 }

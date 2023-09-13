@@ -1,4 +1,5 @@
-﻿using ICTPRG553.Models.DTOs;
+﻿using ICTPRG553.Models;
+using ICTPRG553.Models.DTOs;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
@@ -17,7 +18,7 @@ namespace MongoNotesAPI.Repositories
     {
         //Creating a readonly variable to hold our note collection details 
         private readonly IMongoCollection<WeatherSensor> _data;
-        
+        private readonly IMongoCollection<WeatherTrim> _TrimData;
         //Ask for the MongoConnectionBuilder from the dependency injection by requesting
         //it in the parameters of the constructor.
         public WeatherRepository(MongoConnectionBuilder connection)
@@ -26,6 +27,7 @@ namespace MongoNotesAPI.Repositories
             //called notes. The passing of the Note model into this method indicates that
             //the documents of the collection should be mapped to note objects.
             _data = connection.GetDatabase().GetCollection<WeatherSensor>("WeatherData");
+            _TrimData = connection.GetDatabase().GetCollection<WeatherTrim>("WeatherData");
         }
 
         public void Create(WeatherSensor createdReading)
@@ -138,6 +140,17 @@ namespace MongoNotesAPI.Repositories
             return _data.Find(filter).ToEnumerable();
         }
 
+        public IEnumerable<WeatherSensor> GetWeatherFiltered(WeatherFilter weatherFilter)
+        {
+            //Passes the provided filter to the method that will build a set of mongo db
+            //filter definitions.
+            var filter = GenerateTrimFilterDefinition(weatherFilter);
+
+            //Sends the find request to MongoDB to return all entries matching the filter
+            //which in this case will be every entry and then put them in a collection
+            //return _Repository.Find(filter).ToEnumerable();
+        }
+
         public WeatherSensor GetById(string id)
         {
             //Takes the id string and converts it back to an Object Id in the format 
@@ -202,7 +215,7 @@ namespace MongoNotesAPI.Repositories
                 };
             }
         }
-        public OperationResponseDTO<WeatherSensor> UpdatePrecipitation(string id, PrecipitationTempDTO updatedReading)
+        public OperationResponseDTO<WeatherSensor> UpdatePrecipitation(string id, PrecipitationDTO updatedReading)
         {
             //Takes the id string and converts it back to an Object Id in the format 
             //requiired by MongoDB
@@ -244,7 +257,6 @@ namespace MongoNotesAPI.Repositories
                 };
             }
         }
-
         public OperationResponseDTO<WeatherSensor> UpdateMany(WeatherPatchDetailsDTO details)
         {
             //Passes the provided filter parameters to the method to build the filter rules
@@ -339,8 +351,51 @@ namespace MongoNotesAPI.Repositories
             return filter;
         }
 
-                                            // TODO  |  \\
-                                           //        V   \\
+        private FilterDefinition<WeatherTrim> GenerateTrimFilterDefinition(WeatherFilter weatherFilter)
+        {
+            //Requests a filter builder for the Note model from the builders class
+            var builder = Builders<WeatherTrim>.Filter;
+            //Uses the filter builder to create an empty filter(no filter options)
+            var filter = builder.Empty;
+
+            if (String.IsNullOrEmpty(weatherFilter.deviceName) == false)
+            {
+                //Cleans the original string to remove any charactes that might cause issues with our
+                //regex filter by escaping them(like'\n') out in the string.
+                var cleanedString = Regex.Escape(weatherFilter.deviceName);
+
+                //Adds a filter to the current filter set. This filter is a contains filter to find if the
+                //specified field contains the provided string
+                filter &= builder.Regex(data => data._id, BsonRegularExpression.Create(cleanedString));
+            }
+            /*
+            if (String.IsNullOrEmpty(weatherFilter.id) == false)
+            {
+                //Cleans the original string to remove any charactes that might cause issues with our
+                //regex filter by escaping them(like'\n') out in the string.
+                var cleanedString = Regex.Escape(weatherFilter.BodyMatch);
+                //Adds a filter to the current filter set. This filter is a contains filter to find if the
+                //specified field contains the provided string
+                filter &= builder.Regex(data => data.Precipitation, BsonRegularExpression.Create(cleanedString));
+            }*/
+            if (weatherFilter.CreatedBefore != null)
+            {
+                //Creates a Less than or equal to filter that checks the created date of the note against the
+                //Created before date of the noteFilter
+                filter &= builder.Lte(data => data.Time, weatherFilter.CreatedBefore.Value);
+            }
+            if (weatherFilter.CreatedAfter != null)
+            {
+                //Creates a greater than or equal to filter that checks the created date of the note against the
+                //Created after date of the noteFilter
+                filter &= builder.Gte(data => data.Time, weatherFilter.CreatedAfter.Value);
+            }
+
+            //Returns the completed filter definitions to the caller.
+            return filter;
+        }
+        // TODO  |  \\
+        //        V   \\
         private UpdateDefinition<WeatherSensor> GenerateUpdateDefinition(WeatherPatchDetailsDTO details ) 
         {
             //Creates a filter builder to allow us to build update rules in a way that
