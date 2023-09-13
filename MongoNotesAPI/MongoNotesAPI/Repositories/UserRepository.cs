@@ -1,4 +1,6 @@
-﻿using MongoDB.Driver;
+﻿using Microsoft.VisualBasic;
+using MongoDB.Bson;
+using MongoDB.Driver;
 using MongoNotesAPI.Models;
 using MongoNotesAPI.Services;
 
@@ -66,6 +68,32 @@ namespace MongoNotesAPI.Repositories
 
         }
 
+        public bool DeleteUser(ApiUser user, string id)
+        {
+            ObjectId objId = ObjectId.Parse(id);
+
+
+          
+
+            // find a person using an equality filter on its id
+            var filter = Builders<ApiUser>.Filter.Eq(e => e._id, objId);
+
+            // delete the person
+            var targetedUser = _users.DeleteOne(filter);
+
+            if (targetedUser.DeletedCount == 1)
+            {
+                return true;
+            }
+
+           else
+            {
+                return false;
+            }
+           
+           
+           
+        }
         public void UpdateLastLogin(string apiKey)
         {
             //Create a filter to check the user collection for a match on the

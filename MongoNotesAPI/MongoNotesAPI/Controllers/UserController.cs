@@ -9,6 +9,8 @@ namespace MongoNotesAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [ApiKey("ADMIN")]
+
     public class UserController : ControllerBase
     {
         //Stores a reference to our repository so we can request database actions
@@ -21,7 +23,8 @@ namespace MongoNotesAPI.Controllers
         }
 
         [HttpPost]
-       
+        [ApiKey("ADMIN")]
+
         public ActionResult CreateUser(string apiKey, UserCreateDTO userDTO)
         {
             //Ckeck if the user apiKey meets the required level(Admin Access) to add a
@@ -40,14 +43,24 @@ namespace MongoNotesAPI.Controllers
             return Ok();
         }
 
-       // public ActionResult DeleteUser(string apiKey, UserDeleteDTO userDTO)
-       // {
+        [HttpPost]
+        [ApiKey("ADMIN")]
+        public ActionResult DeleteUser(string apiKey,ApiUser user, String id)
+        {
             //Ckeck if the user apiKey meets the required level(Admin Access) to add a
             //new user to the system.
-            // find by id 
-            //var result = _userRepository.CreateUser(user);
-       //     return Ok();
+
+            var result = _userRepository.DeleteUser(user,id);
+            return Ok();
         }
+        // public ActionResult DeleteUser(string apiKey, UserDeleteDTO userDTO)
+        // {
+        //Ckeck if the user apiKey meets the required level(Admin Access) to add a
+        //new user to the system.
+        // find by id 
+        //var result = _userRepository.CreateUser(user);
+        //     return Ok();
+    }
 
     }
  
