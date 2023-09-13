@@ -9,7 +9,7 @@ namespace MongoNotesAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [ApiKey("ADMIN")]
+  
 
     public class UserController : ControllerBase
     {
@@ -43,9 +43,9 @@ namespace MongoNotesAPI.Controllers
             return Ok();
         }
 
-        [HttpPost]
+        [HttpDelete("DeleteUser")]
         [ApiKey("ADMIN")]
-        public ActionResult DeleteUser(string apiKey,ApiUser user, String id)
+        public ActionResult DeleteUser(ApiUser user, string apiKey, String id)
         {
             //Ckeck if the user apiKey meets the required level(Admin Access) to add a
             //new user to the system.

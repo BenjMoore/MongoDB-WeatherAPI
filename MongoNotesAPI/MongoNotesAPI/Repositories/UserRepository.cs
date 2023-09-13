@@ -71,10 +71,7 @@ namespace MongoNotesAPI.Repositories
         public bool DeleteUser(ApiUser user, string id)
         {
             ObjectId objId = ObjectId.Parse(id);
-
-
           
-
             // find a person using an equality filter on its id
             var filter = Builders<ApiUser>.Filter.Eq(e => e._id, objId);
 

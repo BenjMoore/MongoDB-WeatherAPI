@@ -173,6 +173,12 @@ namespace MongoNotesAPI.Controllers
             //Otherwise, send an Ok(200) message
             return Ok(result);
         }
+        [HttpGet("GetHighestTemp")]
+        public ActionResult GetHighestTemp(WeatherFilter filter)
+        {
+            _repository.getHighestTemp(filter);
+            return Ok();
+        }
 
         //DELETE: api/Notes/DeleteOlderThanGivenDays
         [HttpDelete("DeleteOlderThanGivenDays")]

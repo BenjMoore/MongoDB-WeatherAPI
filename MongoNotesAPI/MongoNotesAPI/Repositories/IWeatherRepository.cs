@@ -14,5 +14,6 @@ namespace MongoNotesAPI.Repositories
         void CreateMany(List<WeatherSensor> noteList);
         OperationResponseDTO<WeatherSensor> DeleteMany(WeatherFilter filter);
         OperationResponseDTO<WeatherSensor> UpdateMany(WeatherPatchDetailsDTO details);
+        public WeatherSensor getHighestTemp(WeatherFilter filter);
     }
 }

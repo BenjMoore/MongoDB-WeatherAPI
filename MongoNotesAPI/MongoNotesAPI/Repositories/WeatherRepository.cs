@@ -1,11 +1,14 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoNotesAPI.Models;
 using MongoNotesAPI.Models.Filters;
 using MongoNotesAPI.Services;
+using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using ZstdSharp.Unsafe;
+using static MongoDB.Driver.WriteConcern;
 
 namespace MongoNotesAPI.Repositories
 {
@@ -66,6 +69,27 @@ namespace MongoNotesAPI.Repositories
                     RecordsAffected = 0
                 };
             }
+        }
+        public WeatherSensor getHighestTemp(WeatherFilter filter)
+        {
+
+           
+            var activeFilter = GenerateFilterDefinition(filter);
+
+            var dateQuery = new BsonDocument
+            {
+                {"DateAdded" , new BsonDocument {
+                    { "$gt" , filter.CreatedAfter},
+                    { "$lt" , filter.CreatedBefore}
+                }}
+            };
+           
+            //Uses the filter builder to create a single filter that looks for an equals
+            //match on the note's id against the provided objId.
+
+            //Call the find method using the filter to find the first recod that matches.
+            return _data.Find(dateQuery).FirstOrDefault();
+
         }
 
         public OperationResponseDTO<WeatherSensor> DeleteMany(WeatherFilter weatherFilter)
