@@ -70,22 +70,40 @@ namespace MongoNotesAPI.Repositories
                 };
             }
         }
-        
-        public List<WeatherSensor> GetFilteredData(WeatherFilter filter)
+
+        public PrecipitationDTO GetMaxPrecipitation() 
         {
-            GenerateFilterDefinition(filter);
-            
-            var noteCollection = _data.AsQueryable();
-            var resultLinq = noteCollection.Where(n => n.Time >= filter.CreatedAfter.Value)
+           // GenerateFilterDefinition(filter);
+
+            var weatherCollection = _data.AsQueryable();
+            var resultLinq = weatherCollection.Where(n => n.Time >= DateTime.Now.AddMonths(-5))
                                        .OrderBy(n => n.deviceName)
-                                       .Select(n => new WeatherSensor
+                                       .Select(n => new PrecipitationDTO
                                        {
+                                           deviceName = n.deviceName,
+                                           Time = n.Time,
+                                           Precipitation = n.Precipitation,
+
+                                       }).FirstOrDefault();
+            return resultLinq;
+        }
+        public FilteredDataDTO GetFilteredData(DateTime selectedDateTime)
+        {
+            //var weatherfilter = GenerateFilterDefinition(filter);
+            
+            var weatherCollection = _data.AsQueryable();
+            var resultLinq = weatherCollection.Where(n => n.Time == selectedDateTime)
+                                       .OrderBy(n => n.Time)
+                                       .Select(n => new FilteredDataDTO
+                                       {
+                                           deviceName = n.deviceName,
+                                           Time = n.Time,
                                            Temperature = n.Temperature,
                                            atmosphericPressure = n.atmosphericPressure,
                                            solarRadiation = n.solarRadiation,
                                            Precipitation = n.Precipitation,
 
-                                       }).ToList();
+                                       }).FirstOrDefault();
             return resultLinq;
         }
         

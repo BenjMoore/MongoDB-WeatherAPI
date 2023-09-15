@@ -30,7 +30,7 @@ namespace MongoNotesAPI.Controllers
         }
 
         // GET: api/Notes
-        [HttpGet]
+        [HttpGet("GetAll")]
         [HttpHead]
         public IEnumerable<WeatherSensor> Get()
         {
@@ -77,16 +77,21 @@ namespace MongoNotesAPI.Controllers
         }
 
         [HttpGet("GetFilteredData")]
-        public List<WeatherSensor> GetFiltered(WeatherFilter filter)
-        {
-            var result = _repository.GetFilteredData(filter);
+        public FilteredDataDTO GetFiltered(DateTime selectedDateTime)
+        {    
+            var result = _repository.GetFilteredData(selectedDateTime);
             return result;
         }
 
-
+        [HttpGet("MaxPrecipitationSingle")]
+        public PrecipitationDTO MaxPrecipitation()
+        {
+            var result = _repository.GetMaxPrecipitation();
+            return result;
+        }
 
         // POST api/<NotesController>
-        [HttpPost]
+        [HttpPost("New")]
         public ActionResult Post([FromBody] WeatherSensor? createdNote)
         {
             if (createdNote == null)
@@ -99,7 +104,7 @@ namespace MongoNotesAPI.Controllers
             try
             {
                 _repository.Create(createdNote);
-                return Ok("New note added");
+                return Ok("New Sensor added");
             }
             catch (Exception ex)
             {
@@ -122,9 +127,15 @@ namespace MongoNotesAPI.Controllers
             _repository.CreateMany(createdNotes);
             return Ok();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="updatedNote"></param>
+        /// <remarks>Test</remarks>
+        /// <returns></returns>
         // PUT api/<NotesController>/5
-        [HttpPut("{id}")]
+        [HttpPut("Update/{id}")]
         public ActionResult Put(string id, [FromBody] WeatherSensor updatedNote)
         {
             if (String.IsNullOrWhiteSpace(id) || updatedNote == null)
@@ -162,7 +173,7 @@ namespace MongoNotesAPI.Controllers
         }
 
         // DELETE api/<NotesController>/5
-        [HttpDelete("{id}")]
+        [HttpDelete("Delete/{id}")]
         [ApiKey("ADMIN")]
         public ActionResult Delete(string id, string apiKey)
         {
@@ -211,11 +222,6 @@ namespace MongoNotesAPI.Controllers
         }
 
 
-
-
-
-
-
         //DELETE: api/Notes/DeleteOlderThanGivenDays
         [HttpDelete("DeleteOlderThanGivenDays")]
         public ActionResult DeleteOlderThanDays([FromQuery]int? days) 
@@ -246,7 +252,8 @@ namespace MongoNotesAPI.Controllers
             //Otherwise, send an Ok(200) message
             return Ok(result);
         }
-
+      
+        /*
         [HttpDelete("DeleteByTitleMatch")]
         public ActionResult DeleteByTitleMatch([FromQuery] string? searchTerm)
         {
@@ -275,6 +282,7 @@ namespace MongoNotesAPI.Controllers
             //Otherwise, send an Ok(200) message
             return Ok(result);
         }
+        */
 
        
 

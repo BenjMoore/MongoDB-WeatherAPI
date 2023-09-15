@@ -88,3 +88,5 @@ D:\Downloads\Github\APIMongoAssesmentAT1\MongoNotesAPI\MongoNotesAPI\obj\Debug\n
 D:\Downloads\Github\APIMongoAssesmentAT1\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\ICTPRG553.pdb
 D:\Downloads\Github\APIMongoAssesmentAT1\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\ICTPRG553.genruntimeconfig.cache
 D:\Downloads\Github\APIMongoAssesmentAT1\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\ref\ICTPRG553.dll
+C:\Users\Benjamin Moore\Github\APIMongoAssesmentAT1\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\ICTPRG553.xml
+C:\Users\Benjamin Moore\Github\APIMongoAssesmentAT1\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\ICTPRG553.xml

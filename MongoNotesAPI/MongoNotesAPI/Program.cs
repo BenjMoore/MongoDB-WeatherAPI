@@ -40,6 +40,7 @@ builder.Services.AddSwaggerGen(options =>
         }
     }
     );
+    options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "ICTPRG553.xml"));
 });
 
 //Adds the MongoConnectionSettings to the saervices container and sets it up to hold 

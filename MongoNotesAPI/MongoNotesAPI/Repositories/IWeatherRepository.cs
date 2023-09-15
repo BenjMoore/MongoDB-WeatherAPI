@@ -12,6 +12,7 @@ namespace MongoNotesAPI.Repositories
     //interface.
     public interface IWeatherRepository: IGenericRepository<WeatherSensor>
     {
+        public PrecipitationDTO GetMaxPrecipitation();
         IEnumerable<WeatherSensor> GetAll(WeatherFilter noteFilter);
         void CreateMany(List<WeatherSensor> noteList);
         OperationResponseDTO<WeatherSensor> DeleteMany(WeatherFilter filter);
@@ -19,7 +20,7 @@ namespace MongoNotesAPI.Repositories
         // public HighestTempDTO getHighestTemp();
         public OperationResponseDTO<WeatherSensor> UpdatePrecipitation(string id, PrecipitationDTO updatedReading);
         //public IEnumerable<WeatherSensor> GetWeatherFiltered(WeatherFilter weatherFilter);
-        public List<WeatherSensor> GetFilteredData(WeatherFilter filter);
+        public FilteredDataDTO GetFilteredData(DateTime selectedDateTime);
 
     }
 }
