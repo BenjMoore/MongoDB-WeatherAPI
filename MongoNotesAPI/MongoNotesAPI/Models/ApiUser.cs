@@ -18,6 +18,7 @@ namespace MongoNotesAPI.Models
         //for this property
         [BsonElement("Last Access")]
         public DateTime LastAccess { get; set; }
+        public DateTime Created { get; set; }
         public string ApiKey { get; set; }
     }
 }

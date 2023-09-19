@@ -1,4 +1,5 @@
-﻿using ICTPRG553.Models.Filters;
+﻿using ICTPRG553.Models.DTOs;
+using ICTPRG553.Models.Filters;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoNotesAPI.Middleware;
@@ -6,17 +7,19 @@ using MongoNotesAPI.Models;
 using MongoNotesAPI.Models.DTOs;
 using MongoNotesAPI.Models.Filters;
 using MongoNotesAPI.Repositories;
+using System.Security.Cryptography.X509Certificates;
 
 namespace MongoNotesAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-  
+
 
     public class UserController : ControllerBase
     {
         //Stores a reference to our repository so we can request database actions
         private readonly IUserRepository _userRepository;
+        public UserRoleUpdateDTO update;
         //Requests our repository from the dependency injection and stores it in our 
         //readonly field.
         public UserController(IUserRepository userRepository)
@@ -37,13 +40,45 @@ namespace MongoNotesAPI.Controllers
                 Name = userDTO.Name,
                 Email = userDTO.Email,
                 Role = userDTO.Role,
+                Created = userDTO.Created,
                 Active = true
-                
+
             };
 
             var result = _userRepository.CreateUser(user);
             return Ok();
         }
+
+
+        [HttpPatch("UpdateRole")]
+        public ActionResult UpdateRole(UserRoleUpdateDTO update)
+        {
+            // Check if a valid set of update details was provided.
+            if (update == null)
+            {
+                return BadRequest();
+            }
+
+            // Check if at least one of the update fields has details to send to the database
+            if (update.createdBefore == null && update.createdAfter == null)
+            {
+                return BadRequest();
+            }
+
+            // Call a method to update user roles based on the provided date range and new role
+            var result = _userRepository.UpdateRole(update);
+
+            if (result.WasSuccessful)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest(result);
+            }
+        }
+
+
 
         [HttpDelete("DeleteUser")]
         [ApiKey("ADMIN")]
@@ -52,7 +87,7 @@ namespace MongoNotesAPI.Controllers
             //Ckeck if the user apiKey meets the required level(Admin Access) to add a
             //new user to the system.
 
-            var result = _userRepository.DeleteUser(user,id);
+            var result = _userRepository.DeleteUser(user, id);
             return Ok();
         }
         // public ActionResult DeleteUser(string apiKey, UserDeleteDTO userDTO)
@@ -64,35 +99,32 @@ namespace MongoNotesAPI.Controllers
         //
         //  return Ok();
 
-        [HttpDelete("DeleteOlderThanGivenDays")]
-        public ActionResult DeleteOlderThanDays([FromQuery] int? days)
+        [HttpDelete("DeleteOlderThan30Days")]
+        [ApiKey("ADMIN")]
+        public ActionResult DeleteOlderThan30Days()
         {
-            //Check if a days value is provided and that it complies with our business rules 
-            if (days == null || days <= 30)
-            {
-                return BadRequest();
-            }
+            int days = 30;
 
+            // Create a filter to match users who haven't logged in for more than 30 days
             UserFilter filter = new UserFilter
             {
-                //Add a created before filter to our filter details to be used for building our
-                //filter definitions later. The calculation in the add days section ensures the value
-                //will result in a past date, not a future one by accident.
-                CreatedBefore = DateTime.Now.AddDays(Math.Abs((int)days) * -1)
+                CreatedBefore = DateTime.Now.AddDays(-days),
+                CreatedAfter = null // This ensures that all users older than 30 days are selected
             };
 
-            //Process the reauest and store the details regarding the success/failure of the 
-            //request
+            // Call the repository method to delete these users
             var result = _userRepository.DeleteMany(filter);
-            //If the request show a failure, inform the user.
-            if (result.WasSuccessful == false)
+
+            if (result.WasSuccessful)
             {
-                result.Message = "No records found within that range";
                 return Ok(result);
             }
-            //Otherwise, send an Ok(200) message
-            return Ok(result);
+            else
+            {
+                return BadRequest(result);
+            }
         }
+
     }
 }
  

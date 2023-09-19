@@ -1,11 +1,14 @@
-﻿using ICTPRG553.Models.Filters;
+﻿using ICTPRG553.Models.DTOs;
+using ICTPRG553.Models.Filters;
 using Microsoft.VisualBasic;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoNotesAPI.Models;
+using MongoNotesAPI.Models.DTOs;
 using MongoNotesAPI.Models.Filters;
 using MongoNotesAPI.Services;
 using System.Text.RegularExpressions;
+using System.Xml.Linq;
 
 namespace MongoNotesAPI.Repositories
 {
@@ -20,6 +23,70 @@ namespace MongoNotesAPI.Repositories
             //Use the builder to create a connection to our Users collection and
             //store the collection in the readonly field.
             _users = builder.GetDatabase().GetCollection<ApiUser>("Users");
+        }
+        public OperationResponseDTO<ApiUser> DeleteMany(UserFilter userFilter)
+        {
+            // Passes the provided filter to the method that will build a set of MongoDB filter definitions.
+            var filter = GenerateFilterDefinition(userFilter);
+
+            // Send the delete request to MongoDB to delete all entries matching the filter
+            var result = _users.DeleteMany(filter);
+
+            // Check if any records were deleted by MongoDB and send back details regarding the success/failure of the changes
+            if (result.DeletedCount > 0)
+            {
+                return new OperationResponseDTO<ApiUser>
+                {
+                    Message = "Users Deleted Successfully",
+                    WasSuccessful = true,
+                    RecordsAffected = Convert.ToInt32(result.DeletedCount)
+                };
+            }
+            else
+            {
+                return new OperationResponseDTO<ApiUser>
+                {
+                    Message = "No Users deleted. Please check details and try again.",
+                    WasSuccessful = false,
+                    RecordsAffected = 0
+                };
+            }
+        }
+
+        public OperationResponseDTO<ApiUser> UpdateRole(UserRoleUpdateDTO details)
+        {
+            var filter = Builders<ApiUser>.Filter;
+
+            // Create a filter to match users within the specified date range
+            var dateFilter = filter.And(
+                filter.Gte(user => user.Created, details.createdAfter),
+                filter.Lte(user => user.Created, details.createdBefore)
+            );
+
+            // Create an update definition to set the new role
+            var update = Builders<ApiUser>.Update.Set(user => user.Role, details.Role);
+
+            // Perform the update
+            var result = _users.UpdateMany(dateFilter, update);
+
+            if (result.ModifiedCount > 0)
+            {
+                return new OperationResponseDTO<ApiUser>
+                {
+                    Message = "Roles Updated Successfully",
+                    WasSuccessful = true,
+                    RecordsAffected = Convert.ToInt32(result.ModifiedCount)
+                };
+            }
+            else
+            {
+                return new OperationResponseDTO<ApiUser>
+                {
+                    Message = "No Roles updated. Please check date range and try again.",
+                    WasSuccessful = false,
+                    RecordsAffected = 0
+                };
+            }
         }
 
         public ApiUser AuthenticateUser(string apiKey, UserRoles requiredRole)
@@ -101,72 +168,53 @@ namespace MongoNotesAPI.Repositories
             //Uses the filter builder to create an empty filter(no filter options)
             var filter = builder.Empty;
 
-            if (String.IsNullOrEmpty(userFilter.Name) == false)
-            {
-                //Cleans the original string to remove any charactes that might cause issues with our
-                //regex filter by escaping them(like'\n') out in the string.
-                var cleanedString = Regex.Escape(userFilter.Name);
-
-                //Adds a filter to the current filter set. This filter is a contains filter to find if the
-                //specified field contains the provided string
-                filter &= builder.Regex(data => data.Name, BsonRegularExpression.Create(cleanedString));
-            }
-            /*
-            if (String.IsNullOrEmpty(weatherFilter.id) == false)
-            {
-                //Cleans the original string to remove any charactes that might cause issues with our
-                //regex filter by escaping them(like'\n') out in the string.
-                var cleanedString = Regex.Escape(weatherFilter.BodyMatch);
-                //Adds a filter to the current filter set. This filter is a contains filter to find if the
-                //specified field contains the provided string
-                filter &= builder.Regex(data => data.Precipitation, BsonRegularExpression.Create(cleanedString));
-            }*/
+         
             if (userFilter.CreatedBefore != null)
             {
                 //Creates a Less than or equal to filter that checks the created date of the note against the
                 //Created before date of the noteFilter
-                filter &= builder.Lte(data => data.LastAccess, userFilter.LastAccess.Value);
+                filter &= builder.Lte(data => data.LastAccess, userFilter.CreatedBefore.Value);
             }
             if (userFilter.CreatedAfter != null)
             {
                 //Creates a greater than or equal to filter that checks the created date of the note against the
                 //Created after date of the noteFilter
-                filter &= builder.Gte(data => data.LastAccess, userFilter.LastAccess.Value);
+                filter &= builder.Gte(data => data.LastAccess, userFilter.CreatedAfter.Value);
             }
 
             //Returns the completed filter definitions to the caller.
             return filter;
         }
-
-        public OperationResponseDTO<ApiUser> DeleteMany(UserFilter Filter)
+        private UpdateDefinition<ApiUser> GenerateUpdateDefinition(UserRoleUpdateDTO details)
         {
-            //Passes the provided filter to the method that will build a set of mongo db
-            //filter definitions.
-            var filter = GenerateFilterDefinition(Filter);
-            //Sends the delete request to MongoDB to delete all entries matching the filter
-            var result = _users.DeleteMany(filter);
+            //Creates a filter builder to allow us to build update rules in a way that
+            ////allows us to append extra rules to them afterwards.
+            var builder = Builders<ApiUser>.Update.Combine();
+            //Declare an update definition object which starts as null.
+            UpdateDefinition<ApiUser> updateRules = null;
 
-            //Check if any records were deleted by mongo db and send back details
-            //regarding the success/failure of thr changes
-            if (result.DeletedCount > 0)
-            {
-                return new OperationResponseDTO<ApiUser>
+            //If the title field of the details is not empty, create a new rule for updating the
+            
+            //If the title field of the details is not empty, create a new rule for updating the
+            //title property in the notes rules.
+           
+                //Check if I have any update rules set yet, if not use the builder to create
+                //a new definitions object and set its first rule.
+                if (updateRules == null)
                 {
-                    Message = "User/s Deleted Successfully",
-                    WasSuccessful = true,
-                    RecordsAffected = Convert.ToInt32(result.DeletedCount)
-                };
-            }
-            else
-            {
-                return new OperationResponseDTO<ApiUser>
+                    updateRules = builder.Set(data => data.Role, details.Role);
+                }
+                //If there is already at least one exisiting rule, add a new one to the set. 
+                else
                 {
-                    Message = "No Users deleted. Please check details and try again.",
-                    WasSuccessful = false,
-                    RecordsAffected = 0
-                };
-            }
+                    updateRules = updateRules.Set(data => data.Role, details.Role);
+                }
+            
+
+            //Returns the completed update definitions/rules to the caller 
+            return updateRules;
         }
+
         public void UpdateLastLogin(string apiKey)
         {
             //Create a filter to check the user collection for a match on the
