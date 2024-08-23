@@ -49,7 +49,7 @@ namespace MongoNotesAPI.Controllers
             return Ok();
         }
 
-
+        [ApiKey("ADMIN")]
         [HttpPatch("UpdateRole")]
         public ActionResult UpdateRole(UserRoleUpdateDTO update)
         {
