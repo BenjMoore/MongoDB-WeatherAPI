@@ -54,7 +54,7 @@ namespace MongoNotesAPI.Middleware
                 context.Result = new ContentResult
                 {
                     StatusCode = 403,
-                    Content = "Accsess Denied, Api Key Was Invalid / Invalid For The Function Attempted"
+                    Content = "Access Denied, Api Key Was Invalid / Invalid For The Function Attempted"
                 };
                 return;
             }

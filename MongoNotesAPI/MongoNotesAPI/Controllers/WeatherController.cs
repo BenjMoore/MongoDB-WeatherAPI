@@ -12,7 +12,7 @@ using System.Security.Cryptography;
 
 namespace MongoNotesAPI.Controllers
 {
-    [EnableCors("GooglePolicy")]
+    [EnableCors("AllowSpecificOrigin")]
     [Route("api/[controller]")]
     [ApiController]
     [ApiKey("Guest")]
@@ -39,6 +39,7 @@ namespace MongoNotesAPI.Controllers
 
         // GET: api/Notes/Filtered
         [HttpGet("Filtered")]
+        [EnableCors("AllowSpecificOrigin")]
         public IEnumerable<WeatherSensor> Get([FromQuery] WeatherFilter filter)
         {
             //Sends a message to the repository ot request it to retrieve all
@@ -47,6 +48,7 @@ namespace MongoNotesAPI.Controllers
         }
 
         [HttpHead("Filtered")]
+        [EnableCors("AllowSpecificOrigin")]
         public ActionResult GetHeaders([FromQuery] WeatherFilter filter)
         {
             //Gets all records mathing the filter and finds the most recent one.
@@ -64,7 +66,8 @@ namespace MongoNotesAPI.Controllers
 
         // GET api/<NotesController>/5
         [HttpGet("{id}")]
-        public ActionResult Get(string id, [FromQuery]string apiKey)
+        [EnableCors("AllowSpecificOrigin")]
+        public ActionResult Get(string id)
         {
             if (String.IsNullOrWhiteSpace(id))
             {
@@ -76,6 +79,7 @@ namespace MongoNotesAPI.Controllers
 
         // POST api/<NotesController>
         [HttpPost]
+        [EnableCors("AllowSpecificOrigin")]
         public ActionResult Post([FromBody] WeatherSensor? createdNote)
         {
             if (createdNote == null)
@@ -88,7 +92,7 @@ namespace MongoNotesAPI.Controllers
             try
             {
                 _repository.Create(createdNote);
-                return Ok("New note added");
+                return Ok("New Record Added");
             }
             catch (Exception ex)
             {
@@ -96,11 +100,12 @@ namespace MongoNotesAPI.Controllers
                 return Problem(detail: ex.Message, statusCode: 500);
             }
 
-         
+
         }
 
         // POST api/Notes/PostMany
         [HttpPost("PostMany")]
+        [EnableCors("AllowSpecificOrigin")]
         public ActionResult PostMany([FromBody] List<WeatherSensor>? createdNotes)
         {
             if (createdNotes == null || createdNotes.Count == 0)
@@ -114,6 +119,7 @@ namespace MongoNotesAPI.Controllers
 
         // PUT api/<NotesController>/5
         [HttpPut("{id}")]
+        [EnableCors("AllowSpecificOrigin")]
         public ActionResult Put(string id, [FromBody] WeatherSensor updatedNote)
         {
             if (String.IsNullOrWhiteSpace(id) || updatedNote == null)
@@ -127,15 +133,16 @@ namespace MongoNotesAPI.Controllers
 
         // PATCH api/Notes/UpdateMany
         [HttpPatch("UpdateMany")]
+        [EnableCors("AllowSpecificOrigin")]
         public ActionResult UpdateMany([FromBody] WeatherPatchDetailsDTO? details)
         {
             //Check if a valid set of update details was provided.
             if (details == null)
-            { 
-                return BadRequest(); 
+            {
+                return BadRequest();
             }
             //Check if at least one of the update fiields has detilas to send to the database
-            if (String.IsNullOrWhiteSpace(details.deviceName) )
+            if (String.IsNullOrWhiteSpace(details.deviceName))
             {
                 return BadRequest();
             }
@@ -153,6 +160,7 @@ namespace MongoNotesAPI.Controllers
         // DELETE api/<NotesController>/5
         [HttpDelete("{id}")]
         [ApiKey("ADMIN")]
+        [EnableCors("AllowSpecificOrigin")]
         public ActionResult Delete(string id, string apiKey)
         {
             if (String.IsNullOrWhiteSpace(id))
@@ -160,29 +168,40 @@ namespace MongoNotesAPI.Controllers
                 return BadRequest("A valid _id is required to perform this operation");
             }
 
-       
+
 
             //Process the reauest and store the details regarding the success/failure of the 
             //request
             var result = _repository.Delete(id);
             //If the request show a failure, inform the user.
-            if (result.WasSuccessful == false) 
-            { 
+            if (result.WasSuccessful == false)
+            {
                 return BadRequest(result);
             }
             //Otherwise, send an Ok(200) message
             return Ok(result);
         }
+
+
+
+
+        [ApiKey("ADMIN")]
+        [EnableCors("AllowSpecificOrigin")]
         [HttpGet("GetHighestTemp")]
-        public ActionResult GetHighestTemp(WeatherFilter filter)
+        public ActionResult GetHighestTemp([FromQuery] WeatherFilter filter)
         {
-            _repository.getHighestTemp(filter);
-            return Ok();
+            var highestTempSensor = _repository.GetHighestTemp(filter);
+            return Ok(highestTempSensor);
         }
+
+
+
+
 
         //DELETE: api/Notes/DeleteOlderThanGivenDays
         [HttpDelete("DeleteOlderThanGivenDays")]
-        public ActionResult DeleteOlderThanDays([FromQuery]int? days) 
+        [EnableCors("AllowSpecificOrigin")]
+        public ActionResult DeleteOlderThanDays([FromQuery] int? days)
         {
             //Check if a days value is provided and that it complies with our business rules 
             if (days == null || days <= 30)
@@ -212,10 +231,11 @@ namespace MongoNotesAPI.Controllers
         }
 
         [HttpDelete("DeleteByTitleMatch")]
+        [EnableCors("AllowSpecificOrigin")]
         public ActionResult DeleteByTitleMatch([FromQuery] string? searchTerm)
         {
             //Validate our user input to ensure it meets our busines rules.
-            if (searchTerm == null || searchTerm.Length <=3 )
+            if (searchTerm == null || searchTerm.Length <= 3)
             {
                 return BadRequest("This endpoint requires a search parameter provided " +
                                                                 "of more then 3 Characters ");
@@ -225,7 +245,7 @@ namespace MongoNotesAPI.Controllers
             {
                 //Create a new note filter object which takes the search term and will later be
                 //passed to the delete method to delete based upon thr term provided.
-               // id = searchTerm
+                // id = searchTerm
             };
 
             //Process the reauest and store the details regarding the success/failure of the 
@@ -240,7 +260,7 @@ namespace MongoNotesAPI.Controllers
             return Ok(result);
         }
 
-       
+
 
     }
 }

@@ -16,7 +16,7 @@ builder.Services.AddSwaggerGen(options =>
 {
     options.AddSecurityDefinition("apiKey", new OpenApiSecurityScheme
     {
-        Description = "Enter Your Api Key Here!",
+        Description = "Enter Your Api Key Here",
         Name = "apiKey",
         In = ParameterLocation.Query,
         Type = SecuritySchemeType.ApiKey
@@ -52,26 +52,45 @@ builder.Services.AddScoped<IWeatherRepository,WeatherRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 
 //Add new cors policies to the system in our services.
-builder.Services.AddCors(options => 
+builder.Services.AddCors(options =>
 {
-    //Add a new policy to the system called "GooglePolicy"
-    options.AddPolicy("GooglePolicy", p => 
+    // Add a new policy to the system called "GooglePolicy"
+    options.AddPolicy("GooglePolicy", p =>
     {
-        //Set the policy rules to allow communication from google.com or google.com.au
-        p.WithOrigins("https://www.google.com", "https://www.google.com.au");
-        p.AllowAnyHeader();
-        //Set the HTTP methods that these origins are allowed to send. 
-        p.WithMethods("GET","PUT","POST","DELETE");
+        // Set the policy rules to allow communication from google.com or google.com.au
+        p.WithOrigins("https://www.google.com", "https://www.google.com.au")
+         .AllowAnyHeader()
+         // Set the HTTP methods that these origins are allowed to send
+         .WithMethods("GET", "PUT", "POST", "DELETE");
     });
+
+    // Add a new policy to the system called "YouTubePolicy"
     options.AddPolicy("YouTubePolicy", p =>
     {
-        //Set the policy rules to allow communication from google.com or google.com.au
-        p.WithOrigins("https://www.youtube.com");
-        p.AllowAnyHeader();
-        //Set the HTTP methods that these origins are allowed to send. 
-        p.WithMethods("GET");
+        // Set the policy rules to allow communication from youtube.com
+        p.WithOrigins("https://www.youtube.com")
+         .AllowAnyHeader()
+         // Set the HTTP methods that these origins are allowed to send
+         .WithMethods("GET");
+    });
+
+    // Add a new policy to the system called "AllowSpecificOrigin"
+    options.AddPolicy("AllowSpecificOrigin", builder =>
+    {
+        builder.WithOrigins("https://example.com")
+               .AllowAnyHeader()
+               .AllowAnyMethod();
+    });
+
+    // Add a new policy to the system called "AllowAllOrigins"
+    options.AddPolicy("AllowAllOrigins", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyHeader()
+               .AllowAnyMethod();
     });
 });
+
 
 builder.Services.AddScoped<ExampleMidlewareClass>();
 
@@ -87,7 +106,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("YouTubePolicy");
+app.UseCors("AllowSpecificOrigin");
 
 app.UseAuthorization();
 

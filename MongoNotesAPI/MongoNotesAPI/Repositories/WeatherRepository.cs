@@ -7,6 +7,7 @@ using MongoNotesAPI.Models.Filters;
 using MongoNotesAPI.Services;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Xml.Linq;
 using ZstdSharp.Unsafe;
 using static MongoDB.Driver.WriteConcern;
 
@@ -70,29 +71,24 @@ namespace MongoNotesAPI.Repositories
                 };
             }
         }
-        public WeatherSensor getHighestTemp(WeatherFilter filter)
-        {
 
-           
-            var activeFilter = GenerateFilterDefinition(filter);
 
-            var dateQuery = new BsonDocument
-            {
-                {"DateAdded" , new BsonDocument {
-                    { "$gt" , filter.CreatedAfter},
-                    { "$lt" , filter.CreatedBefore}
-                }}
-            };
-           
-            //Uses the filter builder to create a single filter that looks for an equals
-            //match on the note's id against the provided objId.
+public WeatherSensor GetHighestTemp(WeatherFilter filter)
+    {
+        var filterBuilder = Builders<WeatherSensor>.Filter;
+        var dateFilter = filterBuilder.And(
+            filterBuilder.Gte(sensor => sensor.Time, filter.CreatedAfter),
+            filterBuilder.Lte(sensor => sensor.Time, filter.CreatedBefore)
+        );
 
-            //Call the find method using the filter to find the first recod that matches.
-            return _data.Find(dateQuery).FirstOrDefault();
+        var sortDefinition = Builders<WeatherSensor>.Sort.Descending(sensor => sensor.Temperature);
 
-        }
+        return _data.Find(dateFilter)
+                     .Sort(sortDefinition)
+                     .FirstOrDefault();
+    }
 
-        public OperationResponseDTO<WeatherSensor> DeleteMany(WeatherFilter weatherFilter)
+    public OperationResponseDTO<WeatherSensor> DeleteMany(WeatherFilter weatherFilter)
         {
             //Passes the provided filter to the method that will build a set of mongo db
             //filter definitions.
@@ -265,7 +261,7 @@ namespace MongoNotesAPI.Repositories
             var builder = Builders<WeatherSensor>.Filter;
             //Uses the filter builder to create an empty filter(no filter options)
             var filter = builder.Empty;
-    
+    /*
             if (String.IsNullOrEmpty(weatherFilter.deviceName) == false)
             {
                 //Cleans the original string to remove any charactes that might cause issues with our
@@ -275,7 +271,7 @@ namespace MongoNotesAPI.Repositories
                 //Adds a filter to the current filter set. This filter is a contains filter to find if the
                 //specified field contains the provided string
                 filter &= builder.Regex(data => data.deviceName, BsonRegularExpression.Create(cleanedString));
-            }
+            }*/
             /*
             if (String.IsNullOrEmpty(weatherFilter.id) == false)
             {
@@ -298,6 +294,7 @@ namespace MongoNotesAPI.Repositories
                 //Created after date of the noteFilter
                 filter &= builder.Gte(data => data.Time, weatherFilter.CreatedAfter.Value);
             }
+            
 
             //Returns the completed filter definitions to the caller.
             return filter;

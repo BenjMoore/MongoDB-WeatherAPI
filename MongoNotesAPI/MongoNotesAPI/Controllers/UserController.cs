@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoNotesAPI.Middleware;
 using MongoNotesAPI.Models;
@@ -9,7 +10,7 @@ namespace MongoNotesAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-  
+
 
     public class UserController : ControllerBase
     {
@@ -23,7 +24,8 @@ namespace MongoNotesAPI.Controllers
         }
 
         [HttpPost]
-        [ApiKey("ADMIN")]
+        //[ApiKey("ADMIN")]
+        [EnableCors("AllowSpecificOrigin")]
 
         public ActionResult CreateUser(string apiKey, UserCreateDTO userDTO)
         {
@@ -36,7 +38,7 @@ namespace MongoNotesAPI.Controllers
                 Email = userDTO.Email,
                 Role = userDTO.Role,
                 Active = true
-                
+
             };
 
             var result = _userRepository.CreateUser(user);
@@ -45,12 +47,13 @@ namespace MongoNotesAPI.Controllers
 
         [HttpDelete("DeleteUser")]
         [ApiKey("ADMIN")]
+        [EnableCors("AllowSpecificOrigin")]
         public ActionResult DeleteUser(ApiUser user, string apiKey, String id)
         {
             //Ckeck if the user apiKey meets the required level(Admin Access) to add a
             //new user to the system.
 
-            var result = _userRepository.DeleteUser(user,id);
+            var result = _userRepository.DeleteUser(user, id);
             return Ok();
         }
         // public ActionResult DeleteUser(string apiKey, UserDeleteDTO userDTO)
@@ -62,5 +65,4 @@ namespace MongoNotesAPI.Controllers
         //     return Ok();
     }
 
-    }
- 
+}
