@@ -66,7 +66,7 @@ namespace MongoNotesAPI.Controllers
 
         // GET api/<NotesController>/5
         [HttpGet("{id}")]
-        public ActionResult Get(string id, [FromQuery]string apiKey)
+        public ActionResult Get(string id)
         {
             if (String.IsNullOrWhiteSpace(id))
             {
@@ -104,7 +104,7 @@ namespace MongoNotesAPI.Controllers
             try
             {
                 _repository.Create(createdNote);
-                return Ok("New Sensor added");
+                return CreatedAtAction("Post",createdNote);
             }
             catch (Exception ex)
             {
