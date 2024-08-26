@@ -16,7 +16,6 @@ namespace MongoNotesAPI.Repositories
     {
         //Stores the reference to our mongo collection so we can use it in our code.
         private readonly IMongoCollection<ApiUser> _users;
-
         //Request the mongo conneciton builder class from our dependency injection
         public UserRepository(MongoConnectionBuilder builder)
         {
@@ -157,9 +156,6 @@ namespace MongoNotesAPI.Repositories
             {
                 return false;
             }
-           
-           
-           
         }
         private FilterDefinition<ApiUser> GenerateFilterDefinition(UserFilter userFilter)
         {

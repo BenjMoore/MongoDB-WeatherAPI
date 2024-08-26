@@ -1,5 +1,6 @@
 ﻿using ICTPRG553.Models;
 using ICTPRG553.Models.DTOs;
+using ICTPRG553.Models.Filters;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Mvc;
@@ -77,19 +78,28 @@ namespace MongoNotesAPI.Controllers
         }
 
         [HttpGet("GetFilteredData")]
-        public FilteredDataDTO GetFiltered(DateTime selectedDateTime)
-        {    
-            var result = _repository.GetFilteredData(selectedDateTime);
+        public FilteredDataDTO GetFiltered(DateTime selectedDateTime, string deviceName)
+        {   if (deviceName == null) 
+            {
+                deviceName = String.Empty;
+            }
+            var result = _repository.GetFilteredData(selectedDateTime,deviceName);
             return result;
         }
 
-        [HttpGet("MaxPrecipitationSingle")]
+        [HttpGet("MaxPrecipitation")]
         public PrecipitationDTO MaxPrecipitation()
         {
             var result = _repository.GetMaxPrecipitation();
             return result;
         }
 
+        [HttpGet("MaxTemp")]
+        public TempFilter MaxTemp()
+        {
+            var result = _repository.GetMaxTemp();
+            return result;
+        }
         // POST api/<NotesController>
         [HttpPost("New")]
         public ActionResult Post([FromBody] WeatherSensor? createdNote)
@@ -175,7 +185,7 @@ namespace MongoNotesAPI.Controllers
         // DELETE api/<NotesController>/5
         [HttpDelete("Delete/{id}")]
         [ApiKey("ADMIN")]
-        public ActionResult Delete(string id, string apiKey)
+        public ActionResult Delete(string id)
         {
             if (String.IsNullOrWhiteSpace(id))
             {
@@ -205,9 +215,6 @@ namespace MongoNotesAPI.Controllers
             return result;
         }
         */
-
-
-
 
         [HttpPut("Precipitation/{id}")]
         public ActionResult Precipitation(string id, [FromBody] PrecipitationDTO updatedSensor)
@@ -283,8 +290,6 @@ namespace MongoNotesAPI.Controllers
             return Ok(result);
         }
         */
-
-       
 
     }
 }

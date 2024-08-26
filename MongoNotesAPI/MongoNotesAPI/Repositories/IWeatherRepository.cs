@@ -1,5 +1,6 @@
 ﻿using ICTPRG553.Models;
 using ICTPRG553.Models.DTOs;
+using ICTPRG553.Models.Filters;
 using MongoNotesAPI.Models;
 using MongoNotesAPI.Models.Filters;
 
@@ -13,6 +14,7 @@ namespace MongoNotesAPI.Repositories
     public interface IWeatherRepository: IGenericRepository<WeatherSensor>
     {
         public PrecipitationDTO GetMaxPrecipitation();
+        public TempFilter GetMaxTemp();
         IEnumerable<WeatherSensor> GetAll(WeatherFilter noteFilter);
         void CreateMany(List<WeatherSensor> noteList);
         OperationResponseDTO<WeatherSensor> DeleteMany(WeatherFilter filter);
@@ -20,7 +22,8 @@ namespace MongoNotesAPI.Repositories
         // public HighestTempDTO getHighestTemp();
         public OperationResponseDTO<WeatherSensor> UpdatePrecipitation(string id, PrecipitationDTO updatedReading);
         //public IEnumerable<WeatherSensor> GetWeatherFiltered(WeatherFilter weatherFilter);
-        public FilteredDataDTO GetFilteredData(DateTime selectedDateTime);
-
+        public FilteredDataDTO GetFilteredData(DateTime selectedDateTime, string deviceName);
+        
     }
 }
+

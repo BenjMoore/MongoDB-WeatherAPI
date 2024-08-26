@@ -1,5 +1,6 @@
 ﻿using ICTPRG553.Models;
 using ICTPRG553.Models.DTOs;
+using ICTPRG553.Models.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
@@ -71,9 +72,9 @@ namespace MongoNotesAPI.Repositories
             }
         }
 
-        public PrecipitationDTO GetMaxPrecipitation() 
+        public PrecipitationDTO GetMaxPrecipitation()
         {
-           // GenerateFilterDefinition(filter);
+            // GenerateFilterDefinition(filter);
 
             var weatherCollection = _data.AsQueryable();
             var resultLinq = weatherCollection.Where(n => n.Time >= DateTime.Now.AddMonths(-5))
@@ -87,10 +88,25 @@ namespace MongoNotesAPI.Repositories
                                        }).FirstOrDefault();
             return resultLinq;
         }
+        public TempFilter GetMaxTemp() 
+        {
+            var weatherCollection = _data.AsQueryable();
+            var tempresult = weatherCollection.Where(n => n.Time >= DateTime.Now.AddMonths(-5))
+                                       .OrderBy(n => n.deviceName)
+                                       .Select(n => new TempFilter
+                                       {
+                                           deviceName = n.deviceName,
+                                           Temperature = n.Temperature,
+                                           Time = n.Time,
+
+                                       }).FirstOrDefault();
+            return tempresult;
+           
+        }
         public FilteredDataDTO GetFilteredData(DateTime selectedDateTime)
         {
             //var weatherfilter = GenerateFilterDefinition(filter);
-            
+
             var weatherCollection = _data.AsQueryable();
             var resultLinq = weatherCollection.Where(n => n.Time == selectedDateTime)
                                        .OrderBy(n => n.Time)
@@ -106,7 +122,28 @@ namespace MongoNotesAPI.Repositories
                                        }).FirstOrDefault();
             return resultLinq;
         }
-        
+
+        public FilteredDataDTO GetFilteredData(DateTime selectedDateTime, string deviceName)
+        {
+            var weatherCollection = _data.AsQueryable();
+            
+                var resultLinq = weatherCollection
+                                    .Where(n => n.Time == selectedDateTime && n.deviceName == deviceName) // Filter by both date and device name
+                                    .OrderBy(n => n.Time)
+                                    .Select(n => new FilteredDataDTO
+                                    {
+                                        deviceName = n.deviceName,
+                                        Time = n.Time,
+                                        Temperature = n.Temperature,
+                                        atmosphericPressure = n.atmosphericPressure,
+                                        solarRadiation = n.solarRadiation,
+                                        Precipitation = n.Precipitation,
+                                    })
+                                    .FirstOrDefault(); // Get the first matching record
+
+                return resultLinq;
+            
+        }
 
         public OperationResponseDTO<WeatherSensor> DeleteMany(WeatherFilter weatherFilter)
         {
@@ -159,8 +196,6 @@ namespace MongoNotesAPI.Repositories
             //which in this case will be every entry and then put them in a collection
             return _data.Find(filter).ToEnumerable();
         }
-
-      
 
         public WeatherSensor GetById(string id)
         {
@@ -226,6 +261,7 @@ namespace MongoNotesAPI.Repositories
                 };
             }
         }
+
         public OperationResponseDTO<WeatherSensor> UpdatePrecipitation(string id, PrecipitationDTO updatedReading)
         {
             //Takes the id string and converts it back to an Object Id in the format 
@@ -268,6 +304,7 @@ namespace MongoNotesAPI.Repositories
                 };
             }
         }
+
         public OperationResponseDTO<WeatherSensor> UpdateMany(WeatherPatchDetailsDTO details)
         {
             //Passes the provided filter parameters to the method to build the filter rules
@@ -317,7 +354,6 @@ namespace MongoNotesAPI.Repositories
             //well as the updated note details that it will be replaced with.
             _data.ReplaceOne(filter, updatedReading);
         }
-
         private FilterDefinition<WeatherSensor> GenerateFilterDefinition(WeatherFilter weatherFilter)
         {
             //Requests a filter builder for the Note model from the builders class
@@ -335,6 +371,7 @@ namespace MongoNotesAPI.Repositories
                 //specified field contains the provided string
                 filter &= builder.Regex(data => data.deviceName, BsonRegularExpression.Create(cleanedString));
             }
+           
             /*
             if (String.IsNullOrEmpty(weatherFilter.id) == false)
             {
@@ -361,10 +398,9 @@ namespace MongoNotesAPI.Repositories
             //Returns the completed filter definitions to the caller.
             return filter;
         }
-
         // TODO  |  \\
         //        V   \\
-        private UpdateDefinition<WeatherSensor> GenerateUpdateDefinition(WeatherPatchDetailsDTO details ) 
+        private UpdateDefinition<WeatherSensor> GenerateUpdateDefinition(WeatherPatchDetailsDTO details) 
         {
             //Creates a filter builder to allow us to build update rules in a way that
             ////allows us to append extra rules to them afterwards.
@@ -399,6 +435,5 @@ namespace MongoNotesAPI.Repositories
             //Returns the completed update definitions/rules to the caller 
             return updateRules;
         }
-
     }
 }
