@@ -9,6 +9,7 @@ using MongoNotesAPI.Middleware;
 using MongoNotesAPI.Models;
 using MongoNotesAPI.Models.Filters;
 using MongoNotesAPI.Repositories;
+using System;
 using System.Security.Cryptography;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -78,10 +79,14 @@ namespace MongoNotesAPI.Controllers
         }
 
         [HttpGet("GetFilteredData")]
-        public FilteredDataDTO GetFiltered(DateTime selectedDateTime, string deviceName)
+        public FilteredDataDTO GetFiltered(DateTime? selectedDateTime, string deviceName)
         {   if (deviceName == null) 
             {
                 deviceName = String.Empty;
+            }
+            if (!selectedDateTime.HasValue)
+            {
+                selectedDateTime = null;
             }
             var result = _repository.GetFilteredData(selectedDateTime,deviceName);
             return result;

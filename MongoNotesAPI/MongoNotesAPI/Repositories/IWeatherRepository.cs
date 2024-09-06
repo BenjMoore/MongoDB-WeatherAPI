@@ -22,7 +22,7 @@ namespace MongoNotesAPI.Repositories
         // public HighestTempDTO getHighestTemp();
         public OperationResponseDTO<WeatherSensor> UpdatePrecipitation(string id, PrecipitationDTO updatedReading);
         //public IEnumerable<WeatherSensor> GetWeatherFiltered(WeatherFilter weatherFilter);
-        public FilteredDataDTO GetFilteredData(DateTime selectedDateTime, string deviceName);
+        public FilteredDataDTO GetFilteredData(DateTime? selectedDateTime, string deviceName);
         
     }
 }

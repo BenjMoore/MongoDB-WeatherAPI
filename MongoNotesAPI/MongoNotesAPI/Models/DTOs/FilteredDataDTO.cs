@@ -5,9 +5,9 @@ namespace ICTPRG553.Models.DTOs
     public class FilteredDataDTO
     {
         [BsonElement("Device Name")]
-        public string deviceName { get; set; }
+        public string? deviceName { get; set; }
         [BsonElement("Time")]
-        public DateTime Time { get; set; }
+        public DateTime? Time { get; set; }
         [BsonElement("Temperature (°C)")]
         public Double Temperature { get; set; }
         [BsonElement("Atmospheric Pressure (kPa)")]

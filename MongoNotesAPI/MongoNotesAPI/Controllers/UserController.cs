@@ -28,7 +28,7 @@ namespace MongoNotesAPI.Controllers
         }
 
         [HttpPost]
-        [ApiKey("ADMIN")]
+        //[ApiKey("ADMIN")]
 
         public ActionResult CreateUser(string apiKey, UserCreateDTO userDTO)
         {

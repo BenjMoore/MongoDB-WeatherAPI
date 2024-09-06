@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 using MongoNotesAPI.Models;
 using MongoNotesAPI.Models.Filters;
 using MongoNotesAPI.Services;
@@ -71,45 +72,57 @@ namespace MongoNotesAPI.Repositories
                 };
             }
         }
-
         public PrecipitationDTO GetMaxPrecipitation()
         {
-            // GenerateFilterDefinition(filter);
-
             var weatherCollection = _data.AsQueryable();
-            var resultLinq = weatherCollection.Where(n => n.Time >= DateTime.Now.AddMonths(-5))
-                                       .OrderBy(n => n.deviceName)
-                                       .Select(n => new PrecipitationDTO
-                                       {
-                                           deviceName = n.deviceName,
-                                           Time = n.Time,
-                                           Precipitation = n.Precipitation,
 
-                                       }).FirstOrDefault();
+            // Order by Precipitation in descending order to get the highest precipitation first
+            var resultLinq = weatherCollection
+                                    .OrderByDescending(n => n.Precipitation)
+                                    .Select(n => new PrecipitationDTO
+                                    {
+                                        deviceName = n.deviceName,
+                                        Time = n.Time,
+                                        Precipitation = n.Precipitation,
+
+                                    }).FirstOrDefault();
+
             return resultLinq;
         }
-        public TempFilter GetMaxTemp() 
+
+        public TempFilter GetMaxTemp()
         {
             var weatherCollection = _data.AsQueryable();
-            var tempresult = weatherCollection.Where(n => n.Time >= DateTime.Now.AddMonths(-5))
-                                       .OrderBy(n => n.deviceName)
-                                       .Select(n => new TempFilter
-                                       {
-                                           deviceName = n.deviceName,
-                                           Temperature = n.Temperature,
-                                           Time = n.Time,
 
-                                       }).FirstOrDefault();
+            // Order by Temperature in descending order to get the highest temperature first
+            var tempresult = weatherCollection
+                                    .OrderByDescending(n => n.Temperature)
+                                    .Select(n => new TempFilter
+                                    {
+                                        deviceName = n.deviceName,
+                                        Temperature = n.Temperature,
+                                        Time = n.Time,
+
+                                    }).FirstOrDefault();
             return tempresult;
-           
         }
-        public FilteredDataDTO GetFilteredData(DateTime selectedDateTime)
-        {
-            //var weatherfilter = GenerateFilterDefinition(filter);
 
-            var weatherCollection = _data.AsQueryable();
-            var resultLinq = weatherCollection.Where(n => n.Time == selectedDateTime)
-                                       .OrderBy(n => n.Time)
+        public FilteredDataDTO GetFilteredData(DateTime? selectedDateTime, string? deviceName)
+        {
+            var weatherCollection = (IMongoQueryable<WeatherSensor>)_data.AsQueryable(); // Explicit cast
+
+            // Apply filters conditionally
+            if (selectedDateTime.HasValue)
+            {
+                weatherCollection = weatherCollection.Where(n => n.Time == selectedDateTime.Value);
+            }
+
+            if (!string.IsNullOrEmpty(deviceName))
+            {
+                weatherCollection = weatherCollection.Where(n => n.deviceName == deviceName);
+            }
+
+            var resultLinq = weatherCollection.OrderBy(n => n.Time)
                                        .Select(n => new FilteredDataDTO
                                        {
                                            deviceName = n.deviceName,
@@ -118,32 +131,13 @@ namespace MongoNotesAPI.Repositories
                                            atmosphericPressure = n.atmosphericPressure,
                                            solarRadiation = n.solarRadiation,
                                            Precipitation = n.Precipitation,
-
                                        }).FirstOrDefault();
+
             return resultLinq;
         }
 
-        public FilteredDataDTO GetFilteredData(DateTime selectedDateTime, string deviceName)
-        {
-            var weatherCollection = _data.AsQueryable();
-            
-                var resultLinq = weatherCollection
-                                    .Where(n => n.Time == selectedDateTime && n.deviceName == deviceName) // Filter by both date and device name
-                                    .OrderBy(n => n.Time)
-                                    .Select(n => new FilteredDataDTO
-                                    {
-                                        deviceName = n.deviceName,
-                                        Time = n.Time,
-                                        Temperature = n.Temperature,
-                                        atmosphericPressure = n.atmosphericPressure,
-                                        solarRadiation = n.solarRadiation,
-                                        Precipitation = n.Precipitation,
-                                    })
-                                    .FirstOrDefault(); // Get the first matching record
 
-                return resultLinq;
-            
-        }
+
 
         public OperationResponseDTO<WeatherSensor> DeleteMany(WeatherFilter weatherFilter)
         {

@@ -964,23 +964,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ben\\.nuget\\packages\\": {},
+    "C:\\Users\\Benjamin Moore\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Repos\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\ICTPRG553.csproj",
+      "projectUniqueName": "C:\\Users\\Benjamin Moore\\Github\\APIMongoAssesmentAT1\\MongoNotesAPI\\MongoNotesAPI\\ICTPRG553.csproj",
       "projectName": "ICTPRG553",
-      "projectPath": "E:\\Repos\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\ICTPRG553.csproj",
-      "packagesPath": "C:\\Users\\Ben\\.nuget\\packages\\",
-      "outputPath": "E:\\Repos\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\obj\\",
+      "projectPath": "C:\\Users\\Benjamin Moore\\Github\\APIMongoAssesmentAT1\\MongoNotesAPI\\MongoNotesAPI\\ICTPRG553.csproj",
+      "packagesPath": "C:\\Users\\Benjamin Moore\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Benjamin Moore\\Github\\APIMongoAssesmentAT1\\MongoNotesAPI\\MongoNotesAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Ben\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Benjamin Moore\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
