@@ -33,7 +33,7 @@ namespace MongoNotesAPI.Controllers
 
         // GET: api/Notes
         [HttpGet("GetAll")]
-        [HttpHead]
+        //[HttpHead]
         public IEnumerable<WeatherSensor> Get()
         {
             //Sends a message to the repository ot request it to retrieve all
@@ -49,7 +49,7 @@ namespace MongoNotesAPI.Controllers
             //entries from the database
             return _repository.GetAll(filter);
         }
-
+        /*
         [HttpHead("Filtered")]
         public ActionResult GetHeaders([FromQuery] WeatherFilter filter)
         {
@@ -65,7 +65,7 @@ namespace MongoNotesAPI.Controllers
 
             return Ok();
         }
-
+        */
         // GET api/<NotesController>/5
         [HttpGet("{id}")]
         public ActionResult Get(string id)
@@ -150,43 +150,38 @@ namespace MongoNotesAPI.Controllers
         /// <remarks>Test</remarks>
         /// <returns></returns>
         // PUT api/<NotesController>/5
-        [HttpPut("Update/{id}")]
-        public ActionResult Put(string id, [FromBody] WeatherSensor updatedNote)
+       
+
+       
+        [HttpDelete("DeleteOlderThanGivenDays")]
+        public ActionResult DeleteOlderThanDays([FromQuery] int? days)
         {
-            if (String.IsNullOrWhiteSpace(id) || updatedNote == null)
+            //Check if a days value is provided and that it complies with our business rules 
+            if (days == null || days <= 30)
             {
                 return BadRequest();
             }
 
-            _repository.Update(id, updatedNote);
-            return Ok();
+            WeatherFilter filter = new WeatherFilter
+            {
+                //Add a created before filter to our filter details to be used for building our
+                //filter definitions later. The calculation in the add days section ensures the value
+                //will result in a past date, not a future one by accident.
+                CreatedBefore = DateTime.Now.AddDays(Math.Abs((int)days) * -1)
+            };
+
+            //Process the reauest and store the details regarding the success/failure of the 
+            //request
+            var result = _repository.DeleteMany(filter);
+            //If the request show a failure, inform the user.
+            if (result.WasSuccessful == false)
+            {
+                result.Message = "No records found within that range";
+                return Ok(result);
+            }
+            //Otherwise, send an Ok(200) message
+            return Ok(result);
         }
-
-        // PATCH api/Notes/UpdateMany
-        [HttpPatch("UpdateMany")]
-        public ActionResult UpdateMany([FromBody] WeatherPatchDetailsDTO? details)
-        {
-            //Check if a valid set of update details was provided.
-            if (details == null)
-            { 
-                return BadRequest(); 
-            }
-            //Check if at least one of the update fiields has detilas to send to the database
-            if (String.IsNullOrWhiteSpace(details.deviceName) )
-            {
-                return BadRequest();
-            }
-            //Check that we have at least 1 valid filter optoin set, otherwise the update will
-            //target every document in the collection.
-            if (details.Filter.CreatedBefore == null && details.Filter.CreatedAfter == null)
-            {
-                return BadRequest();
-            }
-
-            _repository.UpdateMany(details);
-            return Ok();
-        }
-
         // DELETE api/<NotesController>/5
         [HttpDelete("Delete/{id}")]
         [ApiKey("ADMIN")]
@@ -220,7 +215,17 @@ namespace MongoNotesAPI.Controllers
             return result;
         }
         */
+        [HttpPut("Update/{id}")]
+        public ActionResult Put(string id, [FromBody] WeatherSensor updatedNote)
+        {
+            if (String.IsNullOrWhiteSpace(id) || updatedNote == null)
+            {
+                return BadRequest();
+            }
 
+            _repository.Update(id, updatedNote);
+            return Ok();
+        }
         [HttpPut("Precipitation/{id}")]
         public ActionResult Precipitation(string id, [FromBody] PrecipitationDTO updatedSensor)
         {
@@ -235,36 +240,8 @@ namespace MongoNotesAPI.Controllers
 
 
         //DELETE: api/Notes/DeleteOlderThanGivenDays
-        [HttpDelete("DeleteOlderThanGivenDays")]
-        public ActionResult DeleteOlderThanDays([FromQuery]int? days) 
-        {
-            //Check if a days value is provided and that it complies with our business rules 
-            if (days == null || days <= 30)
-            {
-                return BadRequest();
-            }
 
-            WeatherFilter filter = new WeatherFilter
-            {
-                //Add a created before filter to our filter details to be used for building our
-                //filter definitions later. The calculation in the add days section ensures the value
-                //will result in a past date, not a future one by accident.
-                CreatedBefore = DateTime.Now.AddDays(Math.Abs((int)days) * -1)
-            };
 
-            //Process the reauest and store the details regarding the success/failure of the 
-            //request
-            var result = _repository.DeleteMany(filter);
-            //If the request show a failure, inform the user.
-            if (result.WasSuccessful == false)
-            {
-                result.Message = "No records found within that range";
-                return Ok(result);
-            }
-            //Otherwise, send an Ok(200) message
-            return Ok(result);
-        }
-      
         /*
         [HttpDelete("DeleteByTitleMatch")]
         public ActionResult DeleteByTitleMatch([FromQuery] string? searchTerm)
@@ -295,6 +272,30 @@ namespace MongoNotesAPI.Controllers
             return Ok(result);
         }
         */
+        // PATCH api/Notes/UpdateMany
+        [HttpPatch("UpdateMany")]
+        public ActionResult UpdateMany([FromBody] WeatherPatchDetailsDTO? details)
+        {
+            //Check if a valid set of update details was provided.
+            if (details == null)
+            {
+                return BadRequest();
+            }
+            //Check if at least one of the update fiields has detilas to send to the database
+            if (String.IsNullOrWhiteSpace(details.deviceName))
+            {
+                return BadRequest();
+            }
+            //Check that we have at least 1 valid filter optoin set, otherwise the update will
+            //target every document in the collection.
+            if (details.Filter.CreatedBefore == null && details.Filter.CreatedAfter == null)
+            {
+                return BadRequest();
+            }
+
+            _repository.UpdateMany(details);
+            return Ok();
+        }
 
     }
 }

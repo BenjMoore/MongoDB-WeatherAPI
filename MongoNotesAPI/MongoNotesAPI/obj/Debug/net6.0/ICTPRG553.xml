@@ -4,7 +4,7 @@
         <name>ICTPRG553</name>
     </assembly>
     <members>
-        <member name="M:MongoNotesAPI.Controllers.WeatherController.Put(System.String,MongoNotesAPI.Models.WeatherSensor)">
+        <member name="M:MongoNotesAPI.Controllers.WeatherController.DeleteOlderThanDays(System.Nullable{System.Int32})">
             <summary>
             
             </summary>
