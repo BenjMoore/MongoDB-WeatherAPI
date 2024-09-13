@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ICTPRG553")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a0ab9b2fde7c690736c684bb46aca3dc5cfce6dd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3660967dfc3444d2ede7d3f2bc8cc25627bd7f07")]
 [assembly: System.Reflection.AssemblyProductAttribute("ICTPRG553")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ICTPRG553")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -37,8 +37,8 @@ namespace MongoNotesAPI.Controllers
         /// like the name, email, role, and creation date of the new user.</param>
         /// <returns>An Ok result if the user is successfully created, or an error if the creation fails.</returns>
         [HttpPost]
-        // [ApiKey("ADMIN")]
-        public ActionResult CreateUser(string apiKey, UserCreateDTO userDTO)
+        [ApiKey("ADMIN")]
+        public ActionResult CreateUser(UserCreateDTO userDTO)
         {
             // Check if the user's API key meets the required level (Admin Access) to add a new user to the system.
             var user = new ApiUser
@@ -104,7 +104,7 @@ namespace MongoNotesAPI.Controllers
         /// <returns>An Ok result if the user is successfully deleted, or an error message if the deletion fails.</returns>
         [HttpDelete("DeleteUser")]
         [ApiKey("ADMIN")]
-        public ActionResult DeleteUser(ApiUser user, string apiKey, string id)
+        public ActionResult DeleteUser(ApiUser user, string id)
         {
             // Check if the user's API key meets the required level (Admin Access) to delete a user.
             var result = _userRepository.DeleteUser(user, id);

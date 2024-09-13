@@ -78,6 +78,7 @@ namespace MongoNotesAPI.Repositories
 
             // Order by Precipitation in descending order to get the highest precipitation first
             var resultLinq = weatherCollection
+                                    .Where(sensor => sensor.Time >= DateTime.UtcNow.AddMonths(-5))
                                     .OrderByDescending(n => n.Precipitation)
                                     .Select(n => new PrecipitationDTO
                                     {
@@ -96,6 +97,7 @@ namespace MongoNotesAPI.Repositories
 
             // Order by Temperature in descending order to get the highest temperature first
             var tempresult = weatherCollection
+                                    .Where(sensor => sensor.Time >= DateTime.UtcNow.AddMonths(-5))
                                     .OrderByDescending(n => n.Temperature)
                                     .Select(n => new TempFilter
                                     {
@@ -331,7 +333,7 @@ namespace MongoNotesAPI.Repositories
                 };
             }
         }
-
+      
         //This is an alternate variation of the above upsate mthod which does a full
         //find and replace of the note object.
         public void Replace(string id, WeatherSensor updatedReading)
@@ -348,6 +350,8 @@ namespace MongoNotesAPI.Repositories
             //well as the updated note details that it will be replaced with.
             _data.ReplaceOne(filter, updatedReading);
         }
+       
+
         private FilterDefinition<WeatherSensor> GenerateFilterDefinition(WeatherFilter weatherFilter)
         {
             //Requests a filter builder for the Note model from the builders class

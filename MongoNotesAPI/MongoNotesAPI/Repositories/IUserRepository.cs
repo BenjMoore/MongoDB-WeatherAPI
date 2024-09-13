@@ -13,6 +13,6 @@ namespace MongoNotesAPI.Repositories
         public OperationResponseDTO<ApiUser> DeleteMany(UserFilter Filter);
         //public OperationResponseDTO<ApiUser> UpdateRole(string id, string role);
         public OperationResponseDTO<ApiUser> UpdateRole(UserRoleUpdateDTO details);
-
+        object AuthenticateUser(string providedKey);
     }
 }
