@@ -15,10 +15,15 @@ namespace MongoNotesAPI.Middleware
             get { return requiredRole; }
         }
 
-        public ApiKeyAttribute(string role = "ADMIN")
+        public ApiKeyAttribute(string role)
         {
+            if (role == null)
+            {
+                role = string.Empty;
+            }
             requiredRole = role;
         }
+
 
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
         {
@@ -49,7 +54,7 @@ namespace MongoNotesAPI.Middleware
             var userRepo = context.HttpContext.RequestServices.GetRequiredService<IUserRepository>();
 
             // check if the user's role matches the required level
-            if (userRepo.AuthenticateUser(providedkey, neededRole) == null) 
+            if (userRepo.AuthenticateUser(providedkey, neededRole) == null)
             {
                 context.Result = new ContentResult
                 {

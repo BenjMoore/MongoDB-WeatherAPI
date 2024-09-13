@@ -26,15 +26,21 @@ namespace MongoNotesAPI.Controllers
         {
             _userRepository = userRepository;
         }
-
+        /// <summary>
+        /// Creates a new user in the system.
+        /// This endpoint is intended to create a new user account with specific details 
+        /// such as name, email, role, and the account's creation date.
+        /// </summary>
+        /// <param name="apiKey">The API key provided by the client to authenticate the request.
+        /// This must meet the required access level to perform the user creation action (admin-level).</param>
+        /// <param name="userDTO">The user creation data transfer object that contains information 
+        /// like the name, email, role, and creation date of the new user.</param>
+        /// <returns>An Ok result if the user is successfully created, or an error if the creation fails.</returns>
         [HttpPost]
-        //[ApiKey("ADMIN")]
-
+        // [ApiKey("ADMIN")]
         public ActionResult CreateUser(string apiKey, UserCreateDTO userDTO)
         {
-            //Ckeck if the user apiKey meets the required level(Admin Access) to add a
-            //new user to the system.
-
+            // Check if the user's API key meets the required level (Admin Access) to add a new user to the system.
             var user = new ApiUser
             {
                 Name = userDTO.Name,
@@ -42,13 +48,20 @@ namespace MongoNotesAPI.Controllers
                 Role = userDTO.Role,
                 Created = userDTO.Created,
                 Active = true
-
             };
 
             var result = _userRepository.CreateUser(user);
             return Ok();
         }
 
+        /// <summary>
+        /// Updates the role of multiple users based on provided criteria such as date range.
+        /// This endpoint allows an admin to update the roles of users that were created 
+        /// within a certain time period, assigning them a new role.
+        /// </summary>
+        /// <param name="update">An object containing the role update details, including 
+        /// a date range to select the users whose roles will be updated and the new role value to assign.</param>
+        /// <returns>An Ok result if the roles are updated successfully, or a BadRequest if the input is invalid or the update fails.</returns>
         [ApiKey("ADMIN")]
         [HttpPatch("UpdateRole")]
         public ActionResult UpdateRole(UserRoleUpdateDTO update)
@@ -59,13 +72,13 @@ namespace MongoNotesAPI.Controllers
                 return BadRequest();
             }
 
-            // Check if at least one of the update fields has details to send to the database
+            // Ensure that at least one of the update fields (createdBefore or createdAfter) has been provided.
             if (update.createdBefore == null && update.createdAfter == null)
             {
                 return BadRequest();
             }
 
-            // Call a method to update user roles based on the provided date range and new role
+            // Call the repository method to update user roles based on the provided date range and new role.
             var result = _userRepository.UpdateRole(update);
 
             if (result.WasSuccessful)
@@ -78,41 +91,46 @@ namespace MongoNotesAPI.Controllers
             }
         }
 
-
-
+        /// <summary>
+        /// Deletes a user from the system by their ID.
+        /// This endpoint allows an admin to remove a user account from the system by specifying their unique ID.
+        /// The operation is secured to require an admin-level API key.
+        /// </summary>
+        /// <param name="user">The ApiUser object representing the user to be deleted. 
+        /// This includes their details and unique identifier in the system.</param>
+        /// <param name="apiKey">The API key used to authenticate the delete request, 
+        /// which must have admin-level permissions.</param>
+        /// <param name="id">The unique identifier of the user to delete.</param>
+        /// <returns>An Ok result if the user is successfully deleted, or an error message if the deletion fails.</returns>
         [HttpDelete("DeleteUser")]
         [ApiKey("ADMIN")]
-        public ActionResult DeleteUser(ApiUser user, string apiKey, String id)
+        public ActionResult DeleteUser(ApiUser user, string apiKey, string id)
         {
-            //Ckeck if the user apiKey meets the required level(Admin Access) to add a
-            //new user to the system.
-
+            // Check if the user's API key meets the required level (Admin Access) to delete a user.
             var result = _userRepository.DeleteUser(user, id);
             return Ok();
         }
-        // public ActionResult DeleteUser(string apiKey, UserDeleteDTO userDTO)
-        // {
-        //Ckeck if the user apiKey meets the required level(Admin Access) to add a
-        //new user to the system.
-        // find by id 
-        //var result = _userRepository.CreateUser(user);
-        //
-        //  return Ok();
 
+        /// <summary>
+        /// Deletes users who have been inactive for more than 30 days from the system.
+        /// This endpoint removes user accounts that were created over 30 days ago 
+        /// and have not been active since, helping to clean up stale or inactive users.
+        /// </summary>
+        /// <returns>An Ok result if the deletion is successful, or a BadRequest if no users matched the criteria or an error occurred.</returns>
         [HttpDelete("DeleteOlderThan30Days")]
         [ApiKey("ADMIN")]
         public ActionResult DeleteOlderThan30Days()
         {
             int days = 30;
 
-            // Create a filter to match users who haven't logged in for more than 30 days
+            // Create a filter to match users who have been inactive for more than 30 days.
             UserFilter filter = new UserFilter
             {
                 CreatedBefore = DateTime.Now.AddDays(-days),
-                CreatedAfter = null // This ensures that all users older than 30 days are selected
+                CreatedAfter = null // Ensures all users older than 30 days are selected.
             };
 
-            // Call the repository method to delete these users
+            // Call the repository method to delete users matching the filter.
             var result = _userRepository.DeleteMany(filter);
 
             if (result.WasSuccessful)
@@ -124,6 +142,7 @@ namespace MongoNotesAPI.Controllers
                 return BadRequest(result);
             }
         }
+
 
     }
 }

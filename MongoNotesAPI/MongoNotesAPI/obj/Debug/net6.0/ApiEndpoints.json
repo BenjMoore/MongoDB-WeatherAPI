@@ -74,22 +74,6 @@
   },
   {
     "ContainingType": "MongoNotesAPI.Controllers.WeatherController",
-    "Method": "Get",
-    "RelativePath": "api/Weather/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "MongoNotesAPI.Controllers.WeatherController",
     "Method": "Delete",
     "RelativePath": "api/Weather/Delete/{id}",
     "HttpMethod": "DELETE",
@@ -325,7 +309,7 @@
     "ContainingType": "MongoNotesAPI.Controllers.WeatherController",
     "Method": "UpdateMany",
     "RelativePath": "api/Weather/UpdateMany",
-    "HttpMethod": "PATCH",
+    "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [

@@ -88,7 +88,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("YouTubePolicy");
+app.UseCors("GooglePolicy");
 
 app.UseAuthorization();
 
