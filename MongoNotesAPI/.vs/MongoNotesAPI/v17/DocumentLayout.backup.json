@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\controllers\\weathercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\controllers\\weathercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\services\\mongoconnectionbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\services\\mongoconnectionbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\middleware\\apikeyattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\middleware\\apikeyattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\models\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\models\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\controllers\\weathercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\controllers\\weathercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\repositories\\weatherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,28 +51,12 @@
       "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\models\\operationresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\models\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\models\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\middleware\\examplemidlewareclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\middleware\\examplemidlewareclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\middleware\\apikeyattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\middleware\\apikeyattribute.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -69,10 +73,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\models\\filters\\tempfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\models\\filters\\tempfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\services\\mongoconnectionbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\services\\mongoconnectionbuilder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\moore\\onedrive\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\models\\dtos\\highesttempdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -125,62 +125,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Repositories\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "MongoNotesAPI\\Repositories\\IUserRepository.cs",
-              "ToolTip": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Repositories\\IUserRepository.cs",
-              "RelativeToolTip": "MongoNotesAPI\\Repositories\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAABTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-09-15T11:14:45.014Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "MongoNotesAPI\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Controllers\\UserController.cs",
-              "RelativeToolTip": "MongoNotesAPI\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAkwG0AAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-09-15T11:16:07.441Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "WeatherController.cs",
-              "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Controllers\\WeatherController.cs",
-              "RelativeDocumentMoniker": "MongoNotesAPI\\Controllers\\WeatherController.cs",
-              "ToolTip": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Controllers\\WeatherController.cs",
-              "RelativeToolTip": "MongoNotesAPI\\Controllers\\WeatherController.cs",
-              "ViewState": "AgIAAAoBAAAAAAAAAAAmwCUBAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-09-15T01:20:52.58Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "WeatherRepository.cs",
-              "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Repositories\\WeatherRepository.cs",
-              "RelativeDocumentMoniker": "MongoNotesAPI\\Repositories\\WeatherRepository.cs",
-              "ToolTip": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Repositories\\WeatherRepository.cs",
-              "RelativeToolTip": "MongoNotesAPI\\Repositories\\WeatherRepository.cs",
-              "ViewState": "AgIAAFUAAAAAAAAAAAAAAMgAAABYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-09-15T01:22:42.679Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 4,
               "Title": "UserRoles.cs",
               "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\UserRoles.cs",
               "RelativeDocumentMoniker": "MongoNotesAPI\\Models\\UserRoles.cs",
@@ -193,20 +142,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "OperationResponseDTO.cs",
-              "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\OperationResponseDTO.cs",
-              "RelativeDocumentMoniker": "MongoNotesAPI\\Models\\OperationResponseDTO.cs",
-              "ToolTip": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\OperationResponseDTO.cs",
-              "RelativeToolTip": "MongoNotesAPI\\Models\\OperationResponseDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-23T03:33:48.577Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "WeatherPatchDetailsDTO.cs",
               "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\WeatherPatchDetailsDTO.cs",
               "RelativeDocumentMoniker": "MongoNotesAPI\\Models\\WeatherPatchDetailsDTO.cs",
@@ -214,12 +150,11 @@
               "RelativeToolTip": "MongoNotesAPI\\Models\\WeatherPatchDetailsDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-09-19T12:46:08.58Z",
-              "EditorCaption": ""
+              "WhenOpened": "2023-09-19T12:46:08.58Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "IGenericRepository.cs",
               "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Repositories\\IGenericRepository.cs",
               "RelativeDocumentMoniker": "MongoNotesAPI\\Repositories\\IGenericRepository.cs",
@@ -227,12 +162,11 @@
               "RelativeToolTip": "MongoNotesAPI\\Repositories\\IGenericRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-25T10:32:06.989Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-25T10:32:06.989Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "IWeatherRepository.cs",
               "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Repositories\\IWeatherRepository.cs",
               "RelativeDocumentMoniker": "MongoNotesAPI\\Repositories\\IWeatherRepository.cs",
@@ -240,25 +174,112 @@
               "RelativeToolTip": "MongoNotesAPI\\Repositories\\IWeatherRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-09-15T01:59:02.162Z",
+              "WhenOpened": "2023-09-15T01:59:02.162Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ApiKeyAttribute.cs",
+              "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Middleware\\ApiKeyAttribute.cs",
+              "RelativeDocumentMoniker": "MongoNotesAPI\\Middleware\\ApiKeyAttribute.cs",
+              "ToolTip": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Middleware\\ApiKeyAttribute.cs",
+              "RelativeToolTip": "MongoNotesAPI\\Middleware\\ApiKeyAttribute.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAQwB0AAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-26T04:29:19.102Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Repositories\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "MongoNotesAPI\\Repositories\\IUserRepository.cs",
+              "ToolTip": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Repositories\\IUserRepository.cs",
+              "RelativeToolTip": "MongoNotesAPI\\Repositories\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-09-15T11:14:45.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "MongoNotesAPI\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Controllers\\UserController.cs",
+              "RelativeToolTip": "MongoNotesAPI\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAswGsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-09-15T11:16:07.441Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MongoConnectionBuilder.cs",
+              "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Services\\MongoConnectionBuilder.cs",
+              "RelativeDocumentMoniker": "MongoNotesAPI\\Services\\MongoConnectionBuilder.cs",
+              "ToolTip": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Services\\MongoConnectionBuilder.cs",
+              "RelativeToolTip": "MongoNotesAPI\\Services\\MongoConnectionBuilder.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAmwB0AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-09-19T13:32:39.724Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Repositories\\UserRepository.cs",
               "RelativeDocumentMoniker": "MongoNotesAPI\\Repositories\\UserRepository.cs",
-              "ToolTip": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "MongoNotesAPI\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAABcAAAAMAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Repositories\\UserRepository.cs*",
+              "RelativeToolTip": "MongoNotesAPI\\Repositories\\UserRepository.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBUAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-09-15T10:56:14.302Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 11,
+              "Title": "OperationResponseDTO.cs",
+              "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\OperationResponseDTO.cs",
+              "RelativeDocumentMoniker": "MongoNotesAPI\\Models\\OperationResponseDTO.cs",
+              "ToolTip": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\OperationResponseDTO.cs",
+              "RelativeToolTip": "MongoNotesAPI\\Models\\OperationResponseDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-23T03:33:48.577Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WeatherController.cs",
+              "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Controllers\\WeatherController.cs",
+              "RelativeDocumentMoniker": "MongoNotesAPI\\Controllers\\WeatherController.cs",
+              "ToolTip": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Controllers\\WeatherController.cs",
+              "RelativeToolTip": "MongoNotesAPI\\Controllers\\WeatherController.cs",
+              "ViewState": "AgIAACcBAAAAAAAAAAAUwDoBAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-09-15T01:20:52.58Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "WeatherRepository.cs",
+              "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Repositories\\WeatherRepository.cs",
+              "RelativeDocumentMoniker": "MongoNotesAPI\\Repositories\\WeatherRepository.cs",
+              "ToolTip": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Repositories\\WeatherRepository.cs",
+              "RelativeToolTip": "MongoNotesAPI\\Repositories\\WeatherRepository.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAAAMgAAABYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-09-15T01:22:42.679Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\appsettings.json",
               "RelativeDocumentMoniker": "MongoNotesAPI\\appsettings.json",
@@ -270,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Program.cs",
               "RelativeDocumentMoniker": "MongoNotesAPI\\Program.cs",
@@ -282,7 +303,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "MongoConnectionSettings.cs",
               "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Settings\\MongoConnectionSettings.cs",
               "RelativeDocumentMoniker": "MongoNotesAPI\\Settings\\MongoConnectionSettings.cs",
@@ -294,7 +315,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "ExampleMidlewareClass.cs",
               "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Middleware\\ExampleMidlewareClass.cs",
               "RelativeDocumentMoniker": "MongoNotesAPI\\Middleware\\ExampleMidlewareClass.cs",
@@ -306,19 +327,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ApiKeyAttribute.cs",
-              "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Middleware\\ApiKeyAttribute.cs",
-              "RelativeDocumentMoniker": "MongoNotesAPI\\Middleware\\ApiKeyAttribute.cs",
-              "ToolTip": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Middleware\\ApiKeyAttribute.cs",
-              "RelativeToolTip": "MongoNotesAPI\\Middleware\\ApiKeyAttribute.cs",
-              "ViewState": "AgIAAAIAAADAmZmZmdkhwAwAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-26T04:29:19.102Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "FilteredDataDTO.cs",
               "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\DTOs\\FilteredDataDTO.cs",
               "RelativeDocumentMoniker": "MongoNotesAPI\\Models\\DTOs\\FilteredDataDTO.cs",
@@ -330,7 +339,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "TempFilter.cs",
               "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\Filters\\TempFilter.cs",
               "RelativeDocumentMoniker": "MongoNotesAPI\\Models\\Filters\\TempFilter.cs",
@@ -363,18 +372,6 @@
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2023-09-15T03:38:43.772Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "MongoConnectionBuilder.cs",
-              "DocumentMoniker": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Services\\MongoConnectionBuilder.cs",
-              "RelativeDocumentMoniker": "MongoNotesAPI\\Services\\MongoConnectionBuilder.cs",
-              "ToolTip": "C:\\Users\\moore\\OneDrive\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Services\\MongoConnectionBuilder.cs",
-              "RelativeToolTip": "MongoNotesAPI\\Services\\MongoConnectionBuilder.cs",
-              "ViewState": "AQIAABAAAAAAAAAAAAAuwB0AAAA6AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2023-09-19T13:32:39.724Z"
             },
             {
               "$type": "Document",

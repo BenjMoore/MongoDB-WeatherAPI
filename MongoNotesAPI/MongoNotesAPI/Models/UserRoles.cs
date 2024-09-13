@@ -4,7 +4,7 @@
     {
         ADMIN = 0,
         USER = 100,
-        SENSOR = 100,
+        SENSOR = 200,
         GUEST = 1000
     }
 }

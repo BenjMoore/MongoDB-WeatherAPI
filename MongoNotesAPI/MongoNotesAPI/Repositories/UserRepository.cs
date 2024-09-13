@@ -238,5 +238,10 @@ namespace MongoNotesAPI.Repositories
 
             return userRoleNumber <= requiredRoleNumber;
         }
+
+        public object AuthenticateUser(string providedKey)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
