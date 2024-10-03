@@ -238,7 +238,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "ICTPRG553.Models.Filters.TempFilter",
+        "Type": "System.Collections.Generic.List\u00601[[ICTPRG553.Models.Filters.TempFilter, ICTPRG553, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -294,9 +294,9 @@
         "IsRequired": true
       },
       {
-        "Name": "updatedSensor",
-        "Type": "ICTPRG553.Models.DTOs.PrecipitationDTO",
-        "IsRequired": true
+        "Name": "precipitation",
+        "Type": "System.Double",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

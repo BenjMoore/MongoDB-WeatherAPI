@@ -93,23 +93,30 @@ namespace MongoNotesAPI.Repositories
         }
 
 
-        public TempFilter GetMaxTemp()
+        public List<TempFilter> GetMaxTemp()
         {
-            var weatherCollection = _data.AsQueryable();
+            var weatherCollection = _data;
 
-            // Order by Temperature in descending order to get the highest temperature first
-            var tempresult = weatherCollection
-                                    .Where(sensor => sensor.Time >= DateTime.UtcNow.AddMonths(-5))
-                                    .OrderByDescending(n => n.Temperature)
-                                    .Select(n => new TempFilter
-                                    {
-                                        deviceName = n.deviceName,
-                                        Temperature = n.Temperature,
-                                        Time = n.Time,
+            // MongoDB aggregation to get max temperature for each sensor in the last 5 months
+            var pipeline = weatherCollection.Aggregate()
+                .Match(sensor => sensor.Time >= DateTime.UtcNow.AddMonths(-5))  // Filter for the last 5 months
+                .Group(sensor => sensor.deviceName, g => new
+                {
+                    deviceName = g.Key,
+                    MaxTempRecord = g.OrderByDescending(sensor => sensor.Temperature).First()
+                })
+                .Project(g => new TempFilter
+                {
+                    deviceName = g.deviceName,
+                    Temperature = g.MaxTempRecord.Temperature,
+                    Time = g.MaxTempRecord.Time
+                })
+                .ToList();
 
-                                    }).FirstOrDefault();
-            return tempresult;
+            return pipeline;
         }
+
+
 
         public FilteredDataDTO GetFilteredData(DateTime? selectedDateTime, string? deviceName)
         {

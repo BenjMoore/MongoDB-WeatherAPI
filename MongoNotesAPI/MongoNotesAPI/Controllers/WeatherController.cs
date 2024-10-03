@@ -117,14 +117,14 @@ namespace MongoNotesAPI.Controllers
         }
 
         /// <summary>
-        /// Retrieves the weather sensor record that contains the highest temperature reading. 
+        /// Retrieves the weather sensor record for each sensor that contains the highest temperature reading. 
         /// This can be useful for analyzing extreme temperature conditions in the sensor's recorded history.
         /// </summary> 
         /// <returns>An object with details of the weather sensor record with the highest temperature.</returns>
         /// <response code="200">Returns the weather sensor record with the highest temperature reading.</response>
         [ApiKey("USER")]
         [HttpGet("MaxTemp")]
-        public TempFilter MaxTemp()
+        public List<TempFilter> MaxTemp()
         {
             var result = _repository.GetMaxTemp();
             return result;
@@ -275,14 +275,18 @@ namespace MongoNotesAPI.Controllers
         /// <response code="400">If the ID is invalid or the updated data is null.</response>
         [ApiKey("TEACHER")]
         [HttpPut("Precipitation/{id}")]
-        public ActionResult Precipitation(string id, [FromBody] PrecipitationDTO updatedSensor)
+        public ActionResult Precipitation(string id, double precipitation)
         {
-            if (String.IsNullOrWhiteSpace(id) || updatedSensor == null)
+            PrecipitationDTO dto = new PrecipitationDTO();
+            {
+                dto.Precipitation = precipitation;
+            };
+            if (String.IsNullOrWhiteSpace(id) || dto == null)
             {
                 return BadRequest();
             }
 
-            _repository.UpdatePrecipitation(id, updatedSensor);
+            _repository.UpdatePrecipitation(id, dto);
             return Ok();
         }
 

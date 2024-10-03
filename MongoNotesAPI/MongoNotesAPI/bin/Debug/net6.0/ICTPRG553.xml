@@ -99,7 +99,7 @@
         </member>
         <member name="M:MongoNotesAPI.Controllers.WeatherController.MaxTemp">
             <summary>
-            Retrieves the weather sensor record that contains the highest temperature reading. 
+            Retrieves the weather sensor record for each sensor that contains the highest temperature reading. 
             This can be useful for analyzing extreme temperature conditions in the sensor's recorded history.
             </summary> 
             <returns>An object with details of the weather sensor record with the highest temperature.</returns>
@@ -161,7 +161,7 @@
             <response code="200">Indicates that the weather sensor record was successfully updated.</response>
             <response code="400">If the ID is invalid or the updated data is null.</response>
         </member>
-        <member name="M:MongoNotesAPI.Controllers.WeatherController.Precipitation(System.String,ICTPRG553.Models.DTOs.PrecipitationDTO)">
+        <member name="M:MongoNotesAPI.Controllers.WeatherController.Precipitation(System.String,System.Double)">
             <summary>
             Updates the precipitation data for a specific weather sensor record by its ID. 
             This is a focused update operation where only the precipitation value is modified.
