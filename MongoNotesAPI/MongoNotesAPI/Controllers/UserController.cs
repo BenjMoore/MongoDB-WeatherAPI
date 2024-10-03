@@ -7,6 +7,7 @@ using MongoNotesAPI.Models;
 using MongoNotesAPI.Models.DTOs;
 using MongoNotesAPI.Models.Filters;
 using MongoNotesAPI.Repositories;
+using System;
 using System.Security.Cryptography.X509Certificates;
 
 namespace MongoNotesAPI.Controllers
@@ -37,7 +38,7 @@ namespace MongoNotesAPI.Controllers
         /// like the name, email, role, and creation date of the new user.</param>
         /// <returns>An Ok result if the user is successfully created, or an error if the creation fails.</returns>
         [HttpPost]
-        [ApiKey("ADMIN")]
+        [ApiKey("TEACHER")]
         public ActionResult CreateUser(UserCreateDTO userDTO)
         {
             // Check if the user's API key meets the required level (Admin Access) to add a new user to the system.
@@ -45,9 +46,9 @@ namespace MongoNotesAPI.Controllers
             {
                 Name = userDTO.Name,
                 Email = userDTO.Email,
-                Role = userDTO.Role,
-                Created = userDTO.Created,
-                Active = true
+                Role = userDTO.Role,               
+                Active = true,
+                Created = DateTime.Now
             };
 
             var result = _userRepository.CreateUser(user);
@@ -62,7 +63,7 @@ namespace MongoNotesAPI.Controllers
         /// <param name="update">An object containing the role update details, including 
         /// a date range to select the users whose roles will be updated and the new role value to assign.</param>
         /// <returns>An Ok result if the roles are updated successfully, or a BadRequest if the input is invalid or the update fails.</returns>
-        [ApiKey("ADMIN")]
+         [ApiKey("TEACHER")]
         [HttpPatch("UpdateRole")]
         public ActionResult UpdateRole(UserRoleUpdateDTO update)
         {
@@ -103,11 +104,11 @@ namespace MongoNotesAPI.Controllers
         /// <param name="id">The unique identifier of the user to delete.</param>
         /// <returns>An Ok result if the user is successfully deleted, or an error message if the deletion fails.</returns>
         [HttpDelete("DeleteUser")]
-        [ApiKey("ADMIN")]
-        public ActionResult DeleteUser(ApiUser user, string id)
+        [ApiKey("TEACHER")]
+        public ActionResult DeleteUser(string id)
         {
             // Check if the user's API key meets the required level (Admin Access) to delete a user.
-            var result = _userRepository.DeleteUser(user, id);
+            var result = _userRepository.DeleteUser(id);
             return Ok();
         }
 
@@ -118,7 +119,7 @@ namespace MongoNotesAPI.Controllers
         /// </summary>
         /// <returns>An Ok result if the deletion is successful, or a BadRequest if no users matched the criteria or an error occurred.</returns>
         [HttpDelete("DeleteOlderThan30Days")]
-        [ApiKey("ADMIN")]
+        [ApiKey("TEACHER")]
         public ActionResult DeleteOlderThan30Days()
         {
             int days = 30;

@@ -34,11 +34,6 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "user",
-        "Type": "MongoNotesAPI.Models.ApiUser",
-        "IsRequired": true
-      },
-      {
         "Name": "id",
         "Type": "System.String",
         "IsRequired": false
@@ -214,7 +209,13 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "deviceName",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": [
       {
         "Type": "ICTPRG553.Models.DTOs.PrecipitationDTO",

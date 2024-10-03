@@ -13,7 +13,7 @@ namespace MongoNotesAPI.Repositories
     //interface.
     public interface IWeatherRepository: IGenericRepository<WeatherSensor>
     {
-        public PrecipitationDTO GetMaxPrecipitation();
+        public PrecipitationDTO GetMaxPrecipitation(string deviceName);
         public TempFilter GetMaxTemp();
         IEnumerable<WeatherSensor> GetAll(WeatherFilter noteFilter);
         void CreateMany(List<WeatherSensor> noteList);

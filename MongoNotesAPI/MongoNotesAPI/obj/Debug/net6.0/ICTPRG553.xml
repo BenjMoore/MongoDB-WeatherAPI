@@ -26,7 +26,7 @@
             a date range to select the users whose roles will be updated and the new role value to assign.</param>
             <returns>An Ok result if the roles are updated successfully, or a BadRequest if the input is invalid or the update fails.</returns>
         </member>
-        <member name="M:MongoNotesAPI.Controllers.UserController.DeleteUser(MongoNotesAPI.Models.ApiUser,System.String)">
+        <member name="M:MongoNotesAPI.Controllers.UserController.DeleteUser(System.String)">
             <summary>
             Deletes a user from the system by their ID.
             This endpoint allows an admin to remove a user account from the system by specifying their unique ID.
@@ -89,7 +89,7 @@
             <returns>A filtered set of weather sensor records based on the given date and device name.</returns>
             <response code="200">Returns filtered sensor data based on the provided parameters.</response>
         </member>
-        <member name="M:MongoNotesAPI.Controllers.WeatherController.MaxPrecipitation">
+        <member name="M:MongoNotesAPI.Controllers.WeatherController.MaxPrecipitation(System.String)">
             <summary>
             Retrieves the weather sensor record that contains the highest precipitation measurement. 
             This endpoint is useful for finding extreme weather conditions recorded by the sensors.

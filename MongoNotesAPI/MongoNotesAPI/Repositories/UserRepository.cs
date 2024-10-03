@@ -137,7 +137,7 @@ namespace MongoNotesAPI.Repositories
 
         }
 
-        public bool DeleteUser(ApiUser user, string id)
+        public bool DeleteUser(string id)
         {
             ObjectId objId = ObjectId.Parse(id);
           

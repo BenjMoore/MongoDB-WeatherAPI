@@ -72,24 +72,26 @@ namespace MongoNotesAPI.Repositories
                 };
             }
         }
-        public PrecipitationDTO GetMaxPrecipitation()
+        public PrecipitationDTO GetMaxPrecipitation(string deviceName)
         {
             var weatherCollection = _data.AsQueryable();
 
-            // Order by Precipitation in descending order to get the highest precipitation first
+            // Filter by device name and time within the last 5 months, then get the highest precipitation
             var resultLinq = weatherCollection
-                                    .Where(sensor => sensor.Time >= DateTime.UtcNow.AddMonths(-5))
-                                    .OrderByDescending(n => n.Precipitation)
-                                    .Select(n => new PrecipitationDTO
-                                    {
-                                        deviceName = n.deviceName,
-                                        Time = n.Time,
-                                        Precipitation = n.Precipitation,
+                                   .Where(sensor => sensor.deviceName == deviceName
+                                                 && sensor.Time >= DateTime.UtcNow.AddMonths(-5))
+                                   .OrderByDescending(n => n.Precipitation)
+                                   .Select(n => new PrecipitationDTO
+                                   {
+                                       deviceName = n.deviceName,
+                                       Time = n.Time,
+                                       Precipitation = n.Precipitation,
 
-                                    }).FirstOrDefault();
+                                   }).FirstOrDefault();
 
             return resultLinq;
         }
+
 
         public TempFilter GetMaxTemp()
         {

@@ -110,9 +110,9 @@ namespace MongoNotesAPI.Controllers
         /// <response code="200">Returns the weather sensor record with the highest precipitation measurement.</response>
         [ApiKey("USER")]
         [HttpGet("MaxPrecipitation")]
-        public PrecipitationDTO MaxPrecipitation()
+        public PrecipitationDTO MaxPrecipitation(string deviceName)
         {
-            var result = _repository.GetMaxPrecipitation();
+            var result = _repository.GetMaxPrecipitation(deviceName);
             return result;
         }
 
@@ -251,7 +251,7 @@ namespace MongoNotesAPI.Controllers
         /// <returns>An Ok response for successful update or a BadRequest response for invalid input.</returns>
         /// <response code="200">Indicates that the weather sensor record was successfully updated.</response>
         /// <response code="400">If the ID is invalid or the updated data is null.</response>
-        [ApiKey("ADMIN")]
+        [ApiKey("TEACHER")]
         [HttpPut("Update/{id}")]
         public ActionResult Put(string id, [FromBody] WeatherSensor updatedNote)
         {
@@ -273,7 +273,7 @@ namespace MongoNotesAPI.Controllers
         /// <returns>An Ok response for successful update or a BadRequest response for invalid input.</returns>
         /// <response code="200">Indicates that the precipitation data was successfully updated.</response>
         /// <response code="400">If the ID is invalid or the updated data is null.</response>
-        [ApiKey("ADMIN")]
+        [ApiKey("TEACHER")]
         [HttpPut("Precipitation/{id}")]
         public ActionResult Precipitation(string id, [FromBody] PrecipitationDTO updatedSensor)
         {
@@ -295,7 +295,7 @@ namespace MongoNotesAPI.Controllers
         /// <returns>An Ok response indicating success, or a BadRequest response for invalid input.</returns>
         /// <response code="200">Indicates that the weather sensor records were successfully updated.</response>
         /// <response code="400">If the filter criteria or update details are invalid.</response>
-        [ApiKey("ADMIN")]
+        [ApiKey("TEACHER")]
         [HttpPut("UpdateMany")]
         public ActionResult UpdateMany([FromBody] WeatherPatchDetailsDTO? details)
         {
