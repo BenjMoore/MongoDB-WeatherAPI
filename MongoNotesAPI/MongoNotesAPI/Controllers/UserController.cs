@@ -41,7 +41,7 @@ namespace MongoNotesAPI.Controllers
         [ApiKey("TEACHER")]
         public ActionResult CreateUser(UserCreateDTO userDTO)
         {
-            // Check if the user's API key meets the required level (Admin Access) to add a new user to the system.
+            // Check if the user's API key meets the required lvel (Admin Access) to add a new user to the system.
             var user = new ApiUser
             {
                 Name = userDTO.Name,

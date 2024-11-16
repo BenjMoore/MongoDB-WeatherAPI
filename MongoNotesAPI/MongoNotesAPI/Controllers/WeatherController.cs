@@ -77,12 +77,12 @@ namespace MongoNotesAPI.Controllers
 
         /// <summary>
         /// Retrieves weather sensor data based on a specific date and device name. 
-        /// If no date is provided, it defaults to null, and the device name defaults to an empty string. 
+        /// If no date is provided, it defaults to null.
         /// This helps in fetching sensor data specific to a certain device or time period.
         /// </summary>
         /// <param name="selectedDateTime">Optional. The specific date and time to filter the sensor data by. 
         /// If left null, all records regardless of date are returned.</param>
-        /// <param name="deviceName">Optional. The name of the weather sensor device. If left as an empty string, 
+        /// <param name="deviceName">The name of the weather sensor device. If left as an empty string, 
         /// all device data will be included in the response.</param>
         /// <returns>A filtered set of weather sensor records based on the given date and device name.</returns>
         /// <response code="200">Returns filtered sensor data based on the provided parameters.</response>
@@ -90,10 +90,7 @@ namespace MongoNotesAPI.Controllers
         [HttpGet("GetFilteredData")]
         public FilteredDataDTO GetFiltered(DateTime? selectedDateTime, string deviceName)
         {
-            if (deviceName == null)
-            {
-                deviceName = String.Empty;
-            }
+            
             if (!selectedDateTime.HasValue)
             {
                 selectedDateTime = null;

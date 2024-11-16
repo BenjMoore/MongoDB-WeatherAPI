@@ -56,13 +56,13 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddCors(options => 
 {
     //Add a new policy to the system called "GooglePolicy"
-    options.AddPolicy("GooglePolicy", p => 
+    options.AddPolicy("MainPolicy", p => 
     {
         //Set the policy rules to allow communication from google.com or google.com.au
         p.WithOrigins("https://www.google.com", "https://www.google.com.au");
         p.AllowAnyHeader();
         //Set the HTTP methods that these origins are allowed to send. 
-        p.WithMethods("GET","PUT","POST","DELETE");
+        p.WithMethods("GET","PUT","POST","DELETE","PATCH");
     });
     options.AddPolicy("YouTubePolicy", p =>
     {
@@ -74,7 +74,6 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.Services.AddScoped<ExampleMidlewareClass>();
 
 var app = builder.Build();
 
@@ -88,7 +87,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("GooglePolicy");
+app.UseCors("MainPolicy");
 
 app.UseAuthorization();
 
@@ -105,6 +104,5 @@ app.Use(async(context,next) =>
 
 app.MapControllers();
 
-app.UseMiddleware<ExampleMidlewareClass>();
 
 app.Run();
