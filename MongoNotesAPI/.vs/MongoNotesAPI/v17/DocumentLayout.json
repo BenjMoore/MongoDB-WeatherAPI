@@ -43,8 +43,7 @@
               "ViewState": "AQIAAA0BAAAAAAAAAAAswFQAAABmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-03T23:38:01.29Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -95,8 +94,7 @@
               "RelativeToolTip": "MongoNotesAPI\\Program.cs",
               "ViewState": "AQIAADEAAAAAAAAAAAAAwE0AAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T08:01:26.372Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-14T08:01:26.372Z"
             }
           ]
         }
