@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "rlItzh7kD7urKHj6HK5n4c939LCzt3KXpKVtzDVpObI=",
+  "Hash": "Kw/RfaFJXzKicQhIhWiS1jrMV2VqBSoTp9JGWByhrpc=",
   "Source": "ICTPRG553",
   "BasePath": "_content/ICTPRG553",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

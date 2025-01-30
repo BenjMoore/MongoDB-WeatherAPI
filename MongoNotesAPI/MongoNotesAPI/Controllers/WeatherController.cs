@@ -191,7 +191,7 @@ namespace MongoNotesAPI.Controllers
         /// <response code="400">If the number of days is not specified or is less than 30.</response>
         
         [HttpDelete("DeleteOlderThanGivenDays")]
-        [ApiKey("ADMIN")]
+        [ApiKey("TEACHER")]
         public ActionResult DeleteOlderThanDays([FromQuery] int? days)
         {
             if (days == null || days <= 30)
@@ -223,7 +223,7 @@ namespace MongoNotesAPI.Controllers
         /// <response code="200">Indicates that the weather sensor record was successfully deleted.</response>
         /// <response code="400">If the ID is invalid or empty.</response>
         [HttpDelete("Delete/{id}")]
-        [ApiKey("ADMIN")]
+        [ApiKey("TEACHER")]
         public ActionResult Delete(string id)
         {
             if (String.IsNullOrWhiteSpace(id))

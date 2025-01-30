@@ -118,9 +118,11 @@ namespace MongoNotesAPI.Repositories
 
 
 
+        // Existing code...
+
         public FilteredDataDTO GetFilteredData(DateTime? selectedDateTime, string? deviceName)
         {
-            var weatherCollection = (IMongoQueryable<WeatherSensor>)_data.AsQueryable(); // Explicit cast
+            var weatherCollection = _data.AsQueryable(); // Remove explicit cast
 
             // Apply filters conditionally
             if (selectedDateTime.HasValue)
