@@ -3,8 +3,8 @@
     public enum UserRoles
     {
         TEACHER = 0,
-        USER = 100,
-        SENSOR = 200,
+        SENSOR = 100,
+        USER = 200,
             
     }
 }

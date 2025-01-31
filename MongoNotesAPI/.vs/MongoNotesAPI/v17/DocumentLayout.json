@@ -7,6 +7,18 @@
       "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\controllers\\weathercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\perl\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\perl\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\models\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\models\\userroles.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\perl\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\models\\apiuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\models\\apiuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\perl\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\repositories\\weatherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\repositories\\weatherrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\perl\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\models\\weathersensor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\models\\weathersensor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\perl\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|solutionrelative:mongonotesapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{99FAED0B-A53C-411C-852B-9195B7D4640C}|MongoNotesAPI\\ICTPRG553.csproj|c:\\users\\perl\\documents\\github\\mongodb-weatherapi\\mongonotesapi\\mongonotesapi\\models\\filters\\maxtempfilter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -64,7 +72,7 @@
               "RelativeDocumentMoniker": "MongoNotesAPI\\Controllers\\WeatherController.cs",
               "ToolTip": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Controllers\\WeatherController.cs",
               "RelativeToolTip": "MongoNotesAPI\\Controllers\\WeatherController.cs",
-              "ViewState": "AgIAAHMAAAAAAAAAAAAYwIEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAmwJsAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-03T23:38:01.29Z",
               "IsPinned": true,
@@ -72,7 +80,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "WeatherRepository.cs",
               "DocumentMoniker": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Repositories\\WeatherRepository.cs",
               "RelativeDocumentMoniker": "MongoNotesAPI\\Repositories\\WeatherRepository.cs",
@@ -85,7 +93,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "IWeatherRepository.cs",
               "DocumentMoniker": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Repositories\\IWeatherRepository.cs",
               "RelativeDocumentMoniker": "MongoNotesAPI\\Repositories\\IWeatherRepository.cs",
@@ -98,19 +106,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "WeatherSensor.cs",
-              "DocumentMoniker": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\WeatherSensor.cs",
-              "RelativeDocumentMoniker": "MongoNotesAPI\\Models\\WeatherSensor.cs",
-              "ToolTip": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\WeatherSensor.cs",
-              "RelativeToolTip": "MongoNotesAPI\\Models\\WeatherSensor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "UserRoles.cs",
+              "DocumentMoniker": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\UserRoles.cs",
+              "RelativeDocumentMoniker": "MongoNotesAPI\\Models\\UserRoles.cs",
+              "ToolTip": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\UserRoles.cs",
+              "RelativeToolTip": "MongoNotesAPI\\Models\\UserRoles.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T05:02:07.666Z"
+              "WhenOpened": "2025-01-31T06:19:55.37Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
+              "Title": "ApiUser.cs",
+              "DocumentMoniker": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\ApiUser.cs",
+              "RelativeDocumentMoniker": "MongoNotesAPI\\Models\\ApiUser.cs",
+              "ToolTip": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\ApiUser.cs",
+              "RelativeToolTip": "MongoNotesAPI\\Models\\ApiUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T06:19:53.432Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "MaxTempFilter.cs",
               "DocumentMoniker": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\Filters\\MaxTempFilter.cs",
               "RelativeDocumentMoniker": "MongoNotesAPI\\Models\\Filters\\MaxTempFilter.cs",
@@ -122,7 +144,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "TempFilter.cs",
               "DocumentMoniker": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\Filters\\TempFilter.cs",
               "RelativeDocumentMoniker": "MongoNotesAPI\\Models\\Filters\\TempFilter.cs",
@@ -134,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\appsettings.json",
               "RelativeDocumentMoniker": "MongoNotesAPI\\appsettings.json",
@@ -146,7 +168,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "launchSettings.json",
               "DocumentMoniker": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "MongoNotesAPI\\Properties\\launchSettings.json",
@@ -158,7 +180,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "MongoNotesAPI\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Controllers\\UserController.cs",
+              "RelativeToolTip": "MongoNotesAPI\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAIwEEAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T08:03:02.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "WeatherSensor.cs",
+              "DocumentMoniker": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\WeatherSensor.cs",
+              "RelativeDocumentMoniker": "MongoNotesAPI\\Models\\WeatherSensor.cs",
+              "ToolTip": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\WeatherSensor.cs",
+              "RelativeToolTip": "MongoNotesAPI\\Models\\WeatherSensor.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T05:02:07.666Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "WeatherFilter.cs",
               "DocumentMoniker": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Models\\Filters\\WeatherFilter.cs",
               "RelativeDocumentMoniker": "MongoNotesAPI\\Models\\Filters\\WeatherFilter.cs",
@@ -170,19 +217,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "MongoNotesAPI\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Controllers\\UserController.cs",
-              "RelativeToolTip": "MongoNotesAPI\\Controllers\\UserController.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAQwCsAAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T08:03:02.624Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Program.cs",
               "RelativeDocumentMoniker": "MongoNotesAPI\\Program.cs",
