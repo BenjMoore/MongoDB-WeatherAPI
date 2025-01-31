@@ -1,0 +1,876 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ICTPRG553",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/User": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Creates a new user in the system.\r\nThis endpoint is intended to create a new user account with specific details \r\nsuch as name, email, role, and the account's creation date.",
+        "requestBody": {
+          "description": "The user creation data transfer object that contains information \r\n            like the name, email, role, and creation date of the new user.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCreateDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCreateDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserCreateDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/User/UpdateRole": {
+      "patch": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Updates the role of multiple users based on provided criteria such as date range.\r\nThis endpoint allows an admin to update the roles of users that were created \r\nwithin a certain time period, assigning them a new role.",
+        "requestBody": {
+          "description": "An object containing the role update details, including \r\n            a date range to select the users whose roles will be updated and the new role value to assign.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRoleUpdateDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRoleUpdateDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRoleUpdateDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/User/DeleteUser": {
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Deletes a user from the system by their ID.\r\nThis endpoint allows an admin to remove a user account from the system by specifying their unique ID.\r\nThe operation is secured to require an admin-level API key.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The unique identifier of the user to delete.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/User/DeleteOlderThan30Days": {
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Deletes users who have been inactive for more than 30 days from the system.\r\nThis endpoint removes user accounts that were created over 30 days ago \r\nand have not been active since, helping to clean up stale or inactive users.",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Weather/GetAll": {
+      "get": {
+        "tags": [
+          "Weather"
+        ],
+        "summary": "Retrieves all weather sensor records from the database. \r\nThis endpoint returns a list of all weather sensor data recorded by the system, \r\nproviding a comprehensive overview of sensor readings.",
+        "responses": {
+          "200": {
+            "description": "Returns a list of weather sensor records.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherSensor"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherSensor"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherSensor"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Weather/Filtered": {
+      "get": {
+        "tags": [
+          "Weather"
+        ],
+        "summary": "Retrieves weather sensor records filtered by the provided criteria.\r\nThis allows for fetching sensor data based on specific conditions like date range, \r\ndevice type, or location to narrow down the results to relevant records.",
+        "parameters": [
+          {
+            "name": "deviceName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "CreatedAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "CreatedBefore",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of weather sensor records matching the filter criteria.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherSensor"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherSensor"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherSensor"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Weather/ID": {
+      "get": {
+        "tags": [
+          "Weather"
+        ],
+        "summary": "Retrieves a weather sensor record by its unique identifier.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The unique identifier of the weather sensor. This should be a valid ID string.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the weather sensor record if found.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/WeatherSensor"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WeatherSensor"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WeatherSensor"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "If no weather sensor is found with the provided ID."
+          }
+        }
+      }
+    },
+    "/api/Weather/GetFilteredData": {
+      "get": {
+        "tags": [
+          "Weather"
+        ],
+        "summary": "Retrieves weather sensor data based on a specific date and device name. \r\nIf no date is provided, it defaults to null.\r\nThis helps in fetching sensor data specific to a certain device or time period.",
+        "parameters": [
+          {
+            "name": "selectedDateTime",
+            "in": "query",
+            "description": "Optional. The specific date and time to filter the sensor data by. \r\n            If left null, all records regardless of date are returned.",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "deviceName",
+            "in": "query",
+            "description": "The name of the weather sensor device. If left as an empty string, \r\n            all device data will be included in the response.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns filtered sensor data based on the provided parameters.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredDataDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredDataDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FilteredDataDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Weather/MaxPrecipitation": {
+      "get": {
+        "tags": [
+          "Weather"
+        ],
+        "summary": "Retrieves the weather sensor record that contains the highest precipitation measurement. \r\nThis endpoint is useful for finding extreme weather conditions recorded by the sensors.",
+        "parameters": [
+          {
+            "name": "deviceName",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the weather sensor record with the highest precipitation measurement.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrecipitationDTO"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrecipitationDTO"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrecipitationDTO"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Weather/GetMaxTemp": {
+      "get": {
+        "tags": [
+          "Weather"
+        ],
+        "summary": "Retrieves the weather sensor record for each sensor that contains the highest temperature reading. \r\nThis can be useful for analyzing extreme temperature conditions in the sensor's recorded history.",
+        "parameters": [
+          {
+            "name": "CreatedAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "CreatedBefore",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the weather sensor record with the highest temperature reading."
+          },
+          "500": {
+            "description": "If an internal server error occurs."
+          }
+        }
+      }
+    },
+    "/api/Weather/New": {
+      "post": {
+        "tags": [
+          "Weather"
+        ],
+        "summary": "Creates a new weather sensor record and stores it in the database. \r\nIf the request body is invalid or empty, the operation will return a BadRequest response.",
+        "requestBody": {
+          "description": "The new weather sensor record to be added to the database. \r\n            This should contain all relevant sensor details like date, time, temperature, and precipitation data.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WeatherSensor"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WeatherSensor"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WeatherSensor"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "201": {
+            "description": "Indicates that the weather sensor record was successfully created."
+          },
+          "400": {
+            "description": "If the request body is null or invalid."
+          },
+          "500": {
+            "description": "If an internal server error occurs."
+          }
+        }
+      }
+    },
+    "/api/Weather/PostMany": {
+      "post": {
+        "tags": [
+          "Weather"
+        ],
+        "summary": "Creates multiple new weather sensor records and adds them to the database. \r\nThis is useful for batch operations where many sensor readings are recorded at once.",
+        "requestBody": {
+          "description": "A list of new weather sensor records to be added to the database. \r\n            Each record should include relevant sensor information such as temperature, precipitation, and timestamps.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/WeatherSensor"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/WeatherSensor"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/WeatherSensor"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Indicates that the weather sensor records were successfully created."
+          },
+          "400": {
+            "description": "If the request body is null or empty."
+          }
+        }
+      }
+    },
+    "/api/Weather/DeleteOlderThanGivenDays": {
+      "delete": {
+        "tags": [
+          "Weather"
+        ],
+        "summary": "Deletes weather sensor records that are older than a specified number of days. \r\nThis is used for maintaining the database by removing outdated records.",
+        "parameters": [
+          {
+            "name": "days",
+            "in": "query",
+            "description": "The number of days used as the cutoff for deletion. Records older than this number will be deleted. \r\n            A minimum of 30 days is required for this operation to avoid accidental deletions.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Indicates that the records older than the specified number of days were successfully deleted."
+          },
+          "400": {
+            "description": "If the number of days is not specified or is less than 30."
+          }
+        }
+      }
+    },
+    "/api/Weather/Delete/{id}": {
+      "delete": {
+        "tags": [
+          "Weather"
+        ],
+        "summary": "Deletes a specific weather sensor record identified by its ID. \r\nThis operation requires an admin-level API key to perform the deletion.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique identifier (_id) of the weather sensor record to delete. \r\n            If the ID is invalid or empty, the operation will return a BadRequest response.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Indicates that the weather sensor record was successfully deleted."
+          },
+          "400": {
+            "description": "If the ID is invalid or empty."
+          }
+        }
+      }
+    },
+    "/api/Weather/Update/{id}": {
+      "put": {
+        "tags": [
+          "Weather"
+        ],
+        "summary": "Updates a specific weather sensor record identified by its ID with new data. \r\nThis allows for modifying existing records in the database to reflect changes in the recorded weather data.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique identifier (_id) of the record to update.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "An object containing the updated weather sensor data such as temperature, precipitation, etc.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WeatherSensor"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WeatherSensor"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WeatherSensor"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Indicates that the weather sensor record was successfully updated."
+          },
+          "400": {
+            "description": "If the ID is invalid or the updated data is null."
+          }
+        }
+      }
+    },
+    "/api/Weather/Precipitation/{id}": {
+      "put": {
+        "tags": [
+          "Weather"
+        ],
+        "summary": "Updates the precipitation data for a specific weather sensor record by its ID. \r\nThis is a focused update operation where only the precipitation value is modified.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique identifier (_id) of the record to update.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "precipitation",
+            "in": "query",
+            "schema": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Indicates that the precipitation data was successfully updated."
+          },
+          "400": {
+            "description": "If the ID is invalid or the updated data is null."
+          }
+        }
+      }
+    },
+    "/api/Weather/UpdateMany": {
+      "put": {
+        "tags": [
+          "Weather"
+        ],
+        "summary": "Updates multiple weather sensor records based on a filter and the provided update details. \r\nThis is useful for bulk updates where a set of records matching the filter criteria are modified at once.",
+        "requestBody": {
+          "description": "An object containing the filter criteria and the details of the updates to be applied. \r\n            This should include both the fields to be updated and the conditions for selecting records.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WeatherPatchDetailsDTO"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WeatherPatchDetailsDTO"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/WeatherPatchDetailsDTO"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Indicates that the weather sensor records were successfully updated."
+          },
+          "400": {
+            "description": "If the filter criteria or update details are invalid."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "FilteredDataDTO": {
+        "type": "object",
+        "properties": {
+          "deviceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "temperature": {
+            "type": "number",
+            "format": "double"
+          },
+          "atmosphericPressure": {
+            "type": "number",
+            "format": "double"
+          },
+          "solarRadiation": {
+            "type": "number",
+            "format": "double"
+          },
+          "precipitation": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PrecipitationDTO": {
+        "type": "object",
+        "properties": {
+          "deviceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "precipitation": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserCreateDTO": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserRoleUpdateDTO": {
+        "type": "object",
+        "properties": {
+          "createdBefore": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAfter": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "role": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WeatherFilter": {
+        "type": "object",
+        "properties": {
+          "deviceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAfter": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdBefore": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "WeatherPatchDetailsDTO": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "$ref": "#/components/schemas/WeatherFilter"
+          },
+          "deviceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "precipitation": {
+            "type": "number",
+            "format": "double"
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "temperature": {
+            "type": "number",
+            "format": "double"
+          },
+          "atmosphericPressure": {
+            "type": "number",
+            "format": "double"
+          },
+          "maxWindSpeed": {
+            "type": "number",
+            "format": "double"
+          },
+          "solarRadiation": {
+            "type": "number",
+            "format": "double"
+          },
+          "vaporPressure": {
+            "type": "number",
+            "format": "double"
+          },
+          "humidity": {
+            "type": "number",
+            "format": "double"
+          },
+          "windDirection": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "WeatherSensor": {
+        "type": "object",
+        "properties": {
+          "objId": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          },
+          "deviceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "precipitation": {
+            "type": "number",
+            "format": "double"
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double"
+          },
+          "temperature": {
+            "type": "number",
+            "format": "double"
+          },
+          "atmosphericPressure": {
+            "type": "number",
+            "format": "double"
+          },
+          "maxWindSpeed": {
+            "type": "number",
+            "format": "double"
+          },
+          "solarRadiation": {
+            "type": "number",
+            "format": "double"
+          },
+          "vaporPressure": {
+            "type": "number",
+            "format": "double"
+          },
+          "humidity": {
+            "type": "number",
+            "format": "double"
+          },
+          "windDirection": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "apiKey": {
+        "type": "apiKey",
+        "description": "Enter Your Api Key Here!",
+        "name": "apiKey",
+        "in": "query"
+      }
+    }
+  },
+  "security": [
+    {
+      "apiKey": [ ]
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\appsettings.json
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.exe
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.deps.json
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.runtimeconfig.json
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.pdb
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\AWSSDK.Core.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\DnsClient.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoDB.Bson.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoDB.Driver.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\SharpCompress.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Snappier.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\ZstdSharp.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.csproj.AssemblyReference.cache
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.AssemblyInfoInputs.cache
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.AssemblyInfo.cs
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.csproj.CoreCompileInputs.cache
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets\msbuild.MongoNotesAPI.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets\msbuild.build.MongoNotesAPI.props
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.MongoNotesAPI.props
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.MongoNotesAPI.props
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\scopedcss\bundle\MongoNotesAPI.styles.css
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.csproj.CopyComplete
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\refint\MongoNotesAPI.dll
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.pdb
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.genruntimeconfig.cache
+C:\Users\Student\source\repos\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\ref\MongoNotesAPI.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\appsettings.Development.json
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\appsettings.json
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.exe
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.deps.json
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.runtimeconfig.json
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.pdb
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\AWSSDK.Core.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\DnsClient.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoDB.Bson.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoDB.Driver.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\SharpCompress.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Snappier.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\ZstdSharp.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.csproj.AssemblyReference.cache
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.GeneratedMSBuildEditorConfig.editorconfig
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.AssemblyInfoInputs.cache
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.AssemblyInfo.cs
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.csproj.CoreCompileInputs.cache
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.MvcApplicationPartsAssemblyInfo.cs
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.MvcApplicationPartsAssemblyInfo.cache
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets\msbuild.MongoNotesAPI.Microsoft.AspNetCore.StaticWebAssets.props
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets\msbuild.build.MongoNotesAPI.props
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.MongoNotesAPI.props
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.MongoNotesAPI.props
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets.pack.json
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets.build.json
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets.development.json
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\scopedcss\bundle\MongoNotesAPI.styles.css
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.csproj.CopyComplete
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\refint\MongoNotesAPI.dll
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.pdb
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.genruntimeconfig.cache
+E:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\ref\MongoNotesAPI.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\appsettings.Development.json
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\appsettings.json
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.exe
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.deps.json
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.runtimeconfig.json
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.pdb
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\AWSSDK.Core.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\DnsClient.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoDB.Bson.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoDB.Driver.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\SharpCompress.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Snappier.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\ZstdSharp.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.csproj.AssemblyReference.cache
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.GeneratedMSBuildEditorConfig.editorconfig
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.AssemblyInfoInputs.cache
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.AssemblyInfo.cs
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.csproj.CoreCompileInputs.cache
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.MvcApplicationPartsAssemblyInfo.cs
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.MvcApplicationPartsAssemblyInfo.cache
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets\msbuild.MongoNotesAPI.Microsoft.AspNetCore.StaticWebAssets.props
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets\msbuild.build.MongoNotesAPI.props
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.MongoNotesAPI.props
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.MongoNotesAPI.props
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets.pack.json
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets.build.json
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets.development.json
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\scopedcss\bundle\MongoNotesAPI.styles.css
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.csproj.CopyComplete
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\refint\MongoNotesAPI.dll
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.pdb
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.genruntimeconfig.cache
+D:\Tafe\DIPProBR\Stage 2\Troy\ClassExamples\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\ref\MongoNotesAPI.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\appsettings.json
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.exe
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.deps.json
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.runtimeconfig.json
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoNotesAPI.pdb
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\AWSSDK.Core.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\AWSSDK.SecurityToken.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\DnsClient.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoDB.Bson.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoDB.Driver.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoDB.Driver.Core.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\MongoDB.Libmongocrypt.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\SharpCompress.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Snappier.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\ZstdSharp.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\runtimes\linux\native\libmongocrypt.so
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\runtimes\osx\native\libmongocrypt.dylib
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\bin\Debug\net6.0\runtimes\win\native\mongocrypt.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.csproj.AssemblyReference.cache
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.AssemblyInfoInputs.cache
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.AssemblyInfo.cs
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.csproj.CoreCompileInputs.cache
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets\msbuild.MongoNotesAPI.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets\msbuild.build.MongoNotesAPI.props
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.MongoNotesAPI.props
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.MongoNotesAPI.props
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\scopedcss\bundle\MongoNotesAPI.styles.css
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.csproj.CopyComplete
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\refint\MongoNotesAPI.dll
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.pdb
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\MongoNotesAPI.genruntimeconfig.cache
+C:\Users\Benjamin Moore\Github\MongoDBAPI\MongoNotesAPI\MongoNotesAPI\obj\Debug\net6.0\ref\MongoNotesAPI.dll

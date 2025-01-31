@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ICTPRG553</name>
+    </assembly>
+    <members>
+        <member name="M:MongoNotesAPI.Controllers.UserController.CreateUser(MongoNotesAPI.Models.DTOs.UserCreateDTO)">
+            <summary>
+            Creates a new user in the system.
+            This endpoint is intended to create a new user account with specific details 
+            such as name, email, role, and the account's creation date.
+            </summary>
+            <param name="apiKey">The API key provided by the client to authenticate the request.
+            This must meet the required access level to perform the user creation action (admin-level).</param>
+            <param name="userDTO">The user creation data transfer object that contains information 
+            like the name, email, role, and creation date of the new user.</param>
+            <returns>An Ok result if the user is successfully created, or an error if the creation fails.</returns>
+        </member>
+        <member name="M:MongoNotesAPI.Controllers.UserController.UpdateRole(ICTPRG553.Models.DTOs.UserRoleUpdateDTO)">
+            <summary>
+            Updates the role of multiple users based on provided criteria such as date range.
+            This endpoint allows an admin to update the roles of users that were created 
+            within a certain time period, assigning them a new role.
+            </summary>
+            <param name="update">An object containing the role update details, including 
+            a date range to select the users whose roles will be updated and the new role value to assign.</param>
+            <returns>An Ok result if the roles are updated successfully, or a BadRequest if the input is invalid or the update fails.</returns>
+        </member>
+        <member name="M:MongoNotesAPI.Controllers.UserController.DeleteUser(System.String)">
+            <summary>
+            Deletes a user from the system by their ID.
+            This endpoint allows an admin to remove a user account from the system by specifying their unique ID.
+            The operation is secured to require an admin-level API key.
+            </summary>
+            <param name="user">The ApiUser object representing the user to be deleted. 
+            This includes their details and unique identifier in the system.</param>
+            <param name="apiKey">The API key used to authenticate the delete request, 
+            which must have admin-level permissions.</param>
+            <param name="id">The unique identifier of the user to delete.</param>
+            <returns>An Ok result if the user is successfully deleted, or an error message if the deletion fails.</returns>
+        </member>
+        <member name="M:MongoNotesAPI.Controllers.UserController.DeleteOlderThan30Days">
+            <summary>
+            Deletes users who have been inactive for more than 30 days from the system.
+            This endpoint removes user accounts that were created over 30 days ago 
+            and have not been active since, helping to clean up stale or inactive users.
+            </summary>
+            <returns>An Ok result if the deletion is successful, or a BadRequest if no users matched the criteria or an error occurred.</returns>
+        </member>
+        <member name="M:MongoNotesAPI.Controllers.WeatherController.Get">
+            <summary>
+            Retrieves all weather sensor records from the database. 
+            This endpoint returns a list of all weather sensor data recorded by the system, 
+            providing a comprehensive overview of sensor readings.
+            </summary>
+            <returns>A list of all weather sensor records currently available in the system.</returns>
+            <response code="200">Returns a list of weather sensor records.</response>
+        </member>
+        <member name="M:MongoNotesAPI.Controllers.WeatherController.Get(MongoNotesAPI.Models.Filters.WeatherFilter)">
+            <summary>
+            Retrieves weather sensor records filtered by the provided criteria.
+            This allows for fetching sensor data based on specific conditions like date range, 
+            device type, or location to narrow down the results to relevant records.
+            </summary>
+            <param name="filter">An object containing filter criteria such as dates, device name, or sensor location. 
+            This helps customize the data retrieval based on specific parameters.</param>
+            <returns>A list of weather sensor records that match the filter criteria.</returns>
+            <response code="200">Returns a list of weather sensor records matching the filter criteria.</response>
+        </member>
+        <member name="M:MongoNotesAPI.Controllers.WeatherController.GetByID(System.String)">
+            <summary>
+            Retrieves a weather sensor record by its unique identifier.
+            </summary>
+            <param name="id">The unique identifier of the weather sensor. This should be a valid ID string.</param>
+            <returns>A weather sensor record if found, otherwise null.</returns>
+            <response code="200">Returns the weather sensor record if found.</response>
+            <response code="404">If no weather sensor is found with the provided ID.</response>
+        </member>
+        <member name="M:MongoNotesAPI.Controllers.WeatherController.GetFiltered(System.Nullable{System.DateTime},System.String)">
+            <summary>
+            Retrieves weather sensor data based on a specific date and device name. 
+            If no date is provided, it defaults to null.
+            This helps in fetching sensor data specific to a certain device or time period.
+            </summary>
+            <param name="selectedDateTime">Optional. The specific date and time to filter the sensor data by. 
+            If left null, all records regardless of date are returned.</param>
+            <param name="deviceName">The name of the weather sensor device. If left as an empty string, 
+            all device data will be included in the response.</param>
+            <returns>A filtered set of weather sensor records based on the given date and device name.</returns>
+            <response code="200">Returns filtered sensor data based on the provided parameters.</response>
+        </member>
+        <member name="M:MongoNotesAPI.Controllers.WeatherController.MaxPrecipitation(System.String)">
+            <summary>
+            Retrieves the weather sensor record that contains the highest precipitation measurement. 
+            This endpoint is useful for finding extreme weather conditions recorded by the sensors.
+            </summary>
+            <returns>An object containing details of the record with the highest precipitation measurement.</returns>
+            <response code="200">Returns the weather sensor record with the highest precipitation measurement.</response>
+        </member>
+        <member name="M:MongoNotesAPI.Controllers.WeatherController.GetHighestTemp(MongoNotesAPI.Models.Filters.MaxTempFilter)">
+            <summary>
+            Retrieves the weather sensor record for each sensor that contains the highest temperature reading. 
+            This can be useful for analyzing extreme temperature conditions in the sensor's recorded history.
+            </summary> 
+            <returns>An object with details of the weather sensor record with the highest temperature.</returns>
+            <response code="200">Returns the weather sensor record with the highest temperature reading.</response>
+            <response code="500">If an internal server error occurs.</response>
+        </member>
+        <member name="M:MongoNotesAPI.Controllers.WeatherController.Post(MongoNotesAPI.Models.WeatherSensor)">
+            <summary>
+            Creates a new weather sensor record and stores it in the database. 
+            If the request body is invalid or empty, the operation will return a BadRequest response.
+            </summary>
+            <param name="createdNote">The new weather sensor record to be added to the database. 
+            This should contain all relevant sensor details like date, time, temperature, and precipitation data.</param>
+            <returns>A CreatedAtAction response indicating successful creation or a BadRequest/Problem response in case of errors.</returns>
+            <response code="201">Indicates that the weather sensor record was successfully created.</response>
+            <response code="400">If the request body is null or invalid.</response>
+            <response code="500">If an internal server error occurs.</response>
+        </member>
+        <member name="M:MongoNotesAPI.Controllers.WeatherController.PostMany(System.Collections.Generic.List{MongoNotesAPI.Models.WeatherSensor})">
+            <summary>
+            Creates multiple new weather sensor records and adds them to the database. 
+            This is useful for batch operations where many sensor readings are recorded at once.
+            </summary>
+            <param name="createdNotes">A list of new weather sensor records to be added to the database. 
+            Each record should include relevant sensor information such as temperature, precipitation, and timestamps.</param>
+            <returns>An Ok response for successful creation or a BadRequest response if the input is invalid.</returns>
+            <response code="200">Indicates that the weather sensor records were successfully created.</response>
+            <response code="400">If the request body is null or empty.</response>
+        </member>
+        <member name="M:MongoNotesAPI.Controllers.WeatherController.DeleteOlderThanDays(System.Nullable{System.Int32})">
+            <summary>
+            Deletes weather sensor records that are older than a specified number of days. 
+            This is used for maintaining the database by removing outdated records.
+            </summary>
+            <param name="days">The number of days used as the cutoff for deletion. Records older than this number will be deleted. 
+            A minimum of 30 days is required for this operation to avoid accidental deletions.</param>
+            <returns>An Ok response indicating success, or a BadRequest response if the input is invalid.</returns>
+            <response code="200">Indicates that the records older than the specified number of days were successfully deleted.</response>
+            <response code="400">If the number of days is not specified or is less than 30.</response>
+        </member>
+        <member name="M:MongoNotesAPI.Controllers.WeatherController.Delete(System.String)">
+            <summary>
+            Deletes a specific weather sensor record identified by its ID. 
+            This operation requires an admin-level API key to perform the deletion.
+            </summary>
+            <param name="id">The unique identifier (_id) of the weather sensor record to delete. 
+            If the ID is invalid or empty, the operation will return a BadRequest response.</param>
+            <returns>An Ok response for successful deletion or a BadRequest response for invalid input.</returns>
+            <response code="200">Indicates that the weather sensor record was successfully deleted.</response>
+            <response code="400">If the ID is invalid or empty.</response>
+        </member>
+        <member name="M:MongoNotesAPI.Controllers.WeatherController.Put(System.String,MongoNotesAPI.Models.WeatherSensor)">
+            <summary>
+            Updates a specific weather sensor record identified by its ID with new data. 
+            This allows for modifying existing records in the database to reflect changes in the recorded weather data.
+            </summary>
+            <param name="id">The unique identifier (_id) of the record to update.</param>
+            <param name="updatedNote">An object containing the updated weather sensor data such as temperature, precipitation, etc.</param>
+            <returns>An Ok response for successful update or a BadRequest response for invalid input.</returns>
+            <response code="200">Indicates that the weather sensor record was successfully updated.</response>
+            <response code="400">If the ID is invalid or the updated data is null.</response>
+        </member>
+        <member name="M:MongoNotesAPI.Controllers.WeatherController.Precipitation(System.String,System.Double)">
+            <summary>
+            Updates the precipitation data for a specific weather sensor record by its ID. 
+            This is a focused update operation where only the precipitation value is modified.
+            </summary>
+            <param name="id">The unique identifier (_id) of the record to update.</param>
+            <param name="updatedSensor">An object containing the new precipitation value to be updated in the record.</param>
+            <returns>An Ok response for successful update or a BadRequest response for invalid input.</returns>
+            <response code="200">Indicates that the precipitation data was successfully updated.</response>
+            <response code="400">If the ID is invalid or the updated data is null.</response>
+        </member>
+        <member name="M:MongoNotesAPI.Controllers.WeatherController.UpdateMany(MongoNotesAPI.Models.WeatherPatchDetailsDTO)">
+            <summary>
+            Updates multiple weather sensor records based on a filter and the provided update details. 
+            This is useful for bulk updates where a set of records matching the filter criteria are modified at once.
+            </summary>
+            <param name="details">An object containing the filter criteria and the details of the updates to be applied. 
+            This should include both the fields to be updated and the conditions for selecting records.</param>
+            <returns>An Ok response indicating success, or a BadRequest response for invalid input.</returns>
+            <response code="200">Indicates that the weather sensor records were successfully updated.</response>
+            <response code="400">If the filter criteria or update details are invalid.</response>
+        </member>
+        <member name="M:MongoNotesAPI.Services.MongoConnectionBuilder.GetDatabase">
+            <summary>
+            Method to create and configure a MongoDB connection
+            </summary>
+            <returns>A completed MongoDB connection object</returns>
+        </member>
+    </members>
+</doc>
