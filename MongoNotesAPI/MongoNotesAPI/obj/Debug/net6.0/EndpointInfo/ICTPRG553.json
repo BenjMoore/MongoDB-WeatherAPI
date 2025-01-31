@@ -341,41 +341,36 @@
         }
       }
     },
-    "/api/Weather/MaxTemp": {
+    "/api/Weather/GetMaxTemp": {
       "get": {
         "tags": [
           "Weather"
         ],
         "summary": "Retrieves the weather sensor record for each sensor that contains the highest temperature reading. \r\nThis can be useful for analyzing extreme temperature conditions in the sensor's recorded history.",
+        "parameters": [
+          {
+            "name": "CreatedAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "CreatedBefore",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Returns the weather sensor record with the highest temperature reading.",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TempFilter"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TempFilter"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/TempFilter"
-                  }
-                }
-              }
-            }
+            "description": "Returns the weather sensor record with the highest temperature reading."
+          },
+          "500": {
+            "description": "If an internal server error occurs."
           }
         }
       }
@@ -687,24 +682,6 @@
           "precipitation": {
             "type": "number",
             "format": "double"
-          }
-        },
-        "additionalProperties": false
-      },
-      "TempFilter": {
-        "type": "object",
-        "properties": {
-          "temperature": {
-            "type": "number",
-            "format": "double"
-          },
-          "deviceName": {
-            "type": "string",
-            "nullable": true
-          },
-          "time": {
-            "type": "string",
-            "format": "date-time"
           }
         },
         "additionalProperties": false

@@ -72,6 +72,7 @@ namespace MongoNotesAPI.Repositories
                 };
             }
         }
+
         public PrecipitationDTO GetMaxPrecipitation(string deviceName)
         {
             var weatherCollection = _data.AsQueryable();
@@ -93,30 +94,20 @@ namespace MongoNotesAPI.Repositories
         }
 
 
-        public List<TempFilter> GetMaxTemp()
+        public WeatherSensor GetMaxTemp(MaxTempFilter filter)
         {
-            var weatherCollection = _data;
+            var filterBuilder = Builders<WeatherSensor>.Filter;
+            var dateFilter = filterBuilder.And(
+                filterBuilder.Gte(sensor => sensor.Time, filter.CreatedAfter),
+                filterBuilder.Lte(sensor => sensor.Time, filter.CreatedBefore)
+            );
 
-            // MongoDB aggregation to get max temperature for each sensor in the last 5 months
-            var pipeline = weatherCollection.Aggregate()
-                .Match(sensor => sensor.Time >= DateTime.UtcNow.AddMonths(-5))  // Filter for the last 5 months
-                .Group(sensor => sensor.deviceName, g => new
-                {
-                    deviceName = g.Key,
-                    MaxTempRecord = g.OrderByDescending(sensor => sensor.Temperature).First()
-                })
-                .Project(g => new TempFilter
-                {
-                    deviceName = g.deviceName,
-                    Temperature = g.MaxTempRecord.Temperature,
-                    Time = g.MaxTempRecord.Time
-                })
-                .ToList();
+            var sortDefinition = Builders<WeatherSensor>.Sort.Descending(sensor => sensor.Temperature);
 
-            return pipeline;
+            return _data.Find(dateFilter)
+                         .Sort(sortDefinition)
+                         .FirstOrDefault();
         }
-
-
 
         // Existing code...
 

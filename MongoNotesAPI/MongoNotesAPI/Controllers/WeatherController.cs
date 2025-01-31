@@ -119,12 +119,13 @@ namespace MongoNotesAPI.Controllers
         /// </summary> 
         /// <returns>An object with details of the weather sensor record with the highest temperature.</returns>
         /// <response code="200">Returns the weather sensor record with the highest temperature reading.</response>
-        [ApiKey("USER")]
-        [HttpGet("MaxTemp")]
-        public List<TempFilter> MaxTemp()
+        /// <response code="500">If an internal server error occurs.</response>
+        [ApiKey("Teacher")]
+        [HttpGet("GetMaxTemp")]
+        public ActionResult GetHighestTemp([FromQuery] MaxTempFilter filter)
         {
-            var result = _repository.GetMaxTemp();
-            return result;
+            var highestTempSensor = _repository.GetMaxTemp(filter);
+            return Ok(highestTempSensor);
         }
 
         /// <summary>

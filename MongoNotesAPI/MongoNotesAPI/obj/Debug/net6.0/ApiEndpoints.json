@@ -178,6 +178,27 @@
   },
   {
     "ContainingType": "MongoNotesAPI.Controllers.WeatherController",
+    "Method": "GetHighestTemp",
+    "RelativePath": "api/Weather/GetMaxTemp",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "CreatedAfter",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "CreatedBefore",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "MongoNotesAPI.Controllers.WeatherController",
     "Method": "GetByID",
     "RelativePath": "api/Weather/ID",
     "HttpMethod": "GET",
@@ -219,26 +240,6 @@
     "ReturnTypes": [
       {
         "Type": "ICTPRG553.Models.DTOs.PrecipitationDTO",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "MongoNotesAPI.Controllers.WeatherController",
-    "Method": "MaxTemp",
-    "RelativePath": "api/Weather/MaxTemp",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.List\u00601[[ICTPRG553.Models.Filters.TempFilter, ICTPRG553, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

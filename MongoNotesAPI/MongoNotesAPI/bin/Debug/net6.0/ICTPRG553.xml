@@ -97,13 +97,14 @@
             <returns>An object containing details of the record with the highest precipitation measurement.</returns>
             <response code="200">Returns the weather sensor record with the highest precipitation measurement.</response>
         </member>
-        <member name="M:MongoNotesAPI.Controllers.WeatherController.MaxTemp">
+        <member name="M:MongoNotesAPI.Controllers.WeatherController.GetHighestTemp(MongoNotesAPI.Models.Filters.MaxTempFilter)">
             <summary>
             Retrieves the weather sensor record for each sensor that contains the highest temperature reading. 
             This can be useful for analyzing extreme temperature conditions in the sensor's recorded history.
             </summary> 
             <returns>An object with details of the weather sensor record with the highest temperature.</returns>
             <response code="200">Returns the weather sensor record with the highest temperature reading.</response>
+            <response code="500">If an internal server error occurs.</response>
         </member>
         <member name="M:MongoNotesAPI.Controllers.WeatherController.Post(MongoNotesAPI.Models.WeatherSensor)">
             <summary>
