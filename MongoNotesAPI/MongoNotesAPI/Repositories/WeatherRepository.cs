@@ -93,23 +93,26 @@ namespace MongoNotesAPI.Repositories
             return resultLinq;
         }
 
-
-        public WeatherSensor GetMaxTemp(MaxTempFilter filter)
+        public List<MaxTempDTO> GetMaxTemp(MaxTempFilter filter)
         {
-            var filterBuilder = Builders<WeatherSensor>.Filter;
-            var dateFilter = filterBuilder.And(
-                filterBuilder.Gte(sensor => sensor.Time, filter.CreatedAfter),
-                filterBuilder.Lte(sensor => sensor.Time, filter.CreatedBefore)
-            );
+            var weatherCollection = _data.AsQueryable();
 
-            var sortDefinition = Builders<WeatherSensor>.Sort.Descending(sensor => sensor.Temperature);
+            var resultLinq = weatherCollection
+                                .Where(sensor => sensor.Time >= filter.CreatedAfter && sensor.Time <= filter.CreatedBefore)
+                                .GroupBy(sensor => sensor.deviceName)
+                                .Select(group => new MaxTempDTO
+                                {
+                                    DeviceName = group.Key, // The sensor name (grouped)
+                                    Time = group.OrderByDescending(n => n.Temperature).First().Time, // Highest temp's timestamp
+                                    Temperature = group.Max(n => n.Temperature) // Highest temp in the group
+                                })
+                                .ToList();
 
-            return _data.Find(dateFilter)
-                         .Sort(sortDefinition)
-                         .FirstOrDefault();
+            return resultLinq;
         }
 
-        // Existing code...
+
+
 
         public FilteredDataDTO GetFilteredData(DateTime? selectedDateTime, string? deviceName)
         {

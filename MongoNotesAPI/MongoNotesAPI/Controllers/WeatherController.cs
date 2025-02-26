@@ -122,11 +122,12 @@ namespace MongoNotesAPI.Controllers
         /// <response code="500">If an internal server error occurs.</response>
         [ApiKey("Teacher")]
         [HttpGet("GetMaxTemp")]
-        public ActionResult GetHighestTemp([FromQuery] MaxTempFilter filter)
+        public ActionResult<List<MaxTempDTO>> GetHighestTemp([FromQuery] MaxTempFilter filter)
         {
             var highestTempSensor = _repository.GetMaxTemp(filter);
             return Ok(highestTempSensor);
         }
+
 
         /// <summary>
         /// Creates a new weather sensor record and stores it in the database. 

@@ -367,7 +367,33 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns the weather sensor record with the highest temperature reading."
+            "description": "Returns the weather sensor record with the highest temperature reading.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MaxTempDTO"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MaxTempDTO"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MaxTempDTO"
+                  }
+                }
+              }
+            }
           },
           "500": {
             "description": "If an internal server error occurs."
@@ -662,6 +688,24 @@
             "format": "double"
           },
           "precipitation": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MaxTempDTO": {
+        "type": "object",
+        "properties": {
+          "deviceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "temperature": {
             "type": "number",
             "format": "double"
           }
