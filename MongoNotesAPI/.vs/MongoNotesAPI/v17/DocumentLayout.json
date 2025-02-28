@@ -92,7 +92,7 @@
               "RelativeDocumentMoniker": "MongoNotesAPI\\Controllers\\WeatherController.cs",
               "ToolTip": "C:\\Users\\Perl\\Documents\\GitHub\\MongoDB-WeatherAPI\\MongoNotesAPI\\MongoNotesAPI\\Controllers\\WeatherController.cs",
               "RelativeToolTip": "MongoNotesAPI\\Controllers\\WeatherController.cs",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAcwHUAAABtAAAAAAAAAA==",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAkwHUAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-03T23:38:01.29Z",
               "IsPinned": true,
@@ -109,8 +109,7 @@
               "ViewState": "AgIAAEgAAAAAAAAAAAAAAGEAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-03T23:38:10.894Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -123,8 +122,7 @@
               "ViewState": "AgIAAAMAAAAAAAAAAAAAABEAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-03T23:38:14.979Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -136,8 +134,7 @@
               "RelativeToolTip": "MongoNotesAPI\\Models\\DTOs\\MaxTempDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T03:39:11.178Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-26T03:39:11.178Z"
             },
             {
               "$type": "Document",
@@ -149,8 +146,7 @@
               "RelativeToolTip": "MongoNotesAPI\\Models\\DTOs\\HighestTempDTO.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T03:38:47.349Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-26T03:38:47.349Z"
             },
             {
               "$type": "Document",
@@ -162,8 +158,7 @@
               "RelativeToolTip": "MongoNotesAPI\\Repositories\\UserRepository.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAgwHMAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T03:09:35.739Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-26T03:09:35.739Z"
             },
             {
               "$type": "Document",
@@ -175,8 +170,7 @@
               "RelativeToolTip": "MongoNotesAPI\\Settings\\MongoConnectionSettings.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T03:14:15.838Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-26T03:14:15.838Z"
             },
             {
               "$type": "Document",
@@ -188,8 +182,7 @@
               "RelativeToolTip": "MongoNotesAPI\\Services\\MongoConnectionBuilder.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-26T03:14:13.746Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-26T03:14:13.746Z"
             },
             {
               "$type": "Document",
@@ -201,8 +194,7 @@
               "RelativeToolTip": "MongoNotesAPI\\Models\\ApiUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T06:19:53.432Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-31T06:19:53.432Z"
             },
             {
               "$type": "Document",
@@ -214,8 +206,7 @@
               "RelativeToolTip": "MongoNotesAPI\\Models\\Filters\\MaxTempFilter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-31T05:01:01.4Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-31T05:01:01.4Z"
             },
             {
               "$type": "Document",
@@ -239,8 +230,7 @@
               "RelativeToolTip": "MongoNotesAPI\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-31T02:27:31.622Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-31T02:27:31.622Z"
             },
             {
               "$type": "Document",
@@ -252,8 +242,7 @@
               "RelativeToolTip": "MongoNotesAPI\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAE0AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T08:01:26.372Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-14T08:01:26.372Z"
             },
             {
               "$type": "Document",
@@ -277,8 +266,7 @@
               "RelativeToolTip": "MongoNotesAPI\\Properties\\launchSettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-31T02:27:29.182Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-31T02:27:29.182Z"
             },
             {
               "$type": "Document",
@@ -290,8 +278,7 @@
               "RelativeToolTip": "MongoNotesAPI\\Controllers\\UserController.cs",
               "ViewState": "AgIAACsAAAAAAAAAAAAIwCgAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-14T08:03:02.624Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-14T08:03:02.624Z"
             },
             {
               "$type": "Document",

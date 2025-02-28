@@ -114,12 +114,14 @@ namespace MongoNotesAPI.Controllers
         }
 
         /// <summary>
-        /// Retrieves the weather sensor record for each sensor that contains the highest temperature reading. 
-        /// This can be useful for analyzing extreme temperature conditions in the sensor's recorded history.
+        /// Retrieves the highest temperature reading for each weather sensor within a specified date range. 
+        /// This helps analyze peak temperature conditions recorded by each sensor over time.
         /// </summary> 
-        /// <returns>An object with details of the weather sensor record with the highest temperature.</returns>
-        /// <response code="200">Returns the weather sensor record with the highest temperature reading.</response>
+        /// <param name="filter">The date range filter to apply when retrieving the highest temperature readings.</param>
+        /// <returns>A list containing the highest temperature reading for each sensor within the given date range.</returns>
+        /// <response code="200">Returns a list of the highest temperature readings for each sensor, including Device Name, Date, and Temperature.</response>
         /// <response code="500">If an internal server error occurs.</response>
+
         [ApiKey("Teacher")]
         [HttpGet("GetMaxTemp")]
         public ActionResult<List<MaxTempDTO>> GetHighestTemp([FromQuery] MaxTempFilter filter)

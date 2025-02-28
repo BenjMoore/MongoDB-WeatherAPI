@@ -346,7 +346,7 @@
         "tags": [
           "Weather"
         ],
-        "summary": "Retrieves the weather sensor record for each sensor that contains the highest temperature reading. \r\nThis can be useful for analyzing extreme temperature conditions in the sensor's recorded history.",
+        "summary": "Retrieves the highest temperature reading for each weather sensor within a specified date range. \r\nThis helps analyze peak temperature conditions recorded by each sensor over time.",
         "parameters": [
           {
             "name": "CreatedAfter",
@@ -367,7 +367,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Returns the weather sensor record with the highest temperature reading.",
+            "description": "Returns a list of the highest temperature readings for each sensor, including Device Name, Date, and Temperature.",
             "content": {
               "text/plain": {
                 "schema": {
