@@ -38,7 +38,7 @@ namespace MongoNotesAPI.Controllers
         /// like the name, email, role, and creation date of the new user.</param>
         /// <returns>An Ok result if the user is successfully created, or an error if the creation fails.</returns>
         [HttpPost]
-        //[ApiKey("TEACHER")]
+        [ApiKey("TEACHER")]
         public ActionResult CreateUser(UserCreateDTO userDTO)
         {
             // Check if the user's API key meets the required lvel (Admin Access) to add a new user to the system.

@@ -122,7 +122,7 @@ namespace MongoNotesAPI.Controllers
         /// <response code="200">Returns a list of the highest temperature readings for each sensor, including Device Name, Date, and Temperature.</response>
         /// <response code="500">If an internal server error occurs.</response>
 
-        [ApiKey("Teacher")]
+        [ApiKey("USER")]
         [HttpGet("GetMaxTemp")]
         public ActionResult<List<MaxTempDTO>> GetHighestTemp([FromQuery] MaxTempFilter filter)
         {
