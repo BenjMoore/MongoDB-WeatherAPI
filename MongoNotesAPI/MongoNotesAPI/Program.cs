@@ -1,5 +1,5 @@
 using Microsoft.OpenApi.Models;
-using MongoNotesAPI.Middleware;
+
 using MongoNotesAPI.Repositories;
 using MongoNotesAPI.Services;
 using MongoNotesAPI.Settings;

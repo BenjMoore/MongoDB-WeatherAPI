@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Data;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using MongoNotesAPI.Models;
 using MongoNotesAPI.Repositories;
@@ -8,20 +9,12 @@ namespace MongoNotesAPI.Middleware
     [AttributeUsage(validOn: AttributeTargets.Class | AttributeTargets.Method)]
     public class ApiKeyAttribute : Attribute, IAsyncActionFilter
     {
-        private string requiredRole;
+    
+        public UserRoles[] AllowedRoles { get; set; }
 
-        public string RequiredRole
+        public ApiKeyAttribute(params UserRoles[] roles)
         {
-            get { return requiredRole; }
-        }
-
-        public ApiKeyAttribute(string role)
-        {
-            if (role == null)
-            {
-                role = string.Empty;
-            }
-            requiredRole = role;
+            AllowedRoles = roles;
         }
 
 
@@ -40,21 +33,12 @@ namespace MongoNotesAPI.Middleware
 
             var providedkey = key.ToString().Trim('{', '}');
 
-            if (Enum.TryParse(requiredRole.ToUpper(), out UserRoles neededRole) == false)
-            {
-                context.Result = new ContentResult
-                {
-                    StatusCode = 500,
-                    Content = "Bad Request!"
-                };
-                return;
-
-            }
+            
             // Get acsess to repo by requesting it directly 
             var userRepo = context.HttpContext.RequestServices.GetRequiredService<IUserRepository>();
 
             // check if the user's role matches the required level
-            if (userRepo.AuthenticateUser(providedkey, neededRole) == null)
+            if (!userRepo.AuthenticateUser(providedkey, AllowedRoles))
             {
                 context.Result = new ContentResult
                 {

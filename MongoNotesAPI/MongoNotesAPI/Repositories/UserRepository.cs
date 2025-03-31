@@ -7,6 +7,7 @@ using MongoNotesAPI.Models;
 using MongoNotesAPI.Models.DTOs;
 using MongoNotesAPI.Models.Filters;
 using MongoNotesAPI.Services;
+using System.Data;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
@@ -88,25 +89,19 @@ namespace MongoNotesAPI.Repositories
             }
         }
 
-        public ApiUser AuthenticateUser(string apiKey, UserRoles requiredRole)
+        public bool AuthenticateUser(string apiKey, params UserRoles[] allowedRoles)
         {
-            //Create a filter to check the user collection for a match on the
-            //apiKey field.
-            var filter = Builders<ApiUser>.Filter.Eq(c => c.ApiKey, apiKey);
-            //Add a second filter check to see if the user is active. The &= operator
-            //adds this filter onto the previous filter set.
-            filter &= Builders<ApiUser>.Filter.Eq(c => c.Active, true);
-
-            //Check the database to see iof there is a current user with the specified role.
+            //Create a filter to find any user who contain the provided api key.
+            var filter = Builders<ApiUser>.Filter.Eq(u => u.ApiKey, apiKey);
+            //Send the request to the databse to find any matching user that exists.
             var user = _users.Find(filter).FirstOrDefault();
-            //If no user was found or there role does not have the required access level
-            //specified in the parameters, return null.
-            if (user == null || !IsAllowedRole(user.Role, requiredRole)) 
+            //If no user was found, return false to indicate the key was not valid.
+            if (user == null)
             {
-                return null;
+                return false;
             }
-            //If the user is authenticated, return their details.
-            return user;
+            //Check the user's role agains the allowed roles and return the result. 
+            return HasRequiredRole(user.Role.ToUpper(), allowedRoles);
         }
 
         public bool CreateUser(ApiUser user)
@@ -181,35 +176,7 @@ namespace MongoNotesAPI.Repositories
             //Returns the completed filter definitions to the caller.
             return filter;
         }
-        private UpdateDefinition<ApiUser> GenerateUpdateDefinition(UserRoleUpdateDTO details)
-        {
-            //Creates a filter builder to allow us to build update rules in a way that
-            ////allows us to append extra rules to them afterwards.
-            var builder = Builders<ApiUser>.Update.Combine();
-            //Declare an update definition object which starts as null.
-            UpdateDefinition<ApiUser> updateRules = null;
-
-            //If the title field of the details is not empty, create a new rule for updating the
-            
-            //If the title field of the details is not empty, create a new rule for updating the
-            //title property in the notes rules.
-           
-                //Check if I have any update rules set yet, if not use the builder to create
-                //a new definitions object and set its first rule.
-                if (updateRules == null)
-                {
-                    updateRules = builder.Set(data => data.Role, details.Role);
-                }
-                //If there is already at least one exisiting rule, add a new one to the set. 
-                else
-                {
-                    updateRules = updateRules.Set(data => data.Role, details.Role);
-                }
-            
-
-            //Returns the completed update definitions/rules to the caller 
-            return updateRules;
-        }
+      
 
         public void UpdateLastLogin(string apiKey)
         {
@@ -223,25 +190,29 @@ namespace MongoNotesAPI.Repositories
             _users.UpdateOne(filter, update);
         }
 
-        private bool IsAllowedRole(string userRole, UserRoles requiredRole)
+       
+        private bool HasRequiredRole(string userRole, UserRoles[] requiredRoles)
         {
-            //Check the provided role to see if it matches one of the specified roles in
-            //our enum
-            if (!Enum.TryParse(userRole.ToUpper(), out UserRoles roleName))
+            //Try to convert the userRole form a string to its Enum equivalent and
+            //store the result oin the out parameter
+            if (!Enum.TryParse(userRole, out UserRoles userRoleType))
             {
-                //If it can;t be matched, return false to inform there is a problem.
+                //If it cannot be done (misspelt/incorrect word), return false
                 return false;
             }
-
-            int userRoleNumber = (int)roleName;
-            int requiredRoleNumber  = (int)requiredRole;
-
-            return userRoleNumber <= requiredRoleNumber;
+            //Cycle through each of the required roles and check each one against the 
+            //user role enum.
+            foreach (var role in requiredRoles)
+            {
+                //If a match is found, return true to indicate the check has passed.
+                if (userRoleType.Equals(role))
+                {
+                    return true;
+                }
+            }
+            //If no match was found, return false to indicate a failure.
+            return false;
         }
-
-        public object AuthenticateUser(string providedKey)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

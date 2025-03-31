@@ -38,7 +38,7 @@ namespace MongoNotesAPI.Controllers
         /// like the name, email, role, and creation date of the new user.</param>
         /// <returns>An Ok result if the user is successfully created, or an error if the creation fails.</returns>
         [HttpPost]
-        [ApiKey("TEACHER")]
+        [ApiKey(UserRoles.TEACHER)]
         public ActionResult CreateUser(UserCreateDTO userDTO)
         {
             // Check if the user's API key meets the required lvel (Admin Access) to add a new user to the system.
@@ -63,7 +63,7 @@ namespace MongoNotesAPI.Controllers
         /// <param name="update">An object containing the role update details, including 
         /// a date range to select the users whose roles will be updated and the new role value to assign.</param>
         /// <returns>An Ok result if the roles are updated successfully, or a BadRequest if the input is invalid or the update fails.</returns>
-        [ApiKey("TEACHER")]
+        [ApiKey(UserRoles.TEACHER)]
         [HttpPatch("UpdateRole")]
         public ActionResult UpdateRole(UserRoleUpdateDTO update)
         {
@@ -104,7 +104,7 @@ namespace MongoNotesAPI.Controllers
         /// <param name="id">The unique identifier of the user to delete.</param>
         /// <returns>An Ok result if the user is successfully deleted, or an error message if the deletion fails.</returns>
         [HttpDelete("DeleteUser")]
-        [ApiKey("TEACHER")]
+        [ApiKey(UserRoles.TEACHER)]
         public ActionResult DeleteUser(string id)
         {
             // Check if the user's API key meets the required level (Admin Access) to delete a user.
@@ -119,7 +119,7 @@ namespace MongoNotesAPI.Controllers
         /// </summary>
         /// <returns>An Ok result if the deletion is successful, or a BadRequest if no users matched the criteria or an error occurred.</returns>
         [HttpDelete("DeleteOlderThan30Days")]
-        [ApiKey("TEACHER")]
+        [ApiKey(UserRoles.TEACHER)]
         public ActionResult DeleteOlderThan30Days()
         {
             int days = 30;

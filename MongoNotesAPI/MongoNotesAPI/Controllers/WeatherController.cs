@@ -38,7 +38,7 @@ namespace MongoNotesAPI.Controllers
         /// <returns>A list of all weather sensor records currently available in the system.</returns>
         /// <response code="200">Returns a list of weather sensor records.</response>
        
-        [ApiKey("USER")]
+        [ApiKey(UserRoles.TEACHER, UserRoles.USER)]
         [HttpGet("GetAll")]
         public IEnumerable<WeatherSensor> Get()
         {
@@ -54,7 +54,7 @@ namespace MongoNotesAPI.Controllers
         /// This helps customize the data retrieval based on specific parameters.</param>
         /// <returns>A list of weather sensor records that match the filter criteria.</returns>
         /// <response code="200">Returns a list of weather sensor records matching the filter criteria.</response>
-        [ApiKey("USER")]
+        [ApiKey(UserRoles.TEACHER,UserRoles.USER)]
         [HttpGet("Filtered")]
         public IEnumerable<WeatherSensor> Get([FromQuery] WeatherFilter filter)
         {
@@ -68,7 +68,7 @@ namespace MongoNotesAPI.Controllers
         /// <returns>A weather sensor record if found, otherwise null.</returns>
         /// <response code="200">Returns the weather sensor record if found.</response>
         /// <response code="404">If no weather sensor is found with the provided ID.</response>
-        [ApiKey("USER")]
+        [ApiKey(UserRoles.TEACHER, UserRoles.USER)]
         [HttpGet("ID")]
         public WeatherSensor GetByID([FromQuery] string id)
         {
@@ -86,7 +86,7 @@ namespace MongoNotesAPI.Controllers
         /// all device data will be included in the response.</param>
         /// <returns>A filtered set of weather sensor records based on the given date and device name.</returns>
         /// <response code="200">Returns filtered sensor data based on the provided parameters.</response>
-        [ApiKey("USER")]
+        [ApiKey(UserRoles.TEACHER, UserRoles.USER)]
         [HttpGet("GetFilteredData")]
         public FilteredDataDTO GetFiltered(DateTime? selectedDateTime, string deviceName)
         {
@@ -105,7 +105,7 @@ namespace MongoNotesAPI.Controllers
         /// </summary>
         /// <returns>An object containing details of the record with the highest precipitation measurement.</returns>
         /// <response code="200">Returns the weather sensor record with the highest precipitation measurement.</response>
-        [ApiKey("USER")]
+        [ApiKey(UserRoles.TEACHER, UserRoles.USER)]
         [HttpGet("MaxPrecipitation")]
         public PrecipitationDTO MaxPrecipitation(string deviceName)
         {
@@ -122,7 +122,7 @@ namespace MongoNotesAPI.Controllers
         /// <response code="200">Returns a list of the highest temperature readings for each sensor, including Device Name, Date, and Temperature.</response>
         /// <response code="500">If an internal server error occurs.</response>
 
-        [ApiKey("USER")]
+        [ApiKey(UserRoles.TEACHER, UserRoles.USER)]
         [HttpGet("GetMaxTemp")]
         public ActionResult<List<MaxTempDTO>> GetHighestTemp([FromQuery] MaxTempFilter filter)
         {
@@ -141,10 +141,11 @@ namespace MongoNotesAPI.Controllers
         /// <response code="201">Indicates that the weather sensor record was successfully created.</response>
         /// <response code="400">If the request body is null or invalid.</response>
         /// <response code="500">If an internal server error occurs.</response>
-        [ApiKey("SENSOR")]
+        [ApiKey(UserRoles.TEACHER, UserRoles.SENSOR)]
         [HttpPost("New")]
         public ActionResult Post([FromBody] WeatherSensor? createdNote)
         {
+            
             if (createdNote == null)
             {
                 return BadRequest();
@@ -172,7 +173,7 @@ namespace MongoNotesAPI.Controllers
         /// <response code="400">If the request body is null or empty.</response>
         
         [HttpPost("PostMany")]
-        [ApiKey("SENSOR")]
+        [ApiKey(UserRoles.TEACHER, UserRoles.SENSOR)]
         public ActionResult PostMany([FromBody] List<WeatherSensor>? createdNotes)
         {
             if (createdNotes == null || createdNotes.Count == 0)
@@ -195,7 +196,7 @@ namespace MongoNotesAPI.Controllers
         /// <response code="400">If the number of days is not specified or is less than 30.</response>
         
         [HttpDelete("DeleteOlderThanGivenDays")]
-        [ApiKey("TEACHER")]
+        [ApiKey(UserRoles.TEACHER)]
         public ActionResult DeleteOlderThanDays([FromQuery] int? days)
         {
             if (days == null || days <= 30)
@@ -227,7 +228,7 @@ namespace MongoNotesAPI.Controllers
         /// <response code="200">Indicates that the weather sensor record was successfully deleted.</response>
         /// <response code="400">If the ID is invalid or empty.</response>
         [HttpDelete("Delete/{id}")]
-        [ApiKey("TEACHER")]
+        [ApiKey(UserRoles.TEACHER)]
         public ActionResult Delete(string id)
         {
             if (String.IsNullOrWhiteSpace(id))
@@ -252,7 +253,7 @@ namespace MongoNotesAPI.Controllers
         /// <returns>An Ok response for successful update or a BadRequest response for invalid input.</returns>
         /// <response code="200">Indicates that the weather sensor record was successfully updated.</response>
         /// <response code="400">If the ID is invalid or the updated data is null.</response>
-        [ApiKey("TEACHER")]
+        [ApiKey(UserRoles.TEACHER)]
         [HttpPut("Update/{id}")]
         public ActionResult Put(string id, [FromBody] WeatherSensor updatedNote)
         {
@@ -274,7 +275,7 @@ namespace MongoNotesAPI.Controllers
         /// <returns>An Ok response for successful update or a BadRequest response for invalid input.</returns>
         /// <response code="200">Indicates that the precipitation data was successfully updated.</response>
         /// <response code="400">If the ID is invalid or the updated data is null.</response>
-        [ApiKey("TEACHER")]
+        [ApiKey(UserRoles.TEACHER)]
         [HttpPut("Precipitation/{id}")]
         public ActionResult Precipitation(string id, double precipitation)
         {
@@ -300,7 +301,7 @@ namespace MongoNotesAPI.Controllers
         /// <returns>An Ok response indicating success, or a BadRequest response for invalid input.</returns>
         /// <response code="200">Indicates that the weather sensor records were successfully updated.</response>
         /// <response code="400">If the filter criteria or update details are invalid.</response>
-        [ApiKey("TEACHER")]
+        [ApiKey(UserRoles.TEACHER)]
         [HttpPut("UpdateMany")]
         public ActionResult UpdateMany([FromBody] WeatherPatchDetailsDTO? details)
         {
