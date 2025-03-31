@@ -143,8 +143,6 @@ namespace MongoNotesAPI.Controllers
                 return BadRequest(result);
             }
         }
-
-
     }
 }
  
